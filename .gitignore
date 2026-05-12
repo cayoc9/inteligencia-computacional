@@ -1,10 +1,10 @@
 .venv/
 .playwright-cli/
 .qwen/
-.agents/
+#.agents/
 .claude/
-.specs/
-data/
+#.specs/
+#data/
 models/
 *.pkl
 *.h5
