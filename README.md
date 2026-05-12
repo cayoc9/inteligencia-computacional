@@ -9,6 +9,8 @@ Repositório com scripts e análises de data science para o estudo do dataset de
 - `03_random_forest.py`: treinamento com random forest
 - `04_neural_network.py`: rede neural base
 - `05_neural_network_optimized.py`: rede neural otimizada
+- `notebooks/`: notebooks de análise e experimentos
+- `reports/`: figuras e fragmentos do relatório
 - `analise_datasets_health.md`: observações e análise do conjunto de dados
 
 ## Observação
