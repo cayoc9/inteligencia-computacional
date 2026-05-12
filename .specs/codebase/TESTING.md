@@ -11,6 +11,7 @@
 - `python 03_random_forest.py`
 - `python 04_neural_network.py`
 - `python 05_neural_network_optimized.py`
+- `python scripts/diagnose_model_limits.py`
 - `jupyter nbconvert --to notebook --execute notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb`
 
 ## Lacunas
