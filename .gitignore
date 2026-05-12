@@ -1,0 +1,12 @@
+.venv/
+.playwright-cli/
+.qwen/
+data/
+models/
+*.pkl
+*.h5
+*.keras
+*.pdf
+__pycache__/
+*.pyc
+.DS_Store
