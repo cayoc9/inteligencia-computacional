@@ -14,7 +14,7 @@
 | **Prazo de entrega** | ⚠️ **15/05/2026** (urgente) |
 | **Melhor modelo** | HistGradientBoosting: **74.25%** accuracy, **82.58%** ROC AUC |
 | **Principal insight** | RF > RN em dataset tabular; teto limitado pela subjetividade do alvo |
-| **Próximos passos** | Gráficos comparativos + relatório técnico (5-7 páginas) |
+| **Próximos passos** | Fechamento do relatório técnico + notebook final |
 
 ---
 
@@ -52,7 +52,7 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 
 ---
 
-## 📋 Pendências (Próximos 2 Dias)
+## 📋 Pendências De Fechamento
 
 ### Prioritário (Entrega 15/05)
 - [ ] **T1-10:** Gerar gráficos comparativos das 6 métricas + PR Curve
@@ -87,9 +87,13 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 |---|---|
 | **Status detalhado + decisões** | `.specs/project/STATE.md` |
 | **Roadmap completo** | `.specs/project/ROADMAP.md` |
+| **Revisão estrutural do repo** | `.specs/project/REPO_CLEANUP_REVIEW.md` |
+| **Dicionário de dados** | `docs/DATA_DICTIONARY.md` |
 | **Requisitos do Trabalho 1** | `.specs/features/trabalho-1/spec.md` |
+| **Spec V2 sono restaurador** | `.specs/features/experimento-v2-sono-restaurador/spec.md` |
 | **Tarefas e progresso** | `.specs/features/trabalho-1/tasks.md` |
 | **Relatórios de rodada** | `.specs/features/trabalho-1/relatorio_rodada_*.md` |
+| **Relatórios consolidados** | `reports/consolidados/` |
 
 ### Código e Artefatos
 | Artefato | Localização |
@@ -104,6 +108,8 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 ```bash
 # Validar ambiente
 python scripts/smoke_test.py
+# ou, sem ativar o venv:
+.venv/bin/python scripts/smoke_test.py
 
 # Executar pipeline completo
 python 01_check_data.py && python 02_eda.py && python 03_random_forest.py && python 04_neural_network.py && python 05_neural_network_optimized.py

@@ -54,6 +54,12 @@ Execute o smoke test para validar o ambiente:
 python scripts/smoke_test.py
 ```
 
+Se o ambiente virtual não estiver ativado, use:
+
+```bash
+.venv/bin/python scripts/smoke_test.py
+```
+
 Se tudo estiver correto, você verá mensagens de sucesso para cada dependência.
 
 ## Executando os Scripts

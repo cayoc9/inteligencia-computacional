@@ -35,7 +35,7 @@
 1. **Leitura:** `data/sleep_health_dataset.csv` (100k rows, 32 cols)
 2. **Inspeção:** `01_check_data.py` — shape, tipos, nulos, duplicatas
 3. **EDA:** `02_eda.py` — distribuições, correlações, outliers → `reports/figures/`
-4. **Split:** Estratificado (70/30), `random_state=42`, preservado em `data/test_split.pkl`
+4. **Split:** Estratificado, `random_state=42`, preservado em `data/test_split.pkl`
 5. **Pré-processamento:** `ColumnTransformer` (one-hot para categóricas, padronização para numéricas)
 6. **Modelagem:**
    - `03_random_forest.py`: GridSearchCV → `models/random_forest_model.pkl`
@@ -113,10 +113,10 @@ O script `diagnose_model_limits.py` foi adicionado na Rodada 3 para responder:
 | Camada | Artefatos | Localização |
 |---|---|---|
 | Dados brutos | `sleep_health_dataset.csv` | `data/` |
-| Dados processados | `test_split.pkl` | `data/` |
+| Dados processados | `*.pkl` derivados | `data/` local, ignorado |
 | Modelos treinados | `.pkl`, `.h5`, `.keras` | `models/`, `models/v2/` |
 | Histórico de treino | `.pkl` (histórico de epochs) | `models/`, `models/v2/` |
 | Visualizações | `.png` (EDA, métricas) | `reports/figures/` |
 | Diagnósticos | `.csv`, `.json` | `reports/diagnostics/` |
-| Narrativa | `.ipynb`, `.md` | `notebooks/`, `reports/fragmentos/` |
+| Narrativa | `.ipynb`, `.md` | `notebooks/`, `reports/fragmentos/`, `reports/consolidados/` |
 | Especificação | `.md` | `.specs/` |

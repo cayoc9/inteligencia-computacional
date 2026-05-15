@@ -36,6 +36,8 @@ Todas impressas no console após treino:
 ```bash
 # Validação de ambiente
 python scripts/smoke_test.py
+# Alternativa sem ativar venv:
+.venv/bin/python scripts/smoke_test.py
 
 # Execução completa (na ordem)
 python 01_check_data.py

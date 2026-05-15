@@ -1,71 +1,42 @@
-## Status Atual (Atualizado: 2026-05-15)
+# Estado do Projeto: Trabalho 1 - Classificação em Saúde
 
-### Trabalho 1 - Classificação em Saúde
+## 📌 Visão Geral
+Comparação entre Random Forest e Redes Neurais para prever o estado de descanso (`felt_rested`) utilizando o Sleep Health Dataset.
 
-| Rodada | Status | Descrição |
-|---|---|---|
-| **Rodada 1 (Baseline)** | ✅ Concluída | RF 74.15% vs RN 73.23% — RF venceu |
-| **Rodada 2 (Otimização)** | ✅ Concluída | RN v2 com feature engineering + regularization — ganho marginal |
-| **Rodada 3 (Diagnóstico)** | ✅ Concluída | Script `diagnose_model_limits.py` identificou teto do alvo `felt_rested` |
+## Fronteira de Escopo: V1 Oficial e V2 Experimental
 
-**Status Geral:** 🟢 **85% Concluído** — Pendente: gráficos comparativos finais + relatório técnico
+- **V1 oficial:** permanece congelada com `felt_rested` como target primário. Esta é a narrativa histórica da entrega do Trabalho 1.
+- **V2 experimental:** fica reservada para o alvo composto `sono_restaurador`, combinando `felt_rested` com `cognitive_performance_score`.
+- **Regra de separação:** a análise de `cognitive_performance_score` pode justificar a V2 e enriquecer a discussão da V1, mas métricas da V2 não devem aparecer como resultado oficial da V1.
 
-## Decisões Atuais
+## 🚀 Aprendizados e Descobertas (Lições Aprendidas)
 
-### Dataset e Modelagem
-- **Dataset:** Sleep Health & Daily Performance (100k rows, 32 cols, 0 nulos, 0 duplicatas)
-- **Target Primário:** `felt_rested` (binária: 61%/39% — levemente desbalanceada)
-- **Melhor Modelo:** HistGradientBoosting (accuracy 74.25%, ROC AUC 82.58%)
-- **Threshold Otimizado:** 0.35 maximiza F1 (0.7017), 0.39 maximiza balanced accuracy (0.7424)
+### 1. O Teto de Performance (The 74% Ceiling)
+- **Descoberta:** Identificamos um limite de acurácia em torno de **73.4% - 74.5%** para todos os modelos testados (RF, NN, Gradient Boosting).
+- **Causa:** O diagnóstico de ambiguidade revelou que existem perfis de usuários muito semelhantes (sono, estresse e rotina parecidos) que resultam em labels diferentes. Isso indica que o dataset possui ruído intrínseco ou falta de variáveis (ex: dieta, genética) para uma separação perfeita.
+- **Ação:** No relatório final, a narrativa deve focar não na busca por 100% de acurácia, mas na aceitação deste limite como o patamar prático observado para este dado.
 
-### Stack Tecnológico
-- **Linguagem:** Python 3.12.3 (`.venv`)
-- **ML Clássico:** scikit-learn (Random Forest, HistGradientBoosting, Logistic Regression)
-- **Redes Neurais:** TensorFlow 2.18+ / Keras (MLP com BatchNorm + Dropout)
-- **EDA/Visualização:** pandas, matplotlib, seaborn
-- **Ambiente Interativo:** Jupyter Notebook
+### 2. Contexto de Saúde: O Perigo dos Falsos Positivos
+- **Decisão Crítica:** Optamos por priorizar a **Precisão para a classe 1 (Descansado)**.
+- **Justificativa:** Um Falso Positivo (dizer que a pessoa está bem quando não está) pode ser mais sensível que um Falso Negativo, pois pode mascarar fadiga acumulada associada a risco ocupacional, incluindo **Burnout**.
+- **Métrica Chave:** Precision (evitar falsos alarmes de descanso) e análise do `cognitive_performance_score`.
+- **Cuidado de redação:** esta é uma interpretação de risco operacional, não uma validação clínica de burnout. O relatório deve dizer que a priorização de precision reduz o risco de classificar incorretamente pessoas cansadas como descansadas.
 
-### Arquitetura e Organização
-- **Pipeline:** Scripts numerados (`01_` a `05_`) para reprodutibilidade
-- **Notebook Central:** `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` (narrativa + apresentação)
-- **Artefatos:** `data/` (dataset), `models/` (modelos .pkl/.keras), `reports/figures/` (visualizações)
-- **Especificação:** `.specs/features/trabalho-1/` (spec.md, tasks.md, relatórios de rodada)
+### 3. Engenharia de Atributos Avançada
+- **O que tentamos:** Criamos `social_jetlag_factor`, `resilience_index`, `deep_sleep_ratio`, `sleep_efficiency` e `stress_work_interaction`.
+- **Resultado:** Embora logicamente coerentes, essas variáveis não romperam o teto de 74%, reforçando a tese de que a ambiguidade está na percepção subjetiva do target (`felt_rested`).
 
-## Lições Aprendidas
+### 4. Papel do `cognitive_performance_score`
+- **Na V1:** foi removido das features para evitar vazamento conceitual, pois representa um desfecho pós-descanso.
+- **Na análise:** serve como variável objetiva complementar para explicar por que `felt_rested` é subjetivo e por que uma V2 com `sono_restaurador` é metodologicamente interessante.
+- **Na V2:** pode compor o target composto, desde que continue fora do conjunto de features.
 
-### O Que Funcionou
-1. **Scripts numerados** facilitaram reexecução e auditoria
-2. **Mesmo random_state=42** permitiu comparação justa entre modelos
-3. **Diagnóstico de Rodada 3** revelou que o gargalo é o alvo, não o modelo
-4. **Threshold tuning** entregou ganho real sem retreinar modelo
+## 🛠️ Decisões Técnicas (ADR-like)
+- **Arquitetura RN:** Optamos por uma rede profunda (128-64-32-16) com BatchNormalization para estabilidade, dado o volume de 100k registros.
+- **Modelo Campeão:** `HistGradientBoosting` (74.2%) superou ligeiramente a RN (73.4%) e a RF (73.7%), sugerindo que o tratamento nativo de features do GBDT é eficiente para este dataset.
 
-### O Que Não Funcionou
-1. **Rede Neural Profunda** em dataset tabular não superou Random Forest
-2. **Feature Engineering** adicionou complexidade sem ganho proporcional
-3. **Acurácia como métrica principal** mascarou desempenho real (desbalanceamento)
-
-### Surpresas
-1. **Teto do alvo:** `felt_rested` parece subjetivo — 2 pessoas com sono similar respondem diferente
-2. **Poucas features importam:** `sleep_quality`, `sleep_duration`, `stress`, `wake_episodes` carregam 80% do sinal
-3. **Threshold 0.5 é arbitrário:** Ajustar para 0.35 melhorou F1 de 0.66 para 0.70
-
-## Bloqueios e Restrições
-
-| Bloqueio | Impacto | Mitigação |
-|---|---|---|
-| GPU local limitada | Treino de RN em CPU é lento | Modelo já convergiu; otimização adicional tem retorno decrescente |
-| Subjetividade do alvo | Teto de ~74% accuracy | Justificar no relatório como limitação do dataset, não do modelo |
-| Prazo: 15/05/2026 | Tempo curto para otimização exaustiva | Focar em consolidar resultados existentes, não em novos experimentos |
-
-## Próximos Passos (Pendentes)
-
-- [ ] **T1-10:** Gerar gráficos comparativos das 6 métricas obrigatórias + PR Curve
-- [ ] **T1-11:** Redigir relatório técnico (5-7 páginas) conforme PDF de avaliação
-- [ ] **T1-12:** Incorporar análise de threshold e diagnóstico no notebook final
-- [ ] **Entrega:** Submeter relatório + notebook + scripts até 23:59 de 15/05/2026
-
-## Preferências de Execução
-
-- **Modelos mais rápidos:** Para tarefas de validação/estado, modelos mais rápidos são suficientes
-- **Sub-agentes:** Usar para implementação de tarefas; orquestrador mantém contexto de planejamento
-- **Diagramas:** Preferir `mermaid-studio` skill se instalado
+## 📋 Próximos Passos (To-Do)
+- [ ] Integrar o Dicionário de Dados no Notebook final.
+- [ ] Redigir a conclusão focando no Risco de Burnout.
+- [ ] Gerar os gráficos comparativos finais (Fase 4 das tarefas).
+- [ ] Manter V1 e V2 separadas no relatório final: V1 como entrega, V2 como trabalho futuro.

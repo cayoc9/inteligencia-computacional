@@ -20,12 +20,14 @@ Em `scripts/` para utilitários:
 ### Diretórios de Artefatos
 | Diretório | Conteúdo |
 |---|---|
-| `data/` | Dataset bruto + splits preservados |
-| `models/` | Modelos treinados (.pkl, .h5, .keras) |
-| `models/v2/` | Modelos da versão otimizada |
-| `reports/figures/` | Visualizações (.png) |
+| `data/` | Dataset principal versionado + splits locais derivados |
+| `models/` | Modelos treinados locais (.pkl, .h5, .keras), não versionados |
+| `models/v2/` | Modelos locais da versão otimizada |
+| `docs/` | Documentação técnica complementar, como dicionário de dados |
+| `reports/figures/` | Visualizações usadas no relatório |
 | `reports/fragmentos/` | Trechos de relatório (.md) |
 | `reports/diagnostics/` | Diagnósticos (.csv, .json) |
+| `reports/consolidados/` | Relatórios e camadas analíticas consolidadas |
 | `notebooks/` | Notebooks de análise narrativa |
 
 ## Código
@@ -126,12 +128,18 @@ python scripts/diagnose_model_limits.py
 - ✅ Documentação (.md)
 - ✅ Dataset (.csv em `data/`)
 - ✅ Requisitos (requirements.txt)
+- ✅ Figuras e diagnósticos quando usados como evidência do relatório
 
 ### O Que Não Versionar
 - ❌ Modelos (.pkl, .h5, .keras) — derivados, pesados
-- ❌ Figuras (.png) — derivadas, regeneráveis
+- ❌ Splits e resultados serializados (.pkl) — derivados, regeneráveis
 - ❌ Ambiente (.venv/) — local, específico da máquina
+- ❌ Diretórios de ferramenta/agente (`.agents/`, `.qwen/`, `.claude/`, `.playwright-cli/`)
 - ❌ Python cache (__pycache__/, .pyc)
+
+### Diretórios Auxiliares
+- `data-storytelling/` é tratado como material local de apoio à apresentação. Não é parte canônica do experimento e não deve aparecer no `git status`.
+- `.agents/` já possui arquivos rastreados no histórico; a recomendação futura é desvendorizar com cuidado, sem apagar contexto útil de uma vez.
 
 ## Convenção Recomendada
 

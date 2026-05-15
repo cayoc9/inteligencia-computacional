@@ -37,7 +37,7 @@
 
 ### Dados
 - **Principal:** `data/sleep_health_dataset.csv` (100.000 rows, 32 cols, 14.3 MB)
-- **Split de teste:** `data/test_split.pkl` (preservado para comparação)
+- **Splits/resultados serializados:** `data/*.pkl` (derivados locais, ignorados pelo git)
 
 ### Modelos
 | Modelo | Arquivo | Status |
@@ -47,8 +47,8 @@
 | Neural Network V2 Otimizada | `models/v2/neural_network_v2_optimized.keras` | ✅ Gerado |
 
 ### Visualizações
-- **EDA:** `reports/figures/eda_*.png` (distribuições, correlações, boxplots)
-- **Performance:** `reports/figures/comparison_*.png` (métricas, curvas ROC)
+- **EDA versionada:** `reports/figures/*.png` (correlações, idade, ocupação, boxplots)
+- **Performance:** ainda pode ser expandida com gráficos comparativos finais e curvas PR/ROC
 
 ### Scripts de Pipeline
 | Script | Propósito | Status |

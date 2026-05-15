@@ -11,26 +11,29 @@
 ├── 05_neural_network_optimized.py # MLP v2 + regularization → .keras
 ├── requirements.txt              # Dependências do projeto
 ├── README.md                     # Documentação principal
+├── docs/
+│   └── DATA_DICTIONARY.md        # Dicionário de dados e features engenheiradas
 │
 ├── data/
 │   ├── sleep_health_dataset.csv  # Dataset (100k rows, 32 cols)
-│   └── test_split.pkl            # Split preservado para comparação
+│   └── *.pkl                     # Artefatos derivados locais, ignorados
 │
 ├── models/
-│   ├── random_forest_model.pkl          # RF tuned (74.15%)
-│   ├── neural_network_model.h5          # MLP base
-│   ├── nn_history.pkl                   # Histórico de treino
-│   └── v2/
-│       ├── neural_network_v2_optimized.keras  # MLP otimizada
-│       └── nn_history_v2.pkl                  # Histórico v2
+│   └── ...                       # Modelos derivados locais, ignorados
 │
 ├── reports/
 │   ├── figures/                    # Visualizações (.png)
-│   │   ├── eda_*.png               # EDA: distribuições, correlações
-│   │   └── comparison_*.png        # Métricas comparativas
+│   │   ├── correlation_heatmap.png
+│   │   ├── age_distribution_target.png
+│   │   ├── occupation_vs_target.png
+│   │   └── sleep_features_boxplot.png
 │   ├── fragmentos/                 # Trechos de relatório
 │   │   ├── 01-resultados-comparativos.md
-│   │   └── 02-discussao-e-limitacoes.md
+│   │   ├── 02-discussao-e-limitacoes.md
+│   │   └── 03-diagnostico-performance-e-otimizacao.md
+│   ├── consolidados/               # Relatórios consolidados e camadas analíticas
+│   │   ├── relatorio-v1-oficial.md
+│   │   └── camada-analitica-v1-teto-precision-burnout.md
 │   └── diagnostics/                # Diagnóstico (Rodada 3)
 │       ├── *.csv                   # Métricas por modelo
 │       └── diagnostics_summary.json
@@ -56,13 +59,16 @@
     │   ├── CONCERNS.md           # Riscos e preocupações
     │   └── INTEGRATIONS.md       # Integrações externas
     └── features/
-        └── trabalho-1/
-            ├── spec.md                       # Requisitos do Trabalho 1
-            ├── tasks.md                      # Tarefas e status
-            ├── log_execucao.md               # Log de execução
-            ├── relatorio_rodada_1.md         # Baseline RF vs RN
-            ├── relatorio_rodada_2.md         # Otimização RN v2
-            └── relatorio_rodada_3_diagnostico.md  # Diagnóstico de limites
+        ├── trabalho-1/
+        │   ├── spec.md                       # Spec canônica da V1 oficial
+        │   ├── tasks.md                      # Tarefas e status
+        │   ├── log_execucao.md               # Log de execução
+        │   ├── relatorio_rodada_1.md         # Baseline RF vs RN
+        │   ├── relatorio_rodada_2.md         # Otimização RN v2
+        │   └── relatorio_rodada_3_diagnostico.md  # Diagnóstico de limites
+        └── experimento-v2-sono-restaurador/
+            ├── spec.md                       # Spec da V2 experimental
+            └── tasks.md                      # Plano da V2
 ```
 
 ## Scripts Principais
@@ -124,6 +130,12 @@ Reúne em narrativa única:
 | `relatorio_rodada_2.md` | Otimização RN v2 | ✅ Concluído |
 | `relatorio_rodada_3_diagnostico.md` | Diagnóstico de limites | ✅ Concluído |
 
+### Feature: Experimento V2 (`.specs/features/experimento-v2-sono-restaurador/`)
+| Arquivo | Conteúdo | Status |
+|---|---|---|
+| `spec.md` | Definição do alvo composto `sono_restaurador` | 📝 Especificado |
+| `tasks.md` | Plano para derivar target e reexecutar modelos | ⏳ Não executado |
+
 ## Fragmentos de Relatório
 
 ### `reports/fragmentos/01-resultados-comparativos.md`
@@ -135,6 +147,11 @@ Discussão crítica:
 - Limitações do alvo `felt_rested` (subjetividade)
 - Impacto do desbalanceamento (61%/39%)
 - Threshold tuning como oportunidade
+
+### `reports/consolidados/`
+Contém documentos de fechamento da V1:
+- `relatorio-v1-oficial.md`: consolidação histórica da V1
+- `camada-analitica-v1-teto-precision-burnout.md`: camada de interpretação sobre teto, precision e risco operacional
 
 ## Observação
 
