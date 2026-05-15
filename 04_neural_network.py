@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 import tensorflow as tf
@@ -9,15 +11,19 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, accuracy_score
 import joblib
-import os
+
+# Reprodutibilidade
+np.random.seed(42)
+tf.keras.utils.set_random_seed(42)
 
 # Configurações
-output_dir = "./models"
-os.makedirs(output_dir, exist_ok=True)
-data_path = "./data/sleep_health_dataset.csv"
+ROOT = Path(__file__).resolve().parent
+OUTPUT_DIR = ROOT / "models"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+DATA_PATH = ROOT / "data" / "sleep_health_dataset.csv"
 
 # 1. Carregar Dados e Preparar (Mesma lógica do T1-RF)
-df = pd.read_csv(data_path)
+df = pd.read_csv(DATA_PATH)
 X = df.drop(columns=['person_id', 'felt_rested', 'sleep_disorder_risk', 'cognitive_performance_score'])
 y = df['felt_rested']
 
@@ -81,7 +87,7 @@ print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
 
 # 5. Salvar Modelo e Histórico
-model.save(f"{output_dir}/neural_network_model.h5")
-joblib.dump(history.history, f"{output_dir}/nn_history.pkl")
+model.save(OUTPUT_DIR / "neural_network_model.h5")
+joblib.dump(history.history, OUTPUT_DIR / "nn_history.pkl")
 
-print(f"\nModelo salvo em {output_dir}/neural_network_model.h5")
+print(f"\nModelo salvo em {OUTPUT_DIR}/neural_network_model.h5")

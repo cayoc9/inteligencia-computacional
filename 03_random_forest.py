@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split, GridSearchCV
@@ -7,15 +9,15 @@ from sklearn.pipeline import Pipeline
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, accuracy_score
 import joblib
-import os
 
 # Configurações
-output_dir = "./models"
-os.makedirs(output_dir, exist_ok=True)
-data_path = "./data/sleep_health_dataset.csv"
+ROOT = Path(__file__).resolve().parent
+OUTPUT_DIR = ROOT / "models"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+DATA_PATH = ROOT / "data" / "sleep_health_dataset.csv"
 
 # 1. Carregar Dados
-df = pd.read_csv(data_path)
+df = pd.read_csv(DATA_PATH)
 
 # Remover person_id (não agrega informação) e targets secundários
 # Vamos focar no felt_rested conforme plano
@@ -75,9 +77,9 @@ print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
 
 # 8. Salvar Modelo e Dados de Teste para Comparação posterior
-joblib.dump(best_rf, f"{output_dir}/random_forest_model.pkl")
+joblib.dump(best_rf, OUTPUT_DIR / "random_forest_model.pkl")
 # Salvar dados de teste para garantir que a RN use o MESMO split
 test_data = {'X_test': X_test, 'y_test': y_test}
-joblib.dump(test_data, f"./data/test_split.pkl")
+joblib.dump(test_data, ROOT / "data" / "test_split.pkl")
 
-print(f"\nModelo salvo em {output_dir}/random_forest_model.pkl")
+print(f"\nModelo salvo em {OUTPUT_DIR}/random_forest_model.pkl")

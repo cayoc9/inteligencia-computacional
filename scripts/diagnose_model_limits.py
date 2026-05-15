@@ -34,7 +34,8 @@ DROP_COLUMNS = ["person_id", "felt_rested", "sleep_disorder_risk", "cognitive_pe
 
 
 def make_preprocessor(x_frame: pd.DataFrame, scale_numeric: bool = True) -> ColumnTransformer:
-    categorical = x_frame.select_dtypes(include=["object", "str"]).columns.tolist()
+    # Compatibilidade pandas 2.x: usar apenas 'object' para colunas categóricas
+    categorical = x_frame.select_dtypes(include=["object"]).columns.tolist()
     numeric = x_frame.select_dtypes(include=["float64", "int64"]).columns.tolist()
     numeric_transformer = StandardScaler() if scale_numeric else "passthrough"
     return ColumnTransformer(

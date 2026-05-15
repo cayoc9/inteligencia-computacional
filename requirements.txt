@@ -1,0 +1,15 @@
+# Dependências principais
+# Versões compatíveis entre si para Python 3.12
+pandas>=2.2.0,<3.0.0
+numpy>=1.26.0,<2.1.0
+scikit-learn>=1.6.0,<2.0.0
+matplotlib>=3.9.0,<4.0.0
+seaborn>=0.13.0,<1.0.0
+joblib>=1.4.0,<2.0.0
+
+# TensorFlow para redes neurais (requer numpy<2.1.0)
+tensorflow>=2.18.0,<3.0.0
+
+# Jupyter notebook (opcional, para notebooks/)
+notebook>=7.0.0,<8.0.0
+jupyter>=1.0.0,<2.0.0

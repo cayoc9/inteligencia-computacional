@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 import tensorflow as tf
@@ -9,15 +11,19 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, accuracy_score
 import joblib
-import os
+
+# Reprodutibilidade
+np.random.seed(42)
+tf.keras.utils.set_random_seed(42)
 
 # Configurações
-output_dir = "./models/v2"
-os.makedirs(output_dir, exist_ok=True)
-data_path = "./data/sleep_health_dataset.csv"
+ROOT = Path(__file__).resolve().parent
+OUTPUT_DIR = ROOT / "models" / "v2"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+DATA_PATH = ROOT / "data" / "sleep_health_dataset.csv"
 
 # 1. Carregar Dados
-df = pd.read_csv(data_path)
+df = pd.read_csv(DATA_PATH)
 
 # --- ENGENHARIA DE ATRIBUTOS (Diretrizes Data Science Expert) ---
 # Criando interações que fazem sentido clínico/lifestyle
@@ -111,11 +117,13 @@ print("\nClassification Report:")
 print(classification_report(y_test, y_pred))
 
 # 6. Salvar Modelo e Histórico
-model.save(f"{output_dir}/neural_network_v2_optimized.keras")
-joblib.dump(history.history, f"{output_dir}/nn_history_v2.pkl")
+model.save(OUTPUT_DIR / "neural_network_v2_optimized.keras")
+joblib.dump(history.history, OUTPUT_DIR / "nn_history_v2.pkl")
 
-print(f"\nModelo otimizado salvo em {output_dir}/neural_network_v2_optimized.keras")
+print(f"\nModelo otimizado salvo em {OUTPUT_DIR}/neural_network_v2_optimized.keras")
 
 # Comparação rápida no console
-baseline_acc = 0.7323
-print(f"\nDelta de Acurácia vs Baseline RN: {acc - baseline_acc:+.4f}")
+# Baseline da rede neural simples (04_neural_network.py) - valor de referência
+# Para comparação exata, execute ambos os scripts e compare os resultados
+print(f"\nAccuracy atual: {acc:.4f}")
+print("Execute 04_neural_network.py para comparação direta com a baseline")
