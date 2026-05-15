@@ -25,20 +25,28 @@ DATA_PATH = ROOT / "data" / "sleep_health_dataset.csv"
 # 1. Carregar Dados
 df = pd.read_csv(DATA_PATH)
 
-# --- ENGENHARIA DE ATRIBUTOS (Diretrizes Data Science Expert) ---
-# Criando interações que fazem sentido clínico/lifestyle
+# --- ENGENHARIA DE ATRIBUTOS AVANÇADA (Abordagens A, B, C) ---
+# A) Social Jetlag Impact: Como a diferença de sono no fds afeta o dia atual
+df['social_jetlag_factor'] = df['weekend_sleep_diff_hrs'] * df['stress_score']
+
+# B) Quality-Stress Resilience: Gap entre qualidade percebida e estresse (Resiliência)
+df['resilience_index'] = df['sleep_quality_score'] - df['stress_score']
+
+# C) Deep Sleep actual Ratio: Proporção de sono profundo no ciclo
+df['deep_sleep_ratio'] = df['deep_sleep_percentage'] / (df['rem_percentage'] + df['deep_sleep_percentage'] + 1e-6)
+
+# Interações anteriores mantidas/refinadas
 df['stress_work_interaction'] = df['stress_score'] * df['work_hours_that_day']
 df['sleep_efficiency'] = (df['rem_percentage'] + df['deep_sleep_percentage']) / 100
-df['age_stress_ratio'] = df['stress_score'] / (df['age'] + 1)
 
-print("Novas features criadas: stress_work_interaction, sleep_efficiency, age_stress_ratio")
+print("Novas features implementadas: social_jetlag_factor, resilience_index, deep_sleep_ratio")
 
 # Preparar X e y
 X = df.drop(columns=['person_id', 'felt_rested', 'sleep_disorder_risk', 'cognitive_performance_score'])
 y = df['felt_rested']
 
 # Identificar colunas atualizadas
-categorical_features = X.select_dtypes(include=['object', 'str']).columns.tolist()
+categorical_features = X.select_dtypes(include=['object']).columns.tolist()
 numeric_features = X.select_dtypes(include=['float64', 'int64']).columns.tolist()
 
 # 2. Pipeline de Pré-processamento
