@@ -1,7 +1,8 @@
 .venv/
 .playwright-cli/
 .qwen/
-#.agents/
+.agents/
+.codex/
 .claude/
 #.specs/
 models/
@@ -12,3 +13,4 @@ models/
 __pycache__/
 *.pyc
 .DS_Store
+.ipynb_checkpoints/
