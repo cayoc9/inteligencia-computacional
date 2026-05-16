@@ -2,18 +2,18 @@
 
 ## Trabalho 1: Comparação RF vs Redes Neurais (Saúde)
 - **Prazo:** 15/05/2026
-- **Status:** 🟡 **85% Concluído** — Consolidando resultados finais
-- [x] Setup do ambiente e download do dataset `mohankrishnathalla/sleep-health-and-daily-performance-dataset`
+- **Status:** ✅ **100% Concluído — Entregue**
+- [x] Setup do ambiente e download do dataset
 - [x] Análise Exploratória de Dados (EDA)
 - [x] Pré-processamento e Limpeza
 - [x] Implementação Random Forest + Tuning (74.15% accuracy, 82.18% ROC AUC)
 - [x] Implementação Redes Neurais + Tuning (73.23% → 74% com otimização)
 - [x] Diagnóstico de limites do modelo (Rodada 3)
 - [x] Identificação de threshold ótimo (0.35 para F1, 0.39 para balanced accuracy)
-- [ ] **T1-10:** Gerar gráficos comparativos finais + PR Curve
-- [ ] **T1-11:** Redigir relatório técnico (5-7 páginas)
-- [ ] **T1-12:** Incorporar análise de threshold no notebook final
-- [ ] **Entrega:** Submeter até 23:59 de 15/05/2026
+- [x] **T1-10:** Gráficos comparativos finais (7 figuras: barras, ROC, PR, threshold, importance, confusion, feature AUC)
+- [x] **T1-11:** Relatório técnico (~7 páginas em `relatorio-tecnico.md`)
+- [x] **T1-12:** Notebook consolidado (37 células, Seção 9 com diagnóstico avançado)
+- [x] **Entrega:** ✅ 15/05/2026
 
 **Resultados Chave:**
 - Melhor modelo: HistGradientBoosting (74.25% accuracy, 82.58% ROC AUC)

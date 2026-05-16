@@ -129,17 +129,19 @@ python scripts/diagnose_model_limits.py
 - ✅ Dataset (.csv em `data/`)
 - ✅ Requisitos (requirements.txt)
 - ✅ Figuras e diagnósticos quando usados como evidência do relatório
+- ✅ Artefatos pequenos de reprodutibilidade do processo assistido (`.agents/`, `data-storytelling/`, `skills-lock.json`)
 
 ### O Que Não Versionar
 - ❌ Modelos (.pkl, .h5, .keras) — derivados, pesados
 - ❌ Splits e resultados serializados (.pkl) — derivados, regeneráveis
 - ❌ Ambiente (.venv/) — local, específico da máquina
-- ❌ Diretórios de ferramenta/agente (`.agents/`, `.qwen/`, `.claude/`, `.playwright-cli/`)
+- ❌ Configurações e logs locais de ferramenta (`.qwen/`, `.claude/`, `.playwright-cli/`)
 - ❌ Python cache (__pycache__/, .pyc)
 
 ### Diretórios Auxiliares
-- `data-storytelling/` é tratado como material local de apoio à apresentação. Não é parte canônica do experimento e não deve aparecer no `git status`.
-- `.agents/` já possui arquivos rastreados no histórico; a recomendação futura é desvendorizar com cuidado, sem apagar contexto útil de uma vez.
+- `.agents/` é mantido como evidência pequena do processo assistido por skills/agentes. Não contém credenciais; os scripts de Kaggle buscam credenciais no ambiente ou em `~/.kaggle`.
+- `data-storytelling/` é mantido como apoio reprodutível para a narrativa/apresentação, pois influenciou a forma de comunicar os resultados.
+- `.qwen/`, `.claude/` e `.playwright-cli/` ficam fora do versionamento por serem configuração/log local de ferramenta, não insumo estável do experimento.
 
 ## Convenção Recomendada
 

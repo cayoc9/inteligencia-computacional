@@ -17,6 +17,6 @@
 ## Fase 4: Comparação e Relatório
 - [x] **T1-9:** Executada Rodada 2 de Otimização (RN v2).
 - [x] **T1-9b:** Executar diagnóstico de performance e limites do target (`scripts/diagnose_model_limits.py`).
-- [ ] **T1-10:** Gerar gráficos comparativos das 6 métricas (Final).
-- [ ] **T1-11:** Redigir relatório técnico conforme PDF de avaliação.
-- [ ] **T1-12:** Incorporar diagnóstico de threshold, PR/ROC e análise de erro no notebook e relatório final.
+- [x] **T1-10:** Gerar gráficos comparativos das 6 métricas (Final). `Done: 7 gráficos gerados (comparação, ROC, PR, threshold, importance, confusion, feature AUC)`
+- [x] **T1-11:** Redigir relatório técnico conforme PDF de avaliação. `Done: ~7 páginas em relatorio-tecnico.md`
+- [x] **T1-12:** Incorporar diagnóstico de threshold, PR/ROC e análise de erro no notebook e relatório final. `Done: Seção 9 adicionada ao notebook (14 células)`

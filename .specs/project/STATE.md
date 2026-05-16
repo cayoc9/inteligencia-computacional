@@ -1,5 +1,9 @@
 # Estado do Projeto: Trabalho 1 - Classificação em Saúde
 
+**Status:** ✅ **100% Concluído — Entregue em 15/05/2026**
+
+---
+
 ## 📌 Visão Geral
 Comparação entre Random Forest e Redes Neurais para prever o estado de descanso (`felt_rested`) utilizando o Sleep Health Dataset.
 

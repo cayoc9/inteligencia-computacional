@@ -40,6 +40,8 @@ Repositório para as atividades e trabalhos da disciplina de Inteligência Compu
 | **Estado atual** | `.specs/project/STATE.md` |
 | **Revisão estrutural** | `.specs/project/REPO_CLEANUP_REVIEW.md` |
 | **Dicionário de dados** | `docs/DATA_DICTIONARY.md` |
+| **Reprodutibilidade assistida** | `docs/PROCESS_REPRODUCIBILITY.md` |
+| **ADR de processo assistido** | `docs/adr/0001-versionar-artefatos-processo-assistido.md` |
 | **Especificação T1** | `.specs/features/trabalho-1/spec.md` |
 | **Especificação V2** | `.specs/features/experimento-v2-sono-restaurador/spec.md` |
 | **Tarefas T1** | `.specs/features/trabalho-1/tasks.md` |
