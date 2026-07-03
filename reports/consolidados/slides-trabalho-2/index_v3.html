@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trabalho 2 - Slides v3</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #667085;
+      --paper: #fbfaf7;
+      --bg: #e9edf2;
+      --line: #d9dee5;
+      --soft: #eef2f5;
+      --blue: #123a63;
+      --teal: #0b6b61;
+      --red: #b42318;
+      --red-soft: #fee4e2;
+      --amber: #a16207;
+      --gray: #7a8491;
+      --olive: #556b2f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.25;
+    }
+    main {
+      width: min(1280px, 96vw);
+      margin: 0 auto;
+      padding: 28px 0 72px;
+      display: grid;
+      gap: 28px;
+    }
+    .slide {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      min-height: 640px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: 0 18px 40px rgba(17, 24, 39, .12);
+      padding: 44px 54px 34px;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 24px;
+      page-break-after: always;
+    }
+    .slide::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 9px;
+      background: linear-gradient(180deg, var(--blue), var(--teal));
+      opacity: .95;
+    }
+    .section-kicker {
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    h1, h2, h3, p { margin: 0; letter-spacing: 0; }
+    h1 {
+      font-size: clamp(36px, 4.2vw, 58px);
+      line-height: 1.03;
+      font-weight: 850;
+      max-width: 980px;
+    }
+    h2 {
+      font-size: clamp(30px, 3.4vw, 46px);
+      line-height: 1.06;
+      font-weight: 840;
+      max-width: 1060px;
+    }
+    h3 { font-size: 22px; }
+    .subtitle {
+      color: var(--muted);
+      font-size: 21px;
+      max-width: 840px;
+      margin-top: 10px;
+    }
+    .footer {
+      border-top: 1px solid var(--line);
+      padding-top: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .center-stage {
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+    .flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .node {
+      min-width: 210px;
+      padding: 18px 20px;
+      border-top: 4px solid var(--line);
+      background: #fff;
+      box-shadow: inset 0 -1px 0 var(--line);
+      font-size: 21px;
+      font-weight: 800;
+    }
+    .node.strong { border-color: var(--teal); color: var(--teal); }
+    .arrow {
+      color: var(--muted);
+      font-size: 34px;
+      font-weight: 700;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      align-items: stretch;
+    }
+    .panel {
+      border-top: 4px solid var(--line);
+      padding-top: 18px;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+    }
+    .panel.blue { border-color: var(--blue); }
+    .panel.teal { border-color: var(--teal); }
+    .panel.red { border-color: var(--red); }
+    .panel.gray { border-color: #98a2b3; }
+    .eyebrow {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 850;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    .hero {
+      color: var(--teal);
+      font-size: clamp(58px, 7vw, 96px);
+      font-weight: 880;
+      line-height: .9;
+    }
+    .hero.gray { color: var(--gray); }
+    .hero.red { color: var(--red); }
+    .hero small {
+      color: var(--muted);
+      font-size: 24px;
+      font-weight: 800;
+      margin-left: 8px;
+    }
+    .fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 19px;
+    }
+    .fact b { font-weight: 850; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 17px;
+      font-weight: 850;
+      background: var(--soft);
+      color: var(--ink);
+    }
+    .tag.red { background: var(--red-soft); color: var(--red); }
+    .tag.teal { background: #ccfbf1; color: var(--teal); }
+    .callout {
+      border-left: 5px solid var(--red);
+      padding: 16px 0 16px 20px;
+      font-size: 28px;
+      line-height: 1.16;
+      font-weight: 800;
+      max-width: 760px;
+    }
+    .claim-list {
+      display: grid;
+      gap: 18px;
+      font-size: 25px;
+      line-height: 1.18;
+    }
+    .claim-list div {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .num {
+      color: var(--teal);
+      font-weight: 900;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 18px;
+    }
+    th, td {
+      text-align: left;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+    }
+    .winner {
+      background: rgba(11, 107, 97, .08);
+      color: var(--teal);
+      font-weight: 850;
+    }
+    .mini-note {
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 900px;
+    }
+    .bar-chart {
+      display: grid;
+      gap: 16px;
+      align-content: center;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 230px 1fr 70px;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+    }
+    .track {
+      height: 22px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+    .bar {
+      height: 100%;
+      background: var(--blue);
+    }
+    .bar.teal { background: var(--teal); }
+    .bar.gray { background: #98a2b3; }
+    .matrix {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      border: 1px solid var(--line);
+      min-height: 330px;
+    }
+    .cell {
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      gap: 10px;
+      align-content: start;
+      font-size: 20px;
+    }
+    .cell:nth-child(2n) { border-right: 0; }
+    .cell:nth-child(n+3) { border-bottom: 0; }
+    .cell.focus {
+      background: rgba(11, 107, 97, .08);
+      border-top: 5px solid var(--teal);
+    }
+    .visual {
+      max-width: 100%;
+      max-height: 330px;
+      object-fit: contain;
+      background: white;
+      border: 1px solid var(--line);
+      padding: 8px;
+    }
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .step {
+      border-top: 4px solid var(--teal);
+      padding-top: 16px;
+      font-size: 21px;
+      display: grid;
+      gap: 8px;
+    }
+    .step span {
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .cover-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+    .summary-stack {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+    .summary-card {
+      background: #fff;
+      border-top: 4px solid var(--line);
+      padding: 18px 20px;
+      display: grid;
+      gap: 10px;
+    }
+    .summary-card.teal { border-color: var(--teal); }
+    .summary-card.gray { border-color: #98a2b3; }
+    .summary-card.red { border-color: var(--red); }
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .metric-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 14px 16px;
+      display: grid;
+      gap: 6px;
+    }
+    .metric-box b {
+      font-size: 30px;
+      line-height: .95;
+    }
+    .split-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: end;
+    }
+    .bridge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .bridge::before,
+    .bridge::after {
+      content: "";
+      height: 1px;
+      background: var(--line);
+      flex: 1;
+    }
+    .contrast-line {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .contrast-row {
+      display: grid;
+      grid-template-columns: 180px 1fr 120px;
+      gap: 14px;
+      align-items: center;
+      font-size: 17px;
+    }
+    .contrast-row .track { height: 16px; }
+    .contrast-row .bar.red { background: var(--red); }
+    .decision-banner {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+    .tradeoff-stage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .balance {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 18px;
+      align-items: center;
+      margin-top: 8px;
+    }
+    .balance .hero { font-size: clamp(48px, 5vw, 80px); }
+    .vs {
+      color: var(--muted);
+      font-size: 28px;
+      font-weight: 850;
+    }
+    @media (max-width: 760px) {
+      main { width: 100%; padding: 0; gap: 0; }
+      .slide {
+        aspect-ratio: auto;
+        min-height: 100svh;
+        border-radius: 0;
+        border-left: 0;
+        border-right: 0;
+        padding: 28px 24px 22px;
+        box-shadow: none;
+      }
+      .slide::before { width: 5px; }
+      h1 { font-size: 34px; }
+      h2 { font-size: 30px; }
+      .subtitle { font-size: 17px; }
+      .two-col, .three-col, .roadmap, .cover-grid, .decision-banner, .tradeoff-stage, .split-hero, .metric-strip { grid-template-columns: 1fr; gap: 18px; }
+      .balance { grid-template-columns: 1fr; }
+      .flow { justify-content: flex-start; }
+      .node { min-width: 0; width: 100%; }
+      .arrow { font-size: 0; transform: none; width: 100%; text-align: left; padding-left: 10px; }
+      .arrow::after { content: "↓"; font-size: 32px; }
+      .bar-row { grid-template-columns: 1fr; gap: 6px; }
+      .contrast-row { grid-template-columns: 1fr; gap: 6px; }
+      .matrix { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .cell { border-right: 0; border-bottom: 1px solid var(--line); }
+      .cell:nth-child(n+3) { border-bottom: 1px solid var(--line); }
+      .footer { font-size: 12px; }
+      table { font-size: 15px; }
+      th, td { padding: 9px 6px; }
+    }
+    @media print {
+      body { background: white; }
+      main { width: 100%; padding: 0; gap: 0; }
+      .slide { box-shadow: none; border-radius: 0; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Capa</div>
+      <h1>Dados clinicos melhores mudaram mais o resultado do que complexidade isolada</h1>
+      <p class="subtitle">Sistema de Inteligencia Computacional para risco de obito em cancer de mama: SEER corrigido como baseline e METABRIC como trilha canonica.</p>
+    </header>
+    <div class="cover-grid">
+      <div class="summary-stack">
+        <div class="split-hero">
+          <div class="summary-card gray">
+            <div class="eyebrow">Baseline</div>
+            <div class="hero gray">SEER</div>
+            <div class="mini-note">4.023 registros analiticos, menor profundidade clinica</div>
+          </div>
+          <div class="summary-card teal">
+            <div class="eyebrow">Evolucao canonica</div>
+            <div class="hero">METABRIC</div>
+            <div class="mini-note">1.876 registros analiticos, mais sinais biologicos e terapeuticos</div>
+          </div>
+        </div>
+        <div class="bridge">da correção metodologica para a melhoria de dado</div>
+        <div class="metric-strip">
+          <div class="metric-box"><span class="eyebrow">SEER melhor F2</span><b>0.4832</b></div>
+          <div class="metric-box"><span class="eyebrow">METABRIC melhor F2</span><b style="color:var(--teal)">0.7787</b></div>
+          <div class="metric-box"><span class="eyebrow">METABRIC ensemble</span><b style="color:var(--teal)">0.8770</b></div>
+        </div>
+      </div>
+      <div class="summary-stack">
+        <div class="summary-card red">
+          <div class="eyebrow">Pergunta da defesa</div>
+          <div class="callout">Como reduzir falso negativo sem fingir que falso positivo desaparece?</div>
+        </div>
+        <div class="summary-card teal">
+          <div class="eyebrow">Tese</div>
+          <div class="claim-list" style="font-size:21px">
+            <div><span class="num">1</span><span>Remover vazamento tornou o experimento defensavel.</span></div>
+            <div><span class="num">2</span><span>METABRIC elevou o teto antes mesmo do ensemble.</span></div>
+            <div><span class="num">3</span><span>Threshold e pesos moveram o ponto operacional.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer"><span>Inteligencia Computacional - UFPA</span><span>01 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Roteiro</div>
+      <h2>A narrativa ficou mais curta para concentrar defesa onde a banca realmente pressiona</h2>
+    </header>
+    <div class="roadmap">
+      <div class="step"><b>1. Problema e objetivo</b><span>custo do erro e remocao de vazamento</span></div>
+      <div class="step"><b>2. Dataset e metodo</b><span>SEER como baseline, METABRIC como evolucao</span></div>
+      <div class="step"><b>3. Resultados e trade-off</b><span>ganho real, custo operacional e limites</span></div>
+    </div>
+    <footer class="footer"><span>Blocos obrigatorios mantidos; contagem enxugada</span><span>02 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">1. Introducao</div>
+      <h2>Em saude, acuracia alta pode esconder erro grave</h2>
+      <p class="subtitle">A apresentacao prioriza o custo do falso negativo em vez de vender uma metrica unica.</p>
+    </header>
+    <div class="two-col">
+      <div class="panel red">
+        <div class="eyebrow">Falso negativo</div>
+        <div class="callout">Caso de risco classificado como nao risco.</div>
+        <span class="tag red">erro mais critico para sensibilidade</span>
+      </div>
+      <div class="panel gray">
+        <div class="eyebrow">Falso positivo</div>
+        <div class="callout" style="border-color:#98a2b3">Alerta falso que aumenta custo operacional.</div>
+        <span class="tag">nao pode ser ignorado</span>
+      </div>
+    </div>
+    <footer class="footer"><span>Mensagem: recall e F2 entram por causa do custo do erro</span><span>03 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Problema proposto</div>
+      <h2><code>Survival Months</code> foi removido para evitar vazamento</h2>
+      <p class="subtitle">A pergunta correta e classificar obito observado sem usar informacao posterior de acompanhamento como atalho.</p>
+    </header>
+    <div class="flow">
+      <div class="node strong">Features clinicas permitidas</div>
+      <div class="arrow">-></div>
+      <div class="node strong">Classificador</div>
+      <div class="arrow">-></div>
+      <div class="node strong">Obito observado</div>
+    </div>
+    <div class="panel red">
+      <div class="eyebrow">Bloqueado no modelo principal</div>
+      <div class="hero red" style="font-size:58px">Survival Months</div>
+    </div>
+    <footer class="footer"><span>Defesa esperada: variavel preditiva demais pode ser metodologicamente invalida</span><span>04 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Dataset</div>
+      <h2>METABRIC nao vence por ter mais linhas; vence por trazer sinais clinicos mais informativos</h2>
+    </header>
+    <div class="decision-banner">
+      <div class="summary-stack">
+        <div class="summary-card gray">
+          <div class="eyebrow">SEER corrigido</div>
+          <div class="hero gray">4.023 <small>registros</small></div>
+          <div class="fact"><span>Papel</span><b>baseline</b></div>
+          <div class="fact"><span>Forca</span><b>maior volume</b></div>
+          <div class="fact"><span>Limite</span><b>menos profundidade biologica e terapeutica</b></div>
+        </div>
+        <div class="summary-card teal">
+          <div class="eyebrow">Leitura da troca</div>
+          <div class="callout" style="border-color:var(--teal)">Mais informacao clinica aumentou separabilidade antes de qualquer combinacao hibrida.</div>
+        </div>
+      </div>
+      <div class="summary-stack">
+        <div class="summary-card teal">
+          <div class="eyebrow">METABRIC canonico</div>
+          <div class="hero">1.876 <small>registros</small></div>
+          <div class="fact"><span>Papel</span><b>evolucao v2</b></div>
+          <div class="fact"><span>Sinais</span><b>tratamento, ER/PR/HER2, PAM50, NPI</b></div>
+          <div class="fact"><span>Leitura</span><b>menos volume, mais qualidade preditiva</b></div>
+        </div>
+        <div class="contrast-line">
+          <div class="contrast-row"><b>Volume</b><div class="track"><div class="bar gray" style="width:100%"></div></div><b>SEER maior</b></div>
+          <div class="contrast-row"><b>Profundidade clinica</b><div class="track"><div class="bar teal" style="width:92%"></div></div><b>METABRIC maior</b></div>
+          <div class="contrast-row"><b>Teto de F2</b><div class="track"><div class="bar teal" style="width:89%"></div></div><b>0.7787</b></div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer"><span>Claim: o ganho nao e so algoritmo; e informacao melhor</span><span>05 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">2. Desenvolvimento da Solucao</div>
+      <h2>O sistema foi reorganizado para rastrear dado, validacao e decisao final no mesmo fluxo</h2>
+    </header>
+    <div class="two-col">
+      <div class="panel blue">
+        <div class="eyebrow">Arquitetura</div>
+        <div class="flow" style="justify-content:flex-start">
+          <div class="node">Dados</div><div class="arrow">-></div>
+          <div class="node">Contrato</div><div class="arrow">-></div>
+          <div class="node">Modelos</div><div class="arrow">-></div>
+          <div class="node strong">Decisao</div>
+        </div>
+      </div>
+      <div class="panel teal">
+        <div class="eyebrow">Pipeline de treino</div>
+        <div class="fact"><span>Treino</span><b>ajusta modelos</b></div>
+        <div class="fact"><span>Validacao</span><b>escolhe pesos e threshold</b></div>
+        <div class="fact"><span>Teste</span><b>reporta sem contaminar</b></div>
+      </div>
+    </div>
+    <footer class="footer"><span>Arquitetura e treinamento fundidos no mesmo slide</span><span>06 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Pre-processamento e modelagem</div>
+      <h2>EDA deixou de ser exploracao solta e virou contrato do experimento</h2>
+    </header>
+    <div class="two-col">
+      <div class="summary-stack">
+        <div class="summary-card teal">
+          <div class="eyebrow">Contrato de dados</div>
+          <div class="claim-list" style="font-size:22px">
+            <div><span class="num">1</span><span>sanitizacao de nomes, tipos e alvo</span></div>
+            <div><span class="num">2</span><span>dicionario e perfil de metadados</span></div>
+            <div><span class="num">3</span><span>relacoes numericas e categoricas antes da modelagem</span></div>
+          </div>
+        </div>
+        <div class="summary-card gray">
+          <div class="eyebrow">Comparacao justa</div>
+          <div class="mini-note">baseline explicavel, ensemble e neuro-fuzzy avaliados sob o mesmo protocolo.</div>
+        </div>
+      </div>
+      <img class="visual" src="../../../projeto_2_neuro_fuzzy_metabric_clinico/reports/figures/numeric_correlation_heatmap.png" alt="Heatmap de correlacoes numericas METABRIC">
+    </div>
+    <footer class="footer"><span>EDA, modelos e elemento hibrido organizados juntos</span><span>07 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">3. Avaliacao Experimental</div>
+      <h2>SEER e METABRIC passaram pelas mesmas fases essenciais e pelas mesmas metricas</h2>
+    </header>
+    <div class="two-col">
+      <table>
+        <tr><th>Fase</th><th>SEER</th><th>METABRIC</th></tr>
+        <tr><td>Dicionario, EDA e metadados</td><td>Aplicado</td><td class="winner">Aplicado</td></tr>
+        <tr><td>Politica de vazamento</td><td>Aplicada</td><td class="winner">Aplicada</td></tr>
+        <tr><td>Treino / validacao / teste</td><td>Aplicado</td><td class="winner">Aplicado</td></tr>
+        <tr><td>Explicabilidade, calibracao e estabilidade</td><td>Aplicado</td><td class="winner">Aplicado</td></tr>
+      </table>
+      <div class="three-col" style="grid-template-columns:1fr; gap:16px">
+        <div class="panel teal"><div class="eyebrow">Recall</div><div class="hero">+</div><p class="subtitle">captura da classe positiva</p></div>
+        <div class="panel blue"><div class="eyebrow">F2-score</div><div class="hero" style="color:var(--blue)">2x</div><p class="subtitle">pesa recall acima da precisao</p></div>
+        <div class="panel gray"><div class="eyebrow">Acuracia</div><div class="hero gray">sec.</div><p class="subtitle">mantida apenas como contexto</p></div>
+      </div>
+    </div>
+    <footer class="footer"><span>A troca de dataset nao apagou a disciplina metodologica</span><span>08 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Resultados individuais</div>
+      <h2>METABRIC melhora antes mesmo do ensemble</h2>
+    </header>
+    <div class="decision-banner">
+      <div class="summary-stack">
+        <div class="summary-card gray">
+        <div class="eyebrow">SEER - Logistic Regression</div>
+        <div class="hero gray">0.4832 <small>F2</small></div>
+        <div class="fact"><span>Recall</span><b>0.6098</b></div>
+        <div class="fact"><span>PR AUC</span><b>0.3525</b></div>
+        <span class="tag red">48 FN</span>
+        </div>
+      </div>
+      <div class="summary-stack">
+        <div class="summary-card teal">
+        <div class="eyebrow">METABRIC - GradientBoosting</div>
+        <div class="hero">0.7787 <small>F2</small></div>
+        <div class="fact"><span>Recall</span><b>0.7953</b></div>
+        <div class="fact"><span>PR AUC</span><b>0.7600</b></div>
+        <span class="tag red">44 FN</span>
+        </div>
+        <div class="summary-card teal">
+          <div class="eyebrow">Leitura correta</div>
+          <div class="callout" style="border-color:var(--teal)">A troca de dataset ja melhora discriminacao sem depender do ensemble para parecer forte.</div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer"><span>Refs: model_comparison_no_leakage_test.csv</span><span>09 / 16</span></footer>
+  </section>
+
+  <section class="slide" id="slide10">
+    <header>
+      <div class="section-kicker">Sistema hibrido</div>
+      <h2>O ensemble reduz FN, mas precisa assumir FP</h2>
+      <p class="subtitle">Threshold escolhido na validacao; teste preservado para reporte final.</p>
+    </header>
+    <div class="tradeoff-stage">
+      <div class="summary-card gray">
+        <div class="eyebrow">SEER ensemble - threshold 0.22</div>
+        <div class="balance">
+          <div><div class="hero gray">29</div><div class="mini-note">falsos negativos</div></div>
+          <div class="vs">vs</div>
+          <div><div class="hero red">320</div><div class="mini-note">falsos positivos</div></div>
+        </div>
+        <div class="fact"><span>Recall</span><b>0.7642</b></div>
+        <div class="fact"><span>F2</span><b>0.5188</b></div>
+      </div>
+      <div class="summary-card teal">
+        <div class="eyebrow">METABRIC ensemble - threshold 0.16</div>
+        <div class="balance">
+          <div><div class="hero">1</div><div class="mini-note">falso negativo</div></div>
+          <div class="vs">vs</div>
+          <div><div class="hero red">146</div><div class="mini-note">falsos positivos</div></div>
+        </div>
+        <div class="fact"><span>Recall</span><b>0.9953</b></div>
+        <div class="fact"><span>F2</span><b>0.8770</b></div>
+      </div>
+    </div>
+    <footer class="footer"><span>Leitura: ponto operacional de alta sensibilidade</span><span>10 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Slide 11 - Comparacao Geral</div>
+      <h2>Dados melhores elevaram o teto; threshold moveu sensibilidade</h2>
+    </header>
+    <div class="bar-chart">
+      <div class="bar-row"><b>SEER individual</b><div class="track"><div class="bar gray" style="width:55%"></div></div><b>0.4832</b></div>
+      <div class="bar-row"><b>SEER ensemble</b><div class="track"><div class="bar gray" style="width:59%"></div></div><b>0.5188</b></div>
+      <div class="bar-row"><b>METABRIC individual</b><div class="track"><div class="bar teal" style="width:89%"></div></div><b>0.7787</b></div>
+      <div class="bar-row"><b>METABRIC ensemble</b><div class="track"><div class="bar teal" style="width:100%"></div></div><b>0.8770</b></div>
+    </div>
+    <footer class="footer"><span>Barras normalizadas pelo maior F2 reportado</span><span>11 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Trade-off</div>
+      <h2>O melhor resultado e um ponto operacional, nao uma verdade clinica pronta</h2>
+      <p class="subtitle">O ganho em sensibilidade so e honesto quando o custo em falsos positivos aparece na mesma tela.</p>
+    </header>
+    <div class="decision-banner">
+      <div class="summary-card teal">
+        <div class="eyebrow">Ponto escolhido para defesa</div>
+        <div class="callout" style="border-color:var(--teal)">METABRIC ensemble chegou a 1 falso negativo, mas aceitando 146 falsos positivos.</div>
+        <div class="fact"><span>Interpretacao</span><b>sensibilidade muito alta</b></div>
+        <div class="fact"><span>Risco</span><b>sobrecarga operacional</b></div>
+      </div>
+      <div class="summary-stack">
+        <div class="summary-card gray">
+          <div class="eyebrow">O que a banca pode cobrar</div>
+          <div class="claim-list" style="font-size:21px">
+            <div><span class="num">1</span><span>validacao externa antes de qualquer uso clinico</span></div>
+            <div><span class="num">2</span><span>analise de custo para o volume de FP</span></div>
+            <div><span class="num">3</span><span>survival analysis para horizonte temporal explicito</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer"><span>Trade-off assumido, nao escondido</span><span>12 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">4. Conclusao</div>
+      <h2>O ganho principal foi metodologico e informacional</h2>
+    </header>
+    <div class="claim-list">
+      <div><span class="num">1</span><span>Remover vazamento tornou o experimento defensavel.</span></div>
+      <div><span class="num">2</span><span>METABRIC trouxe sinais clinicos mais ricos.</span></div>
+      <div><span class="num">3</span><span>Ensemble ajudou como ponto de alta sensibilidade.</span></div>
+      <div><span class="num">4</span><span>Neuro-fuzzy ensinou como comparativo, nao como campeao.</span></div>
+    </div>
+    <footer class="footer"><span>Conclusao: complexidade sem dados bons nao resolve o problema</span><span>13 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Slide 14 - Limitacoes e Futuro</div>
+      <h2>A defesa e academica hoje e aponta survival analysis e validacao externa como proximo passo</h2>
+    </header>
+    <div class="three-col">
+      <div class="panel red"><div class="eyebrow">Escopo</div><p class="subtitle">datasets publicos, sem validacao externa</p></div>
+      <div class="panel gray"><div class="eyebrow">Metodo</div><p class="subtitle">classificacao binaria, nao survival analysis formal</p></div>
+      <div class="panel teal"><div class="eyebrow">Proximo passo</div><p class="subtitle">validacao externa, survival analysis e custo clinico</p></div>
+    </div>
+    <footer class="footer"><span>Limitar a conclusao aumenta a credibilidade da defesa</span><span>14 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Encerramento</div>
+      <h2>SEER ficou como baseline corrigido; METABRIC virou a trilha canonica porque sustentou melhor o objetivo do trabalho</h2>
+    </header>
+    <div class="two-col">
+      <div class="panel teal">
+        <div class="eyebrow">Mensagem final</div>
+        <div class="callout" style="border-color:var(--teal)">Bons dados e boa validacao foram mais importantes que complexidade isolada.</div>
+      </div>
+      <div class="panel gray">
+        <div class="eyebrow">Leitura final</div>
+        <div class="fact"><span>SEER</span><b>baseline corrigido</b></div>
+        <div class="fact"><span>METABRIC</span><b>evolucao canonica</b></div>
+        <div class="fact"><span>Ensemble</span><b>sensibilidade com trade-off</b></div>
+      </div>
+    </div>
+    <footer class="footer"><span>Tela final de encerramento antes dos extras</span><span>15 / 16</span></footer>
+  </section>
+
+  <section class="slide">
+    <header>
+      <div class="section-kicker">Slide 16 - Extras</div>
+      <h2>Perguntas provaveis da banca entram depois do encerramento</h2>
+      <p class="subtitle">Esses slides extras nao fazem parte da narrativa principal; eles servem para ensaio e sustentacao oral.</p>
+    </header>
+    <div class="two-col">
+      <div class="panel gray">
+        <div class="eyebrow">Perguntas metodologicas</div>
+        <div class="fact"><span>Por que nao usar acuracia?</span><b>FN pesa mais</b></div>
+        <div class="fact"><span>Por que remover Survival Months?</span><b>vazamento</b></div>
+        <div class="fact"><span>O teste foi usado para escolher threshold?</span><b>nao</b></div>
+      </div>
+      <div class="panel gray">
+        <div class="eyebrow">Perguntas de modelagem</div>
+        <div class="fact"><span>O neuro-fuzzy e ANFIS?</span><b>nao</b></div>
+        <div class="fact"><span>Por que METABRIC e melhor?</span><b>mais sinais clinicos</b></div>
+        <div class="fact"><span>Como justificar FP?</span><b>trade-off operacional</b></div>
+      </div>
+    </div>
+    <footer class="footer"><span>Slide extra para ensaio e arguição</span><span>16 / 16</span></footer>
+  </section>
+</main>
+</body>
+</html>
