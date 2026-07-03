@@ -8,13 +8,13 @@
 
 ## Organização DS ✅ Resolvido
 - **Scripts:** Pipeline auditável (`01_` a `05_`)
-- **Notebook:** Narrativa central em consolidação
+- **Notebook:** Narrativa central consolidada para a V1
 - **Sincronização:** Notebook deve refletir resultados dos scripts (mesmo random_state=42)
 
-## Risco de Entrega 🟡 Atenção
-- **Prazo:** 15/05/2026 (urgente)
-- **Pendências:** Gráficos comparativos finais + relatório técnico (5-7 páginas)
-- **Mitigação:** Focar em consolidar resultados existentes, não em novos experimentos
+## Risco de Entrega ✅ Resolvido
+- **Prazo:** 15/05/2026
+- **Resultado:** Trabalho 1 concluído e entregue.
+- **Registro:** Manter as decisões e limitações como histórico da V1; não misturar com V2.
 
 ## Performance dos Modelos ✅ Compreendido
 - **Teto identificado:** ~74% accuracy para `felt_rested`
@@ -22,14 +22,15 @@
 - **Features dominantes:** `sleep_quality`, `sleep_duration`, `stress`, `wake_episodes` (80% do sinal)
 - **Conclusão:** RF > RN em dataset tabular — consistente com literatura
 
-## Threshold de Decisão ⚠️ Não Ótimo
+## Threshold de Decisão ✅ Incorporado
 - **Padrão:** 0.5 não é ideal para este problema desbalanceado
 - **Otimizado:** 0.35 maximiza F1, 0.39 maximiza balanced accuracy
-- **Ação:** Incorporar análise de threshold no relatório final
+- **Ação:** Análise incorporada ao fechamento da V1 e mantida como referência para V2.
 
-## Métricas de Avaliação ⚠️ Incompleto
+## Métricas de Avaliação ✅ Fechadas Para V1
 - **Obrigatórias:** 6 métricas (acurácia, matriz confusão, precisão, recall, F1, ROC AUC) ✅
-- **Recomendadas:** PR Curve, balanced_accuracy, análise por segmentos ⏳ Pendente
+- **Adicionais usadas:** PR Curve, balanced_accuracy e threshold tuning.
+- **Aberto para trabalho futuro:** análise por segmentos, validação cruzada sistemática e SHAP.
 
 ## Interpretabilidade 🟡 Parcial
 - **Feature importance:** Permutation importance calculada no diagnóstico
@@ -37,6 +38,6 @@
 - **Recomendação:** Usar permutation importance no relatório (já disponível)
 
 ## Recomendação Prioritária
-1. **Imediato:** Gerar gráficos das 6 métricas obrigatórias + PR Curve
-2. **Imediato:** Redigir relatório técnico com resultados consolidados
-3. **Opcional:** Adicionar análise de erro por ocupação/segmento se sobrar tempo
+1. **Próxima decisão:** escolher entre executar V2 `sono_restaurador` ou iniciar Trabalho 2.
+2. **Se V2:** seguir `.specs/features/experimento-v2-sono-restaurador/tasks.md`.
+3. **Se Trabalho 2:** criar spec separada antes de selecionar arquitetura/dataset.

@@ -3,13 +3,13 @@
 ## Visão Geral
 Repositório para as atividades e trabalhos da disciplina de Inteligência Computacional do Mestrado em Engenharia Elétrica (PPGEE - UFPA).
 
-**Status:** 🟡 Trabalho 1 em fase final (85% concluído)  
-**Última atualização:** 2026-05-15
+**Status:** ✅ Trabalho 1 concluído e entregue; próxima decisão é Trabalho 2/V2  
+**Última atualização:** 2026-06-05
 
 ## Objetivos
 - ✅ Aplicar técnicas de IA (Random Forest, Redes Neurais) em problema real de saúde
 - ✅ Desenvolver análise crítica de modelos e métricas de desempenho
-- 🔄 Documentar experimentos seguindo padrões acadêmicos (em andamento)
+- ✅ Documentar experimentos seguindo padrões acadêmicos
 
 ## Equipe
 - **Grupo:** 5 alunos (conforme definido na planilha da disciplina)
@@ -19,11 +19,17 @@ Repositório para as atividades e trabalhos da disciplina de Inteligência Compu
 
 ### Trabalho 1: Comparação RF vs Redes Neurais (Saúde)
 - **Prazo:** 15/05/2026
-- **Status:** 🟡 85% concluído
+- **Status:** ✅ 100% concluído — entregue em 15/05/2026
 - **Dataset:** Sleep Health & Daily Performance (100k rows, 32 cols)
 - **Target:** `felt_rested` (binária: 61%/39%)
 - **Melhor modelo:** HistGradientBoosting (74.25% accuracy, 82.58% ROC AUC)
 - **Entregáveis:** Relatório técnico + Notebook + Scripts
+
+### Experimento V2: Sono Restaurador
+- **Prazo:** Pós-entrega do Trabalho 1
+- **Status:** 📝 Especificado, não executado
+- **Ideia:** Alvo composto `sono_restaurador` combinando `felt_rested` e `cognitive_performance_score`
+- **Regra:** Evolução metodológica separada; não altera os resultados oficiais da V1
 
 ### Trabalho 2: Sistema Híbrido ou Ensemble
 - **Prazo:** 03/07/2026

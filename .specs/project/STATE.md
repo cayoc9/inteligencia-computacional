@@ -40,7 +40,9 @@ Comparação entre Random Forest e Redes Neurais para prever o estado de descans
 - **Modelo Campeão:** `HistGradientBoosting` (74.2%) superou ligeiramente a RN (73.4%) e a RF (73.7%), sugerindo que o tratamento nativo de features do GBDT é eficiente para este dataset.
 
 ## 📋 Próximos Passos (To-Do)
-- [ ] Integrar o Dicionário de Dados no Notebook final.
-- [ ] Redigir a conclusão focando no Risco de Burnout.
-- [ ] Gerar os gráficos comparativos finais (Fase 4 das tarefas).
-- [ ] Manter V1 e V2 separadas no relatório final: V1 como entrega, V2 como trabalho futuro.
+- [x] Integrar a narrativa final da V1 em relatório técnico e notebook consolidado.
+- [x] Gerar gráficos comparativos finais da Fase 4.
+- [x] Manter V1 e V2 separadas: V1 como entrega oficial; V2 como evolução metodológica.
+- [ ] Decidir se a próxima execução será o Experimento V2 (`sono_restaurador`) ou o Trabalho 2.
+- [ ] Para V2, executar `V2-1` a `V2-9` em `.specs/features/experimento-v2-sono-restaurador/tasks.md`.
+- [ ] Para Trabalho 2, criar spec própria antes de implementar.

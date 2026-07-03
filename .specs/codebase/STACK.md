@@ -62,7 +62,7 @@
 | `scripts/smoke_test.py` | Validação de ambiente | ✅ Funcional |
 
 ### Notebooks
-- `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` — Narrativa principal (em consolidação)
+- `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` — Narrativa principal consolidada da V1
 
 ## Reprodutibilidade
 

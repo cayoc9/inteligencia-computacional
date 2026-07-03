@@ -1,7 +1,6 @@
 .venv/
 .playwright-cli/
 .qwen/
-.agents/
 .codex/
 .claude/
 #.specs/

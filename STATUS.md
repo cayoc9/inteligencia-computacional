@@ -1,6 +1,6 @@
 # Status Executivo do Projeto
 
-**Última atualização:** 2026-05-15  
+**Última atualização:** 2026-06-05  
 **Disciplina:** Inteligência Computacional — UFPA 2026.1  
 **Grupo:** 5 alunos (conforme planilha da disciplina)
 
@@ -10,11 +10,11 @@
 
 | Item | Status |
 |---|---|
-| **Trabalho 1 (RF vs RN)** | 🟡 **85% concluído** — Consolidando resultados finais |
-| **Prazo de entrega** | ⚠️ **15/05/2026** (urgente) |
+| **Trabalho 1 (RF vs RN)** | ✅ **100% concluído** — entregue em 15/05/2026 |
+| **Prazo de entrega** | ✅ **15/05/2026** — cumprido |
 | **Melhor modelo** | HistGradientBoosting: **74.25%** accuracy, **82.58%** ROC AUC |
 | **Principal insight** | RF > RN em dataset tabular; teto limitado pela subjetividade do alvo |
-| **Próximos passos** | Fechamento do relatório técnico + notebook final |
+| **Próximos passos** | Decidir entre executar V2 `sono_restaurador` ou iniciar Trabalho 2 |
 
 ---
 
@@ -52,26 +52,32 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 
 ---
 
-## 📋 Pendências De Fechamento
+## 📋 Status De Fechamento
 
-### Prioritário (Entrega 15/05)
-- [ ] **T1-10:** Gerar gráficos comparativos das 6 métricas + PR Curve
-- [ ] **T1-11:** Redigir relatório técnico (5-7 páginas)
-- [ ] **T1-12:** Incorporar análise de threshold no notebook final
-- [ ] **Entrega:** Submeter até 23:59 de 15/05/2026
+### Trabalho 1
+- [x] **T1-10:** Gerar gráficos comparativos das 6 métricas + PR Curve
+- [x] **T1-11:** Redigir relatório técnico (5-7 páginas)
+- [x] **T1-12:** Incorporar análise de threshold no notebook final
+- [x] **Entrega:** Submetido em 15/05/2026
 
-### Opcional (se sobrar tempo)
-- [ ] Análise de erro por ocupação/segmento
-- [ ] SHAP feature importance (alternativa: usar permutation importance já calculada)
+### Próximas Trilhas
+- [ ] **V2 sono restaurador:** executar experimento especificado em `.specs/features/experimento-v2-sono-restaurador/`
+- [ ] **Trabalho 2:** definir tema/dataset e abrir nova spec antes da implementação
+- [ ] **Opcional:** aprofundar análise de erro por ocupação/segmento ou SHAP se for útil para apresentação futura
 
 ---
 
 ## 🗺️ Roadmap Geral
 
-### Trabalho 1 (Atual)
+### Trabalho 1
 - **Prazo:** 15/05/2026
-- **Status:** 85% concluído
+- **Status:** 100% concluído — entregue
 - **Entregáveis:** Relatório + Notebook + Scripts
+
+### Experimento V2: Sono Restaurador
+- **Prazo:** Pós-entrega do Trabalho 1
+- **Status:** Especificado, não executado
+- **Decisão:** Evolução metodológica separada da V1 oficial
 
 ### Trabalho 2: Sistema Híbrido ou Ensemble
 - **Prazo:** 03/07/2026
@@ -89,6 +95,8 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 | **Roadmap completo** | `.specs/project/ROADMAP.md` |
 | **Revisão estrutural do repo** | `.specs/project/REPO_CLEANUP_REVIEW.md` |
 | **Dicionário de dados** | `docs/DATA_DICTIONARY.md` |
+| **Reprodutibilidade assistida** | `docs/PROCESS_REPRODUCIBILITY.md` |
+| **ADR de processo assistido** | `docs/adr/0001-versionar-artefatos-processo-assistido.md` |
 | **Requisitos do Trabalho 1** | `.specs/features/trabalho-1/spec.md` |
 | **Spec V2 sono restaurador** | `.specs/features/experimento-v2-sono-restaurador/spec.md` |
 | **Tarefas e progresso** | `.specs/features/trabalho-1/tasks.md` |
@@ -124,7 +132,7 @@ python scripts/diagnose_model_limits.py
 
 | Bloqueio/Risco | Impacto | Mitigação |
 |---|---|---|
-| **Prazo curto** (15/05) | Alto | Focar em consolidar resultados, não em novos experimentos |
+| **Prazo do T1** (15/05) | Resolvido | Entrega concluída; manter registro como histórico |
 | **Subjetividade do alvo** | Médio | Justificar no relatório como limitação do dataset |
 | **GPU local limitada** | Baixo | Modelo já convergiu; ganhos adicionais têm retorno decrescente |
 

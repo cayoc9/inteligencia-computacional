@@ -124,7 +124,7 @@ Reúne em narrativa única:
 | Arquivo | Conteúdo | Status |
 |---|---|---|
 | `spec.md` | Requisitos (REQ-01 a REQ-05, MET-01 a MET-06) | ✅ Completo |
-| `tasks.md` | Tarefas T1-1 a T1-12 | 🟡 85% completo |
+| `tasks.md` | Tarefas T1-1 a T1-12 | ✅ Completo |
 | `log_execucao.md` | Log de execução | ✅ Documentado |
 | `relatorio_rodada_1.md` | Baseline: RF 74.15% vs RN 73.23% | ✅ Concluído |
 | `relatorio_rodada_2.md` | Otimização RN v2 | ✅ Concluído |
