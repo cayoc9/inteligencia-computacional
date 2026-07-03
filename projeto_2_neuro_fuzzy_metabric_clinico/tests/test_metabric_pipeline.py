@@ -1,8 +1,11 @@
 from breast_cancer_survival.data import load_raw_data, sanitize_data
+from breast_cancer_survival.ensemble import normalize_weights
 from breast_cancer_survival.evaluation import summarize_threshold_scenarios
+from breast_cancer_survival.explainability import build_calibration_table
 from breast_cancer_survival.features import add_clinical_features, split_features_target
 from breast_cancer_survival.fuzzy import build_fuzzy_features
 from breast_cancer_survival.models import build_model_registry
+from breast_cancer_survival.splits import make_holdout_split
 
 
 def test_metabric_sanitization_maps_target_and_required_columns():
@@ -54,3 +57,23 @@ def test_metabric_models_and_threshold_scenarios_are_available():
 
     scenarios = summarize_threshold_scenarios([0, 0, 1, 1], [0.1, 0.2, 0.7, 0.9])
     assert {"max_f2", "max_recall", "max_clinical_utility"} <= set(scenarios["scenario"])
+
+
+def test_metabric_holdout_split_creates_train_validation_test():
+    df = add_clinical_features(sanitize_data(load_raw_data()))
+    X, y = split_features_target(df, include_survival_months=False)
+    split = make_holdout_split(X, y)
+
+    assert len(split.X_train) + len(split.X_validation) + len(split.X_test) == len(X)
+    assert len(split.y_train) + len(split.y_validation) + len(split.y_test) == len(y)
+    assert len(split.X_validation) > 0
+    assert len(split.X_test) > 0
+
+
+def test_metabric_normalize_weights_and_calibration_helpers_work():
+    weights = normalize_weights({"lr": 0.3, "rf": 0.6, "et": 0.1})
+    assert round(sum(weights.values()), 6) == 1.0
+    assert weights["rf"] > weights["lr"] > weights["et"]
+
+    calibration = build_calibration_table([0, 0, 1, 1], [0.1, 0.2, 0.7, 0.9], model_name="demo")
+    assert {"model", "bin", "mean_predicted_probability", "observed_positive_rate"} <= set(calibration.columns)

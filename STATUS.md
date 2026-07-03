@@ -1,6 +1,6 @@
 # Status Executivo do Projeto
 
-**Última atualização:** 2026-07-02  
+**Última atualização:** 2026-07-03  
 **Disciplina:** Inteligência Computacional — UFPA 2026.1  
 **Grupo:** 5 alunos (conforme planilha da disciplina)
 
@@ -13,11 +13,11 @@
 | **Trabalho 1 (RF vs RN)** | ✅ **100% concluído** — entregue em 15/05/2026 |
 | **Projeto 1 / Trabalho 2 (GA-MLP)** | ✅ **implementado e validado** — EDA, baseline, GA-MLP completo, JSON/CSV e notebook único |
 | **Projeto 2 / Trabalho 2 (Breast Cancer SEER)** | ✅ **pipeline spec-driven corrigido** — EDA, dicionário, notebook, split treino-validacao-teste, ensemble validado, explicabilidade, estabilidade e neuro-fuzzy comparativo |
-| **Projeto 2 Fork (METABRIC clínico)** | ✅ **criado e validado** — dataset clínico melhor, features moleculares/tratamento, notebook próprio e pipeline completo |
+| **Projeto 2 v2 (METABRIC clínico)** | ✅ **evolução canônica validada** — dataset clínico melhor, pipeline completo, notebook próprio, explicabilidade, calibração e estabilidade |
 | **Prazo da segunda avaliação** | **03/07/2026** |
 | **Insight Projeto 1** | GA-MLP demonstra o híbrido, mas Random Forest foi superior no teste cego |
-| **Validação atual** | Projeto 2 SEER: 18/18 testes; pipeline completo e notebook executados |
-| **Próximos passos** | Redigir relatório final/PDF/apresentação com o Projeto 2 e reforçar estabilidade por sementes se houver tempo |
+| **Validação atual** | Projeto 2 SEER: 18/18 testes; Projeto 2 METABRIC: 7/7 testes; pipelines e notebooks executados |
+| **Próximos passos** | Consolidar relatório histórico único para apresentação, artigo LaTeX e áudio de repasse ao grupo |
 
 ---
 
@@ -84,9 +84,9 @@ Classificar risco de óbito observado (`Status = Dead`) a partir de variáveis c
 ### Resultados Principais Sem `Survival Months`
 | Modelo | Accuracy | Precision | Recall | F2 | PR AUC | Falsos Negativos |
 |---|---:|---:|---:|---:|---:|---:|
-| Logistic Regression | 0.6845 | 0.2686 | 0.6179 | 0.4903 | 0.3611 | 47 |
-| Random Forest | 0.7764 | 0.3034 | 0.3577 | 0.3454 | 0.2758 | 79 |
-| GradientBoosting | 0.8497 | 0.5357 | 0.1220 | 0.1442 | 0.3749 | 108 |
+| Logistic Regression | 0.6807 | 0.2641 | 0.6098 | 0.4832 | 0.3525 | 48 |
+| Random Forest | 0.7801 | 0.3151 | 0.3740 | 0.3605 | 0.2905 | 77 |
+| GradientBoosting | 0.8484 | 0.5152 | 0.1382 | 0.1619 | 0.3503 | 106 |
 | Ensemble ponderado (threshold 0.22 vindo da validação) | 0.5665 | 0.2271 | 0.7642 | 0.5188 | 0.3196 | 29 |
 | Neuro-fuzzy cooperativo | 0.8112 | 0.3505 | 0.2764 | 0.2886 | 0.3052 | 89 |
 
@@ -97,19 +97,20 @@ Classificar risco de óbito observado (`Status = Dead`) a partir de variáveis c
 4. **Explicabilidade, calibração e estabilidade já entram na defesa:** Logistic Regression ganhou artefatos de coeficientes, permutation importance, Brier score e curva de calibração; o projeto também tem resumo em 5 seeds para baseline e ensemble.
 5. **Neuro-fuzzy ficou como comparativo acadêmico**, não como modelo campeão: a fuzzificação manual + MLP não é ANFIS completo e teve recall baixo.
 
-### Fork METABRIC Clínico
+### Evolução METABRIC Clínica
 
 | Item | Resultado |
 |---|---|
 | Pasta | `projeto_2_neuro_fuzzy_metabric_clinico/` |
+| Feature canônica | `.specs/features/trabalho-2-breast-cancer-metabric/` |
 | Dataset | Kaggle `gunesevitan/breast-cancer-metabric` |
 | Tamanho bruto | 2.509 registros, 34 colunas |
 | Tamanho analítico | 1.876 registros após remover linhas sem alvo/tempo/features centrais |
-| Melhor modelo individual | GradientBoosting: F2 0.7696, recall 0.7860, PR AUC 0.7590 |
-| Melhor ponto operacional | Ensemble threshold 0.25: F2 0.8885, recall 0.9860, 3 falsos negativos |
+| Melhor modelo individual | GradientBoosting: F2 0.7787, recall 0.7953, PR AUC 0.7600 |
+| Melhor ponto operacional | Ensemble threshold 0.16: F2 0.8770, recall 0.9953, 1 falso negativo |
 | Notebook | `projeto_2_neuro_fuzzy_metabric_clinico/notebooks/projeto_2_metabric_clinico.ipynb` |
 
-Conclusão: o METABRIC clínico é mais adequado para melhoria contínua do Projeto 2 porque inclui tratamento, ER/PR/HER2, PAM50, NPI e mutation count. O SEER atual fica como baseline educacional corrigido.
+Conclusão: o METABRIC clínico é mais adequado para melhoria contínua do Projeto 2 porque inclui tratamento, ER/PR/HER2, PAM50, NPI e mutation count. O SEER atual fica como baseline educacional corrigido, enquanto a v2 METABRIC passa a ser a evolução canônica.
 
 ---
 
@@ -157,7 +158,7 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 
 ### Próximas Trilhas
 - [ ] **V2 sono restaurador:** executar experimento especificado em `.specs/features/experimento-v2-sono-restaurador/`
-- [x] **Trabalho 2:** spec, EDA, dicionário, notebook e pipeline executados em `projeto_2_neuro_fuzzy/`
+- [x] **Trabalho 2:** v1 SEER corrigido e v2 METABRIC canônica executados e auditados
 - [ ] **Opcional:** aprofundar análise de erro por ocupação/segmento ou SHAP se for útil para apresentação futura
 
 ---
@@ -198,9 +199,11 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 | **Tarefas e progresso** | `.specs/features/trabalho-1/tasks.md` |
 | **Relatórios de rodada** | `.specs/features/trabalho-1/relatorio_rodada_*.md` |
 | **Relatórios consolidados** | `reports/consolidados/` |
-| **Spec Trabalho 2** | `.specs/features/trabalho-2-breast-cancer/spec.md` |
+| **Spec Trabalho 2 v1** | `.specs/features/trabalho-2-breast-cancer/spec.md` |
+| **Spec Trabalho 2 v2** | `.specs/features/trabalho-2-breast-cancer-metabric/spec.md` |
 | **Spec Projeto 1 GA-MLP** | `.specs/features/projeto-1-genetico-neural/spec.md` |
 | **Checklist da avaliação** | `.specs/project/TRABALHO_2_AVALIACAO_CHECKLIST.md` |
+| **Review de boas práticas DS** | `.specs/project/TRABALHO_2_DATA_SCIENCE_BEST_PRACTICES_REVIEW.md` |
 | **Notebook Projeto 1 GA-MLP** | `projeto_1_genetico_neural/notebooks/projeto_1_genetico_neural_ga_mlp.ipynb` |
 | **Dicionário Projeto 2** | `projeto_2_neuro_fuzzy/docs/DATA_DICTIONARY.md` |
 | **Notebook Projeto 2** | `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb` |

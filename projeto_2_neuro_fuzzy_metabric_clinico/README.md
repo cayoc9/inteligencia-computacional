@@ -12,9 +12,13 @@ Prever `Overall Survival Status = Deceased` a partir de atributos clinicos, mole
 
 - `dataset/Breast Cancer METABRIC.csv`: dataset clinico baixado do Kaggle.
 - `docs/DATA_DICTIONARY.md`: dicionario de dados e politica de vazamento.
+- `docs/PROJECT_EXECUTION_SUMMARY.md`: resumo executivo do que foi implementado e validado.
 - `reports/tables/metadata_profile.csv`: metadados, nulos, cardinalidade e exemplos.
 - `reports/tables/model_comparison_no_leakage.csv`: modelos sem sobrevida como preditor.
-- `reports/tables/ensemble_summary.csv`: ensemble ponderado e threshold operacional.
+- `reports/tables/ensemble_validation_summary.csv`: threshold e pesos escolhidos na validacao.
+- `reports/tables/ensemble_test_summary.csv`: metricas finais no teste intocado.
+- `reports/tables/calibration_summary.csv`: comparativo de calibracao e Brier score.
+- `reports/tables/stability_summary.csv`: media/desvio por seed para baseline e ensemble.
 - `reports/relatorio_tecnico_projeto_2_metabric.md`: sintese tecnica do fork.
 - `notebooks/projeto_2_metabric_clinico.ipynb`: notebook narrativo do fork.
 
@@ -34,6 +38,8 @@ projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/02
 projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/03_train_models.py
 projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/04_threshold_and_ensemble.py
 projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/05_neuro_fuzzy_comparison.py
+projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/06_explainability.py
+projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/07_stability_analysis.py
 ```
 
 ## Validacao
@@ -45,6 +51,6 @@ projeto_2_neuro_fuzzy/.venv/bin/jupyter nbconvert --to notebook --execute projet
 
 ## Resultado principal
 
-Sem usar meses de sobrevida, o melhor modelo individual foi `gradient_boosting`: F2 0.7696, recall 0.7860, precision 0.7101 e PR AUC 0.7590.
+Sem usar meses de sobrevida, o melhor modelo individual foi `gradient_boosting`: F2 `0.7787`, recall `0.7953`, precision `0.7185` e PR AUC `0.7600`.
 
-O ensemble ponderado com threshold 0.25 chegou a F2 0.8885 e recall 0.9860, reduzindo falsos negativos para 3. Esse ponto aumenta falsos positivos para 121 e deve ser lido como cenario de alta sensibilidade.
+O ensemble agora segue `treino / validacao / teste`, com pesos e threshold congelados na validacao antes do reporte final. No teste intocado, o threshold `0.16` entregou recall `0.9953`, F2 `0.8770` e apenas `1` falso negativo, ao custo de `146` falsos positivos.

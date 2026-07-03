@@ -38,6 +38,8 @@
 - [x] Otimizações adicionais no pipeline SEER: novas features clínicas, imputação robusta, cenários de threshold e métricas de calibração/utilidade.
 - [x] Fork clínico METABRIC criado e validado em `projeto_2_neuro_fuzzy_metabric_clinico/`.
 - [x] Notebook próprio do fork METABRIC em `projeto_2_neuro_fuzzy_metabric_clinico/notebooks/projeto_2_metabric_clinico.ipynb`.
+- [x] Feature canônica da evolução METABRIC registrada em `.specs/features/trabalho-2-breast-cancer-metabric/`.
+- [x] Auditoria explícita de boas práticas de ciência de dados consolidada para SEER v1 e METABRIC v2.
 
 ## 📦 Phase 4: Documentação Final (Em andamento)
 - [x] Relatório Técnico Científico gerado em Markdown.

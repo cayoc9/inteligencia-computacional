@@ -72,7 +72,7 @@ Isso reforca a leitura principal do projeto: o ensemble tende a capturar mais ca
 
 Foi criado um fork em `projeto_2_neuro_fuzzy_metabric_clinico/` para aprendizado continuo com dataset clinico melhor. O METABRIC traz tratamento, biomarcadores e subtipo molecular, permitindo features mais ricas que o SEER atual.
 
-No METABRIC, sem usar meses de sobrevida, o melhor modelo individual foi `gradient_boosting`: accuracy 0.6941, precision 0.7101, recall 0.7860, F2 0.7696, PR AUC 0.7590 e 46 falsos negativos. O ensemble ponderado com threshold 0.25 chegou a recall 0.9860, F2 0.8885 e 3 falsos negativos, com 121 falsos positivos. Esse resultado confirma que o novo dataset e mais adequado para experimentacao de melhoria continua.
+No METABRIC, sem usar meses de sobrevida, o melhor modelo individual foi `gradient_boosting`: accuracy 0.7048, precision 0.7185, recall 0.7953, F2 0.7787, PR AUC 0.7600 e 44 falsos negativos. O ensemble corrigido, com threshold 0.16 escolhido na validacao, chegou a recall 0.9953, F2 0.8770 e 1 falso negativo, com 146 falsos positivos no teste. Esse resultado confirma que o novo dataset e mais adequado para experimentacao de melhoria continua e agora segue o mesmo padrao metodologico do SEER corrigido.
 
 ## Limites e trabalhos futuros
 

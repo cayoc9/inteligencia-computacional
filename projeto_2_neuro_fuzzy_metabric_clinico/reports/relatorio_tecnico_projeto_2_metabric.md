@@ -43,28 +43,41 @@ O fork adiciona features especificas do METABRIC:
 
 | Modelo | Accuracy | Precision | Recall | F2 | PR AUC | Falsos negativos |
 |---|---:|---:|---:|---:|---:|---:|
-| GradientBoosting | 0.6941 | 0.7101 | 0.7860 | 0.7696 | 0.7590 | 46 |
-| AdaBoost | 0.6649 | 0.6862 | 0.7628 | 0.7461 | 0.7300 | 51 |
-| SVM calibrado | 0.6729 | 0.7000 | 0.7488 | 0.7385 | 0.7247 | 54 |
-| HistGradientBoosting | 0.6755 | 0.7048 | 0.7442 | 0.7360 | 0.7664 | 55 |
-| ExtraTrees | 0.6729 | 0.7091 | 0.7256 | 0.7222 | 0.7536 | 59 |
-| Random Forest | 0.6649 | 0.7192 | 0.6791 | 0.6867 | 0.7585 | 69 |
-| MLP | 0.5984 | 0.6429 | 0.6698 | 0.6642 | 0.6751 | 71 |
-| Logistic Regression | 0.6410 | 0.7247 | 0.6000 | 0.6214 | 0.7241 | 86 |
+| GradientBoosting | 0.7048 | 0.7185 | 0.7953 | 0.7787 | 0.7600 | 44 |
+| AdaBoost | 0.6649 | 0.6831 | 0.7721 | 0.7525 | 0.7301 | 49 |
+| SVM calibrado | 0.6755 | 0.7031 | 0.7488 | 0.7392 | 0.7253 | 54 |
+| HistGradientBoosting | 0.6755 | 0.7048 | 0.7442 | 0.7360 | 0.7679 | 55 |
+| ExtraTrees | 0.6729 | 0.7150 | 0.7116 | 0.7123 | 0.7581 | 62 |
+| Random Forest | 0.6622 | 0.7157 | 0.6791 | 0.6861 | 0.7516 | 69 |
+| MLP | 0.6250 | 0.6637 | 0.6977 | 0.6906 | 0.7037 | 65 |
+| Logistic Regression | 0.6383 | 0.7182 | 0.6047 | 0.6244 | 0.7243 | 85 |
 
 ## Ensemble e threshold
 
-O ensemble ponderado escolheu threshold 0.25:
+O ensemble do fork foi corrigido para usar `treino / validacao / teste`, com pesos e threshold definidos na validacao e metricas finais reportadas no teste intocado.
 
-- accuracy: 0.6702
-- precision: 0.6366
-- recall: 0.9860
-- F2: 0.8885
-- PR AUC: 0.7621
-- falsos negativos: 3
-- falsos positivos: 121
+O ensemble ponderado escolheu threshold 0.16 na validacao:
+
+- accuracy: 0.6090
+- precision: 0.5944
+- recall: 0.9953
+- F2: 0.8770
+- PR AUC: 0.7586
+- falsos negativos: 1
+- falsos positivos: 146
 
 Esse e um ponto operacional de alta sensibilidade. Ele e util para discutir trade-off clinico, mas nao deve ser vendido como melhoria universal porque aumenta falsos positivos.
+
+## Explicabilidade, calibracao e robustez
+
+O fork agora tambem produz:
+
+- coeficientes e ranking da Logistic Regression;
+- permutation importance do baseline linear;
+- curvas de calibracao e Brier score;
+- analise curta de estabilidade por 5 seeds para Logistic Regression e ensemble.
+
+Esses artefatos colocam o METABRIC no mesmo patamar metodologico do SEER corrigido, com a diferenca de usar um dataset clinico mais forte.
 
 ## Neuro-fuzzy
 
