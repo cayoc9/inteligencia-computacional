@@ -23,6 +23,11 @@
 17. **Resultado METABRIC**: No fork clinico, o melhor modelo individual sem `survival_months` foi GradientBoosting com F2 0.7787, recall 0.7953 e PR AUC 0.7600. O ensemble corrigido com threshold 0.16, selecionado na validacao, atingiu F2 0.8770 e recall 0.9953 no teste, com 1 falso negativo e 146 falsos positivos.
 18. **Evolucao Canonica do Projeto 2**: A trilha `projeto_2_neuro_fuzzy_metabric_clinico/` deixou de ser apenas um fork exploratorio e passou a ser a evolucao canonica v2 do Projeto 2, com fonte TLC propria em `.specs/features/trabalho-2-breast-cancer-metabric/`. O SEER permanece como baseline corrigido e historicamente importante.
 19. **Boas Praticas de Ciencia de Dados Validadas**: O Trabalho 2 atingiu completude metodologica suficiente em contrato de dados, EDA, leakage policy, split treino/validacao/teste, tuning sem contaminacao do teste, explicabilidade, calibracao, estabilidade minima, reproducibilidade e documentacao viva. Pendencias restantes ficam no eixo de aprofundamento, nao no nucleo metodologico.
+20. **Relatorio Historico com Loops Professorais**: A proxima fase canonica do Trabalho 2 sera conduzida por `.specs/features/trabalho-2-relatorio-historico/`, com subetapas iterativas de revisao critica em cada fase. Cada etapa precisa responder perguntas de banca antes de ser considerada fechada.
+21. **Relatorio Tecnico Final Consolidado do Projeto 2**: Foi materializado em `reports/consolidados/relatorio-final-trabalho-2-breast-cancer.md` como versao curta e defensavel para leitura final, separando baseline SEER corrigido de trilha canonica METABRIC.
+22. **NotebookLM via CLI como caminho canonico**: Para a etapa final de audio, o fluxo correto passou a ser a CLI `notebooklm`, nao a automacao de navegador. O notebook final do Trabalho 2 ficou no ID `22e638a3-d0ca-447e-8a02-45b0d942865e`, com 7 fontes finais e 12 audios disparados.
+23. **Template do Artigo Derivado de Sleep_Health**: O modelo `docs/template/Sleep_Health/` virou referencia real de implementacao do artigo. Foi criada a pasta `docs/template/Trabalho_2_Breast_Cancer/` com `main.tex` inicial em formato IEEE.
+24. **Compilacao do Artigo Reproduzida**: O `main.tex` do artigo do Projeto 2 foi compilado com sucesso via `xelatex` em container `danteev/texlive`, gerando `docs/template/Trabalho_2_Breast_Cancer/artigo_final_trabalho_2.pdf`. Isso replica o padrao de reproducao usado na sessao anterior.
 
 ## 🚧 Blockers / Limitations
 - **Overfitting Evolutivo (Projeto 1)**: O dataset muito pequeno (299 linhas) causou a memorização dos dados de validação pelo AG, fazendo o F1 cair no teste cego. (Mitigado pela seção "Trabalhos Futuros" no relatório, propondo K-fold no fitness function).
@@ -31,7 +36,11 @@
 - **Trade-off Atualizado do Ensemble SEER**: A versao metodologicamente corrigida escolheu threshold 0.22 na validacao e reportou no teste 29 falsos negativos e 320 falsos positivos. O ganho continua sendo operacional/sensibilidade, nao discriminacao global.
 - **Trade-off do Ensemble METABRIC**: O threshold 0.16, escolhido na validacao, reduziu falsos negativos para 1 no fork clinico, mas manteve 146 falsos positivos. Deve ser apresentado como cenario de alta sensibilidade.
 - **Vazamento por `Survival Months` (Projeto 2)**: A analise de sensibilidade com `Survival Months` melhora metricas, mas nao deve ser vendida como predicao sem follow-up.
-- **Pendencia de Apresentacao/Relato Final**: O pipeline tecnico do Trabalho 2 esta executado, mas ainda resta consolidar narrativa historica final para apresentacao, PDF, artigo LaTeX e audio de repasse com comparacao SEER vs METABRIC.
+- **Pendencia de Apresentacao/Relato Final**: O pipeline tecnico, relatorio consolidado, pacote NotebookLM e artigo-base estao materializados. Ainda falta converter o roteiro em slides finais e distribuir o tempo de fala por integrante.
+- **Compilacao LaTeX Validada em Container**: O artigo foi compilado com sucesso via `xelatex` no container `danteev/texlive`, gerando `docs/template/Trabalho_2_Breast_Cancer/artigo_final_trabalho_2.pdf`.
+- **Audios NotebookLM Concluidos**: Os 12 audios do notebook `22e638a3-d0ca-447e-8a02-45b0d942865e` foram gerados e aparecem como `completed`.
+- **Fechamento final ainda depende de curadoria humana**: Ainda faltam revisao final de emails/autoria no Overleaf, escolha visual dos graficos/tabelas, revisao das referencias finais e validacao do pacote de defesa.
+- **Ajustes editoriais do artigo ainda pendentes**: O PDF compila e ja possui autores e bibliografia inicial, mas ainda precisa de revisao fina de metadados bibliograficos, figuras/tabelas finais e adequacao ao limite/formato da entrega.
 
 ## 💡 Lessons Learned
 - Sistemas híbridos não são garantias de ganho de performance. O Projeto 2 provou empiricamente que injetar regras heurísticas "amadoras" (Funções Triangulares sem oncologista) pode prejudicar severamente uma Rede Neural pura.
@@ -41,3 +50,5 @@
 - Trocar para um dataset clinico mais rico pode melhorar o teto de aprendizado mais do que insistir em modelos complexos no dataset limitado. O METABRIC superou o SEER porque inclui tratamento, biomarcadores e subtipo molecular.
 - Para a segunda avaliação, a qualidade do Projeto 1 depende menos de "ganhar" do baseline e mais de explicar corretamente a arquitetura híbrida, a comunicação GA -> MLP, o resultado frente a baseline simples e as limitações metodológicas.
 - No Projeto 1, o GA-MLP completo não superou a Random Forest: F1 0.5000 contra 0.7059 e recall 0.3684 contra 0.6316. Isso deve ser apresentado como evidência de que o hibrido foi metodologicamente válido, mas o dataset pequeno favoreceu o modelo de árvores.
+- Para NotebookLM, quando a necessidade deixa de ser apenas interface e vira pipeline reproduzivel de fontes, artefatos e status, a CLI/API e mais confiavel que browser automation.
+- Para LaTeX, quando o ambiente local nao tem `pdflatex`, compilar via container `xelatex` e o caminho mais fiel ao padrao de reproducao da sessao anterior.

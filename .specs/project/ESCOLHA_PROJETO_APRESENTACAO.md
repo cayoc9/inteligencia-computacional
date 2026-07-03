@@ -126,7 +126,7 @@ Mensagem central:
 
 > Em um problema medico desbalanceado, a escolha do sistema depende do custo do erro. O ensemble com threshold ajustado explorou um ponto de alta sensibilidade, reduzindo falsos negativos de forma agressiva, mas aceitando muitos falsos positivos. O neuro-fuzzy foi mantido como comparativo de sistema hibrido, mas os resultados mostram que regras fuzzy manuais sem calibragem especialista podem piorar o desempenho clinico.
 
-Ponto critico: na versao atual, pesos e threshold do ensemble foram escolhidos no mesmo conjunto reservado usado para reporte. Portanto, se nao houver tempo para corrigir com split de validacao, o ensemble deve ser apresentado como **analise exploratoria de ponto operacional**, nao como estimativa final independente.
+Ponto critico historico: na versao anterior, pesos e threshold do ensemble foram escolhidos no mesmo conjunto reservado usado para reporte. Esse problema foi corrigido na trilha final com separacao treino/validacao/teste; portanto, a defesa atual deve enfatizar que pesos e threshold sao escolhidos na validacao e o teste fica reservado para reporte final.
 
 ## Recomendacao
 

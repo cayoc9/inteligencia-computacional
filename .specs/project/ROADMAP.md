@@ -49,6 +49,17 @@
 - [x] Relatório de execução do Trabalho 2 em `.specs/features/trabalho-2-breast-cancer/relatorio_execucao.md`.
 - [x] Relatório técnico do fork METABRIC em `projeto_2_neuro_fuzzy_metabric_clinico/reports/relatorio_tecnico_projeto_2_metabric.md`.
 - [x] Checklist de aderência à segunda avaliação em `.specs/project/TRABALHO_2_AVALIACAO_CHECKLIST.md`.
+- [x] Review de boas práticas de ciência de dados em `.specs/project/TRABALHO_2_DATA_SCIENCE_BEST_PRACTICES_REVIEW.md`.
+- [x] Feature TLC do relatório histórico canônico registrada em `.specs/features/trabalho-2-relatorio-historico/`.
+- [x] Relatório técnico final consolidado do Projeto 2 em `reports/consolidados/relatorio-final-trabalho-2-breast-cancer.md`.
+- [x] Roteiro final de apresentação do Projeto 2 em `reports/consolidados/roteiro-final-apresentacao-trabalho-2.md`.
+- [x] Pacote NotebookLM do Projeto 2 com fontes e prompts numerados em `reports/consolidados/notebooklm-trabalho-2/`.
+- [x] Notebook final do Trabalho 2 criado via CLI `notebooklm` com 12 audios concluidos.
+- [x] Template inicial do artigo adaptado a partir de `docs/template/Sleep_Health/` para `docs/template/Trabalho_2_Breast_Cancer/`.
+- [x] PDF do artigo reproduzido via `xelatex` em container e salvo como `docs/template/Trabalho_2_Breast_Cancer/artigo_final_trabalho_2.pdf`.
 - [ ] Relatório técnico do Projeto 1 revisado com base na spec `projeto-1-genetico-neural`.
-- [ ] Geração do arquivo PDF final.
+- [ ] Revisão final do artigo no Overleaf com emails, metadados bibliograficos, figuras/tabelas e limite de paginas.
+- [x] Geração do PDF base do artigo.
+- [ ] Conversão do roteiro em slides finais.
+- [ ] Conferência qualitativa dos audios NotebookLM concluídos e definição da ordem de escuta.
 - [ ] Apresentação/Defesa.

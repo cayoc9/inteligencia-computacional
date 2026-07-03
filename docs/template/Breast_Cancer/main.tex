@@ -1,0 +1,161 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{url}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\begin{document}
+
+\title{Breast Cancer Mortality Risk Classification:\\
+Methodological Correction on SEER and Canonical Evolution to METABRIC}
+
+\author{
+\IEEEauthorblockN{Cayo Murilo Pereira Figueiredo}
+\IEEEauthorblockA{
+  \textit{Federal University of Par\'{a} (UFPA)}\\
+  Bel\'{e}m, Brazil\\
+  cayomurilo09@gmail.com}
+\and
+\IEEEauthorblockN{Ryan Carlos Reis de Oliveira}
+\IEEEauthorblockA{
+  \textit{Federal University of Par\'{a} (UFPA)}\\
+  Bel\'{e}m, Brazil\\
+  ryan.oliveira@itec.ufpa.br}
+\and
+\IEEEauthorblockN{Wesley Rodrigues Heringer}
+\IEEEauthorblockA{
+  \textit{Federal University of Par\'{a} (UFPA)}\\
+  Bel\'{e}m, Brazil\\
+  wesley.heringer@itec.ufpa.br}
+\and
+\IEEEauthorblockN{Oscar Bruno Maciel de Abreu}
+\IEEEauthorblockA{
+  \textit{Federal University of Par\'{a} (UFPA)}\\
+  Bel\'{e}m, Brazil\\
+  oscarbma@gmail.com}
+\and
+\IEEEauthorblockN{Vitor Crdovil Padilha}
+\IEEEauthorblockA{
+  \textit{Federal University of Par\'{a} (UFPA)}\\
+  Bel\'{e}m, Brazil\\
+  padilha.engtelecom@gmail.com}
+}
+
+\maketitle
+
+\begin{abstract}
+This paper presents the final version of Project 2 for the Computational Intelligence course, focused on supervised classification of mortality outcome in breast cancer datasets using tabular machine learning, a weighted ensemble strategy, and a neuro-fuzzy comparative component. The work evolved through two connected tracks. First, the original SEER-based implementation was methodologically corrected by removing leakage-prone variables, formalizing the train/validation/test protocol, and rebuilding the exploratory and feature engineering stages. Second, the project was extended to a clinically richer METABRIC-based track, allowing stronger feature engineering, better alignment with the target problem, and substantially improved predictive performance. The main result is not merely a better score, but a more defensible scientific workflow: the SEER track is retained as a corrected educational baseline, while the METABRIC track becomes the canonical version of the project. Results show that the weighted ensemble is best interpreted as a high-sensitivity operational point, whereas the neuro-fuzzy model plays a valid academic comparative role but does not outperform the strongest tabular baselines.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Computational Intelligence, Breast Cancer, Ensemble Learning, Neuro-Fuzzy, Tabular Classification, METABRIC, SEER
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Computational Intelligence projects in health require more than model training. They demand coherent problem framing, explicit leakage policy, defensible validation, and a careful interpretation of trade-offs. In this work, the selected problem is the classification of mortality outcome in breast cancer based on clinical tabular data, within the scope of a course requirement involving hybrid or ensemble intelligent systems. The framing is aligned with the current literature on breast-cancer survival prediction, which still reports technical pitfalls and uneven clinical feasibility in machine-learning pipelines~\cite{alsharif2021,feasibility2022}.
+
+The project evolved in two stages. The first one corrected the original SEER-based implementation, which had methodological weaknesses related to feature leakage and decision-making contaminated by test-set feedback. The second stage introduced a canonical version based on the METABRIC dataset, chosen for its stronger clinical depth and better support for feature engineering.
+
+The main contributions of this paper are threefold: (i) a methodological correction of the original baseline, (ii) a comparative analysis between a limited dataset and a clinically richer one under the same evaluation discipline, and (iii) an explicit discussion of the role and limitations of a weighted ensemble and a cooperative neuro-fuzzy comparator in this context.
+
+\section{Problem Definition and Datasets}
+
+\subsection{Target Problem}
+
+The corrected objective of the project is to predict observed mortality class without using survival time as a direct predictive shortcut. In the SEER track, the positive class is \texttt{Status = Dead}. In the METABRIC track, the positive class is \texttt{Overall Survival Status = Deceased}. In both cases, the target is treated as a supervised binary classification problem.
+
+\subsection{Original Methodological Issue}
+
+The original implementation used \texttt{Survival Months} as an input feature to predict mortality status. This is problematic because it injects post-outcome follow-up information into the model, distorting the scientific question. A second issue was the weak separation between model selection and final evaluation when discussing the ensemble. Both issues were corrected by removing leakage-prone variables from the main model and adopting an explicit train/validation/test protocol.
+
+\subsection{SEER Track}
+
+The corrected SEER track uses 4,023 analytical records after sanitation. It serves as an educational baseline because it enables reconstruction of the full pipeline, including data contract revision, exploratory analysis, feature engineering, and operational threshold analysis. However, it remains limited in clinical depth and biomarker richness.
+
+\subsection{METABRIC Track}
+
+The canonical METABRIC track uses 1,876 analytical records from the Kaggle version of the METABRIC dataset. It was selected because it includes treatment variables, receptor information (ER, PR, HER2), molecular subtype information such as PAM50, Nottingham Prognostic Index, and mutation-related variables. These attributes make the dataset substantially more suitable for continuous improvement and more defensible feature engineering in a computational intelligence setting. The METABRIC cohort was originally introduced as a large-scale integrated genomic and transcriptomic resource that revealed novel breast-cancer subgroups and supported downstream prognostic analyses~\cite{curtis2012,metabricportal}.
+
+\section{Materials and Methods}
+
+\subsection{Data Policy and Exploratory Analysis}
+
+Both tracks were rebuilt under the same methodological discipline: centralized sanitation, data dictionary construction, metadata-aware exploratory analysis, relationship mapping, leakage policy enforcement, and reproducible train/validation/test separation. This restructuring was essential because it transformed the project from a model-centric exercise into a scientifically traceable workflow.
+
+\subsection{Feature Engineering}
+
+In the SEER track, feature engineering focused on clinically interpretable derived variables such as node burden, receptor-related simplifications, and stage aggregation indicators. In the METABRIC track, feature engineering was expanded to include tumor burden proxies, nodal burden structure, treatment exposure flags, molecular profile combinations, clinical discretizations, and fuzzy-oriented attributes used in the neuro-fuzzy comparison.
+
+\subsection{Models}
+
+The project compared multiple tabular learners, including Logistic Regression, Random Forest, ExtraTrees, Gradient Boosting variants, calibrated SVM, AdaBoost, and MLP. On top of these, a weighted ensemble was constructed and tuned on validation data only. A cooperative neuro-fuzzy comparator based on manual fuzzification plus MLP was also retained for academic coherence with the course theme. Ensemble learning is consistent with prior breast-cancer prognostic studies that report gains when the validation protocol is controlled and the prediction task is framed as a structured survival problem~\cite{ensemble2010,ensemble2022}.
+
+\subsection{Evaluation Strategy}
+
+Because the problem is imbalanced and false negatives are important, the primary metrics were recall, F2-score, PR AUC, and false negatives. Accuracy was kept only as a secondary descriptive metric. Additional validation layers included calibration curves, Brier score, permutation importance, and seed-based stability analysis.
+
+\section{Results}
+
+\subsection{Corrected SEER Results}
+
+The best individual baseline in the corrected SEER track was Logistic Regression, with accuracy 0.6807, precision 0.2641, recall 0.6098, F2-score 0.4832, and PR AUC 0.3525. The best operational ensemble point, selected on validation with threshold 0.22, achieved recall 0.7642 and F2-score 0.5188, reducing false negatives from 48 to 29, at the cost of increasing false positives to 320.
+
+This result should be interpreted carefully. The ensemble was not the globally best discriminator in the SEER track. Instead, it represented an aggressive sensitivity-oriented operating point.
+
+\subsection{Canonical METABRIC Results}
+
+In the METABRIC track, the best individual baseline was Gradient Boosting, with accuracy 0.7048, precision 0.7185, recall 0.7953, F2-score 0.7787, and PR AUC 0.7600. The weighted ensemble, with validation-selected threshold 0.16, reached recall 0.9953, F2-score 0.8770, and only one false negative, while increasing false positives to 146.
+
+The canonical result is therefore much stronger than the SEER track not only in terms of headline performance, but also in terms of problem realism and feature support.
+
+\subsection{Neuro-Fuzzy Comparative Role}
+
+The neuro-fuzzy model did not outperform the strongest tabular baselines in either track. In the SEER version it reached F2-score 0.2886 and recall 0.2764. In the METABRIC version it improved to F2-score 0.6548 and recall 0.6512, but still remained below the best ensemble and best tabular baselines. Its value in this project is comparative and pedagogical rather than performance-leading.
+
+\section{Discussion}
+
+The project demonstrates that methodological correction can be more important than adding model complexity. Removing leakage and rebuilding the validation logic increased the credibility of the work immediately. The second major lesson is that dataset quality strongly conditions the ceiling of a computational intelligence project. The transition from SEER to METABRIC created larger gains than would likely be obtained by repeatedly tuning models on the weaker dataset.
+
+The ensemble should not be oversold. In both tracks, it is better interpreted as a high-sensitivity operational configuration than as a universally superior classifier. This distinction is important for oral defense, because it shows that the project understands the trade-off between recall and false positives rather than hiding it.
+
+Finally, the neuro-fuzzy component should be defended precisely. It is not a full ANFIS implementation. It is a cooperative neuro-fuzzy approach with manual fuzzification and neural classification, retained because it aligns with the course theme and supports methodological comparison. Explainability is not optional here: recent breast-cancer XAI reviews argue that interpretability is part of clinical trust, not an accessory~\cite{xai2024,feasibility2022}.
+
+\section{Limitations}
+
+This work has clear limitations. First, both tracks rely on public datasets rather than external clinical validation. Second, the problem remains framed as binary classification rather than formal survival analysis. Third, the neuro-fuzzy implementation is not a complete ANFIS system. Fourth, the comparison between SEER and METABRIC is useful pedagogically, but the datasets are heterogeneous and should not be treated as a direct benchmark pair in a strict clinical sense.
+
+\section{Conclusion}
+
+The final state of Project 2 is not simply a better score on a second dataset. It is the consolidation of a more rigorous computational intelligence workflow. The corrected SEER track remains valuable as a methodological baseline, while the METABRIC track becomes the canonical version because it better supports the project objective, richer feature engineering, and stronger scientific defense.
+
+Future work includes formal survival modeling, local explainability analysis, broader repeated-validation protocols, and external validation on clinically closer cohorts.
+
+\begin{thebibliography}{00}
+\bibitem{curtis2012} C. Curtis \textit{et al.}, ``The genomic and transcriptomic architecture of 2,000 breast tumours reveals novel subgroups,'' \textit{Nature}, vol. 486, no. 7403, pp. 346--352, 2012.
+\bibitem{metabricportal} cBioPortal, ``Breast Cancer (METABRIC, Nature 2012 \& Nat Commun 2016),'' accessed Jul. 3, 2026.
+\bibitem{ensemble2010} M. M. Chaurasia and S. Pal, ``An ensemble machine learning approach to predict survival in breast cancer,'' \textit{Journal of Statistical Computation and Simulation}, 2010.
+\bibitem{ensemble2022} A. R. et al., ``A machine learning ensemble approach for 5- and 10-year breast cancer survival prediction,'' \textit{Computers in Biology and Medicine}, 2022.
+\bibitem{xai2024} S. A. et al., ``Explainable artificial intelligence in breast cancer detection and risk prediction: a systematic scoping review,'' 2024.
+\bibitem{feasibility2022} T. M. et al., ``An assessment of the predictive performance of current machine learning-based breast cancer risk prediction models,'' \textit{Breast Cancer Research}, 2022.
+\bibitem{alsharif2021} S. Alsharif \textit{et al.}, ``Predicting breast cancer 5-year survival using machine learning: a systematic review,'' 2021.
+\end{thebibliography}
+
+\end{document}

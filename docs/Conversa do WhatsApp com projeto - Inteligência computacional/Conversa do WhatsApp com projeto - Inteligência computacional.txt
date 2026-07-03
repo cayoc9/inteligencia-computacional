@@ -1,0 +1,426 @@
+08/04/2026 20:39 - As mensagens e ligações são protegidas com a criptografia de ponta a ponta. Somente as pessoas que fazem parte da conversa podem ler, ouvir e compartilhar esse conteúdo. *Saiba mais*
+08/04/2026 20:39 - Você criou este grupo
+08/04/2026 20:39 - ‎Ryan Reis (PPGEE) foi adicionado(a)
+08/04/2026 20:41 - Você adicionou Vitor Padilha (PPGEE), Wesley (PPGEE e Wherbert (PPGEE)
+08/04/2026 20:43 - Você removeu Wherbert (PPGEE)
+08/04/2026 20:44 - Cayo Murilo: faltou só o obma entrar, mandei o convite pra ele
+08/04/2026 20:44 - Cayo Murilo: quem de voces foi na primeira aula?
+08/04/2026 20:44 - Cayo Murilo: eu estava em uma viagem de trabalho
+08/04/2026 20:46 - Vitor Padilha (PPGEE): Eu fui
+08/04/2026 20:47 - Vitor Padilha (PPGEE): ela explicou bem basicamente, mas tudo que ela quer está descrito no enunciado do trabalho, precisamos escolher um dataset para poder trabalhar com a IA
+08/04/2026 20:47 - Vitor Padilha (PPGEE): treinar a IA com o que ela vai ensinar basicamente
+08/04/2026 20:49 - Cayo Murilo: blz, eu recebi um concelho do kleber, um doutorando do laboratorio, que ela gosta de projetos relacionados a saude, eu tenho experiencia com essa area
+se toparem podemos ir por esse caminho
+08/04/2026 21:12 - Vitor Padilha (PPGEE): opa por mim tranquilo, tem um amigo que cursou essa materia com ela semestre passado, posso verificar se ele tem algum material
+08/04/2026 21:32 - Cayo Murilo: pode ser, uma boa
+08/04/2026 21:39 - Wesley (PPGEE: Pessoal tem grupo de wpp da sala ?
+08/04/2026 21:39 - Wesley (PPGEE: Toda tbm
+08/04/2026 21:39 - Wesley (PPGEE: Eu faltei na aula anterior pois estava enfermo
+08/04/2026 21:52 - Cayo Murilo: https://chat.whatsapp.com/GkdnyezpqU3DGsUt96Pl5G?mode=gi_t
+08/04/2026 21:57 - ‎obma (PPGEE) entrou usando seu convite
+08/04/2026 22:02 - Cayo Murilo: [20:47, 08/04/2026] Vitor Padilha (PPGEE): ela explicou bem basicamente, mas tudo que ela quer está descrito no enunciado do trabalho, precisamos escolher um dataset para poder trabalhar com a IA
+[20:47, 08/04/2026] Vitor Padilha (PPGEE): treinar a IA com o que ela vai ensinar basicamente
+[20:49, 08/04/2026] Cayo Murilo: blz, eu recebi um concelho do kleber, um doutorando do laboratorio, que ela gosta de projetos relacionados a saude, eu tenho experiencia com essa area
+se toparem podemos ir por esse caminho
+[21:12, 08/04/2026] Vitor Padilha (PPGEE): opa por mim tranquilo, tem um amigo que cursou essa materia com ela semestre passado, posso verificar se ele tem algum material
+08/04/2026 22:03 - Cayo Murilo: @⁨obma (PPGEE)⁩  tivemos essa conversa antes de voce entrar
+tudo bem pra voce irmos pelo nicho de saude? <Mensagem editada>
+08/04/2026 22:06 - obma (PPGEE): Boa noite senhores,
+08/04/2026 22:06 - obma (PPGEE): Sem problema. Vamos pra cima!
+08/04/2026 22:07 - obma (PPGEE): Já preencheram a planilha? Vou dar uma olhada no dataset escolhido
+08/04/2026 22:08 - Cayo Murilo: Ainda não, não consegui parar ainda pra ver com calma
+Se quiserem adiantar os próximos passos, sem problemas
+09/04/2026 09:15 - Wesley (PPGEE: Bom dia
+09/04/2026 09:15 - Wesley (PPGEE: Qual planilha ?
+09/04/2026 09:22 - obma (PPGEE): https://docs.google.com/spreadsheets/d/1rjfw7Ka0-Z0UlldbNWZyk7f_iM_FhmAg/edit?gid=428383271#gid=428383271
+09/04/2026 16:54 - Vitor Padilha (PPGEE): Amigos nossos nomes ainda não estão na planilha, dei uma olhada rápida e pedi pro chat algum dataset relacionado a saude no kagle e ele me retornou este tema: Classificar se o paciente apresenta ou não indícios de doença cardíaca com base em atributos clínicos.
+09/04/2026 16:55 - Vitor Padilha (PPGEE): https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset
+09/04/2026 16:56 - Vitor Padilha (PPGEE): Vou logo colocar nossos nomes e depois colocamos o dataset escolhido
+09/04/2026 16:56 - Vitor Padilha (PPGEE): na planilha
+09/04/2026 16:56 - Cayo Murilo: Oi vitor, show d bola
+obrigado
+09/04/2026 16:56 - Cayo Murilo: pode colocar nossos nomes
+09/04/2026 16:56 - Cayo Murilo: vou olhe esse dataset, estou no kagle aqui tambem vendo alguns
+09/04/2026 16:56 - Vitor Padilha (PPGEE): me mandem nome e sobrenome por favor
+09/04/2026 16:56 - Cayo Murilo: assim que terminar uma reuniao vou olhar la
+09/04/2026 16:57 - Cayo Murilo: Cayo Murilo
+Vitor Padilha
+Ryan Reis
+Obma
+Wesley
+09/04/2026 16:58 - Vitor Padilha (PPGEE): valeu
+09/04/2026 16:58 - obma (PPGEE): Oscar Abreu
+09/04/2026 17:00 - Ryan Reis (PPGEE): O dataset vai ser esse mesmo ?
+09/04/2026 17:00 - Vitor Padilha (PPGEE): ainda não, podemos escolher outro se quiserem
+09/04/2026 17:00 - Vitor Padilha (PPGEE): dei uma sugestão
+09/04/2026 17:00 - Ryan Reis (PPGEE): Ok
+09/04/2026 17:00 - Ryan Reis (PPGEE): Eu tinha feito um
+09/04/2026 17:00 - Ryan Reis (PPGEE): Sobre câncer de mama
+09/04/2026 17:01 - Ryan Reis (PPGEE): Em IC mesmo, com ela, durante a graduação
+09/04/2026 17:01 - Wesley (PPGEE: Vou incluir agora mesmo
+09/04/2026 17:01 - Ryan Reis (PPGEE): Já tá lá
+09/04/2026 17:02 - Wesley (PPGEE: Wesley Heringer
+09/04/2026 19:14 - Cayo Murilo: Eu achei esse aqui que ta muito bom pra gente usar: https://www.kaggle.com/datasets/mohankrishnathalla/sleep-health-and-daily-performance-dataset
+09/04/2026 19:15 - Cayo Murilo: otimo volume de dados, bom conjunto de features e metadados ricos
+09/04/2026 19:15 - Cayo Murilo: estou vendo alguma outras opçoes mas esse é uma dos melhores que vi
+09/04/2026 19:18 - Cayo Murilo: sao duas boas opçoes
+09/04/2026 19:44 - Vitor Padilha (PPGEE): Cara por mim o que escolherem está ótimo
+09/04/2026 19:45 - Cayo Murilo: to rodando uma analise na minha IA aqui pra comprar eles e vao qual o melhor pro case do trablho
+09/04/2026 19:49 - Wesley (PPGEE: Cara já é usuário avançado
+09/04/2026 19:52 - Vitor Padilha (PPGEE): Hehe perfeito depois avisa nós pra gente ir vendo como faz
+09/04/2026 19:53 - Wesley (PPGEE: Com certeza pessoal
+09/04/2026 20:04 - Cayo Murilo: vamo nesse mesmo
+09/04/2026 20:04 - Cayo Murilo: <Mídia oculta>
+resumo da analise comparativa
+09/04/2026 20:14 - Cayo Murilo: pronto, preenchido
+Modelos de Classificação para Predição de Qualidade do Sono e Risco de Transtornos do Sono
+www.kaggle.com/datasets/mohankrishnathalla/sleep-health-and-daily-performance-dataset
+09/04/2026 20:14 - Cayo Murilo: todos de acordo?
+09/04/2026 20:16 - obma (PPGEE): Sim
+09/04/2026 20:21 - Vitor Padilha (PPGEE): Por mim sim
+09/04/2026 22:52 - Cayo Murilo: pessoal, que horas começa a aula amanha e em qual sala?
+09/04/2026 22:55 - Ryan Reis (PPGEE): Bacana
+09/04/2026 22:56 - Ryan Reis (PPGEE): Sim
+09/04/2026 22:56 - Ryan Reis (PPGEE): Aula começa 8:20 no PGITEC 02
+09/04/2026 23:03 - Cayo Murilo: Show, vlw
+09/04/2026 23:30 - Wesley (PPGEE: Vai ter aula normal amanhã ??
+09/04/2026 23:30 - Cayo Murilo: Até então, sim
+08/05/2026 08:38 - Cayo Murilo: Bom dia pessoal 
+Já comecei a fazer as análises, fiz a análise exploratória, derivei umas features e fiz a random forest
+08/05/2026 08:38 - Cayo Murilo: Ainda vou finalizar
+08/05/2026 08:39 - Cayo Murilo: Depois passos um detalhamento maior e podemos reunir pra mostrar pra vocês
+08/05/2026 08:40 - Wesley (PPGEE: show de bola
+08/05/2026 08:40 - Wesley (PPGEE: valeu Cayo!!!
+08/05/2026 08:48 - Cayo Murilo: 🧠 Resultados da Rede Neural (T1-6/7/8):
+   * Arquitetura: Implementada uma MLP com 3 camadas densas (64, 32, 16 neurônios) e Dropout para regularização.
+   * Acurácia: 73.23%.
+   * Poder de Discriminação (AUC-ROC): 0.81.
+   * Comportamento de Treino: O modelo utilizou EarlyStopping, interrompendo o treino na época 24, pois a perda de validação parou de cair. Isso evitou o overfitting.
+08/05/2026 08:48 - Cayo Murilo: <Mídia oculta>
+08/05/2026 08:51 - Ryan Reis (PPGEE): Blz mano, valeu
+08/05/2026 09:00 - Vitor Padilha (PPGEE): Top irmão,nem vou poder ir pra aula hoje, ela iria confirmar hoje se vai manter a data da apresentação ou não
+08/05/2026 09:01 - Vitor Padilha (PPGEE): Precisamos fazer as outras coisas também
+08/05/2026 09:01 - Vitor Padilha (PPGEE): De escrever artigo e fazer uma apresentação em slide
+08/05/2026 09:02 - Vitor Padilha (PPGEE): Vamos marcar essa reunião
+08/05/2026 09:15 - Cayo Murilo: Vamos sim
+08/05/2026 10:14 - obma (PPGEE): Pelo meet?
+08/05/2026 11:30 - Cayo Murilo: Sim
+08/05/2026 11:20 - Vitor Padilha (PPGEE): Pode ser só precisamos marcar horário e data
+11/05/2026 15:50 - obma (PPGEE): ‎IMG-20260511-WA0035.jpg (arquivo anexado)
+11/05/2026 15:50 - obma (PPGEE): Somos o primeiro grupo a apresentar.
+11/05/2026 15:51 - Wesley (PPGEE: eita
+11/05/2026 15:52 - obma (PPGEE): ENQUETE:
+Reunião hj às 21:00?
+OPÇÃO: Tenho disponibilidade (‎4 votos)
+OPÇÃO: Não tenho disponibilidade (‎0 voto)
+
+11/05/2026 15:53 - obma (PPGEE): @⁨todos⁩
+11/05/2026 15:59 - Cayo Murilo: Melhor que a gente se livra logo, já queria terminar logo isso
+11/05/2026 16:00 - Cayo Murilo: Mais alguém manja de ciência de dados
+11/05/2026 16:00 - Cayo Murilo: Ou sabe escrever linguagem de artigo
+11/05/2026 16:00 - Cayo Murilo: ?
+11/05/2026 16:03 - Ryan Reis (PPGEE): Sabo
+11/05/2026 16:04 - Vitor Padilha (PPGEE): A gente desenrola
+11/05/2026 16:04 - Vitor Padilha (PPGEE): E precisamos ver já o dataset do trabalho final 😅
+11/05/2026 20:45 - Cayo Murilo: Pessoal, vou só parar pra arrumar algo pra comer, assim que voltar a gente reuni
+11/05/2026 20:45 - Ryan Reis (PPGEE): Blz
+11/05/2026 20:47 - Wesley (PPGEE: Show
+11/05/2026 20:47 - Wesley (PPGEE: Manda o link aqui
+11/05/2026 20:48 - Cayo Murilo: Blz
+11/05/2026 20:49 - Cayo Murilo: Tens conta Google com gravação?
+11/05/2026 20:50 - Wesley (PPGEE: Eu não 😭😭😭
+11/05/2026 20:50 - Wesley (PPGEE: Só teams
+11/05/2026 20:54 - Cayo Murilo: Se der pra gravar, de boa
+11/05/2026 20:55 - Wesley (PPGEE: Tu vai fazer pelo teams ???
+11/05/2026 20:57 - Cayo Murilo: Eu posso gerar no meet
+11/05/2026 20:58 - Wesley (PPGEE: Blz
+11/05/2026 20:58 - Wesley (PPGEE: Tô na estrada talvez perca uns minutinhos até voltar o sinal
+11/05/2026 20:59 - Cayo Murilo: Vou demorar uns 20min pra me liberar
+11/05/2026 21:02 - Vitor Padilha (PPGEE): Estou a postos quando estiverem prontos podemos começar
+11/05/2026 21:03 - Wesley (PPGEE: De boa
+11/05/2026 21:03 - Wesley (PPGEE: Agnt aguarda
+11/05/2026 21:06 - Ryan Reis (PPGEE): Tbm
+11/05/2026 21:24 - Cayo Murilo: https://meet.google.com/igp-nzrq-hjv
+11/05/2026 21:24 - Ryan Reis (PPGEE): Entrando
+11/05/2026 21:27 - Cayo Murilo: @⁨obma (PPGEE)⁩  vai entrar?
+11/05/2026 21:47 - Ryan Reis (PPGEE): https://pt.overleaf.com/1491288873jwznmbnthkxy#be522d
+11/05/2026 21:48 - ‎Ryan Reis (PPGEE) mudou a descrição do grupo
+11/05/2026 22:04 - Vitor Padilha (PPGEE): Se puderem mandar a gravação da reunião por favor
+11/05/2026 22:21 - Cayo Murilo: aqui o repos: https://github.com/cayoc9/inteligencia-computacional
+11/05/2026 22:23 - Cayo Murilo: https://drive.google.com/file/d/16RcFxKi3C5V6npJLBLks6PPaVZDtiS0y/view?usp=sharing
+14/05/2026 16:06 - Ryan Reis (PPGEE): ‎IMG-20260514-WA0017.jpg (arquivo anexado)
+@⁨obma (PPGEE)⁩ te coloquei como editor lá, aparentemente é uma limitação do overleaf grátis, só pode ter um editor por vez, aí por hora eu tirei o padilha e te coloquei como editor
+14/05/2026 16:06 - Ryan Reis (PPGEE): <Mídia oculta>
+Sleep_Health (2).pdf
+14/05/2026 16:07 - Ryan Reis (PPGEE): falta ajustar as informações dos autores no começo
+14/05/2026 16:08 - Wesley (PPGEE: eu tbm
+14/05/2026 16:08 - Wesley (PPGEE: wesheringer@gmail.com
+14/05/2026 16:08 - Wesley (PPGEE: :)
+14/05/2026 16:10 - Ryan Reis (PPGEE): https://www.overleaf.com/1491288873jwznmbnthkxy#be522d
+
+Tá aí o link, mas como falei só pode ter um editor por vez no overleaf free, aí depois que o obma mudar oq ele quer eu te coloco como editor @⁨Wesley (PPGEE⁩
+14/05/2026 16:10 - Wesley (PPGEE: ok
+14/05/2026 16:10 - Wesley (PPGEE: depois que terminar nossa apresentação pago uma coca com rodada de salgado no veropesinho pra nossa equipe meu pae
+14/05/2026 16:10 - Wesley (PPGEE: hehehehe
+14/05/2026 16:11 - Wesley (PPGEE: vamos arrebentar !!!
+14/05/2026 16:12 - Ryan Reis (PPGEE): botei fé 🙏🙏
+14/05/2026 16:12 - Wesley (PPGEE: tmj meus amigos!!! hehehe
+14/05/2026 16:23 - Ryan Reis (PPGEE): reunião hoje que horas ?
+14/05/2026 16:24 - Cayo Murilo: vamos umas 21h?
+14/05/2026 16:24 - Wesley (PPGEE: pra mim a partir das 19 estou disponível
+14/05/2026 16:24 - Wesley (PPGEE: hehehe
+14/05/2026 16:26 - Ryan Reis (PPGEE): por mim blz
+14/05/2026 16:30 - obma (PPGEE): Vamos!
+14/05/2026 16:40 - Vitor Padilha (PPGEE): Devo estar chegando em casa esse horário
+14/05/2026 16:40 - Vitor Padilha (PPGEE): @⁨Cayo Murilo⁩ chegou a adicionar mais alguma coisa no projeto?
+14/05/2026 17:03 - Cayo Murilo: só o jupyter, fiz algumas mudanças mas nao mas ainda nao tive uma melhoria dos resultados
+14/05/2026 17:03 - Cayo Murilo: ainda vou tentar um features engineering mais pesado como ultima tentativa, se nao, vamos com esses dados mesmo
+14/05/2026 17:11 - Vitor Padilha (PPGEE): Beleza
+14/05/2026 21:06 - Vitor Padilha (PPGEE): Amigos vou só comer alguma coisa e já entro
+14/05/2026 21:07 - Cayo Murilo: To chegando em casa também, assim que chegar entramos
+14/05/2026 21:08 - Ryan Reis (PPGEE): Blz, tô por aqui quando forem só avisar
+14/05/2026 21:09 - Cayo Murilo: Feshow
+14/05/2026 21:42 - Cayo Murilo: Cheguei, vou só jogar uma água Rapidão, vamo começar 22h
+14/05/2026 21:43 - Ryan Reis (PPGEE): blz
+14/05/2026 22:19 - Wesley (PPGEE: ???
+14/05/2026 22:19 - Cayo Murilo: meet.google.com/fnh-bvja-ugx
+14/05/2026 22:19 - Cayo Murilo: Fale pessoal, demorei porque tô resolvendo um bug no meu sistema operacional 
+Mas vamos reunir logo pelo meet
+14/05/2026 22:21 - Ryan Reis (PPGEE): Quem ficou responsável pela apresentação ?
+14/05/2026 22:21 - Vitor Padilha (PPGEE): sou eu
+14/05/2026 22:21 - Ryan Reis (PPGEE): ah blz
+14/05/2026 22:22 - Ryan Reis (PPGEE): tem o link ?
+14/05/2026 22:22 - Vitor Padilha (PPGEE): estou tentando criar algo neste momento rsrs
+14/05/2026 22:22 - Vitor Padilha (PPGEE): vou mandar um momento
+14/05/2026 22:22 - obma (PPGEE): to solicitando a entrada na reunião
+14/05/2026 22:26 - Vitor Padilha (PPGEE): https://canva.link/5garvzfckzrlmuf
+14/05/2026 22:42 - Ryan Reis (PPGEE): 1 - Introdução (descrição do problema e escolha do dataset) - 
+2 - Pré processamento dos dados (identificação dos tipos de dados)
+3 - Treinamento (implementação dos modelos) - Ryan
+4 - Avaliação e comparação (métricas de análise para os modelos, precision, recall etc..)
+5- Conclusão
+14/05/2026 22:48 - Vitor Padilha (PPGEE): 1 - Introdução (descrição do problema e escolha do dataset) - 
+2 - Pré processamento dos dados (identificação dos tipos de dados)-Vitor
+3 - Treinamento (implementação dos modelos) - Ryan
+4 - Avaliação e comparação (métricas de análise para os modelos, precision, recall etc..)
+5- Conclusão
+14/05/2026 22:48 - obma (PPGEE): 1 - Introdução (descrição do problema e escolha do dataset) - oscar
+2 - Pré processamento dos dados (identificação dos tipos de dados)-Vitor
+3 - Treinamento (implementação dos modelos) - Ryan
+4 - Avaliação e comparação (métricas de análise para os modelos, precision, recall etc..)
+5- Conclusão
+14/05/2026 22:53 - Ryan Reis (PPGEE): https://notebooklm.google.com/notebook/d4df56b9-0d0d-4179-a7e4-f3edaa4f47a6
+15/05/2026 00:07 - Vitor Padilha (PPGEE): <Mídia oculta>
+IC.rar
+15/05/2026 00:07 - Vitor Padilha (PPGEE): não sei se tem como colocar como editor todos
+15/05/2026 00:09 - Ryan Reis (PPGEE): blz
+15/05/2026 00:09 - Cayo Murilo: ja atualizei o repos pra ser replicavel
+15/05/2026 00:09 - Cayo Murilo: podem rodar se quiserem
+15/05/2026 00:09 - Ryan Reis (PPGEE): eu tava fazendo aqui pelos dois, tanto pelo claude quanto pelo notebook LM
+15/05/2026 00:09 - Ryan Reis (PPGEE): fiicou assim
+15/05/2026 00:09 - Ryan Reis (PPGEE): ficou*
+15/05/2026 00:09 - Ryan Reis (PPGEE): <Mídia oculta>
+sleep_quality_classification.pdf
+15/05/2026 00:10 - Ryan Reis (PPGEE): O do claude
+15/05/2026 00:10 - Ryan Reis (PPGEE): <Mídia oculta>
+The_Signal_in_the_Sleep_(2).pdf
+15/05/2026 00:14 - Ryan Reis (PPGEE): vou adicionar nas fontes do notebook e pedir pra ele gerar um novo slide, vou dar uma ênfase pra ele estruturar mais com aquela sequência de apresentação que a gente decidiu, porque acho que em termos de conteúdo ele tá mais interessante do que a apresentação que o claude gerou, só tá mais desorganizado
+15/05/2026 00:36 - Vitor Padilha (PPGEE): <Mídia oculta>
+O_Limite_da_Previsibilidade.pdf
+15/05/2026 00:36 - Vitor Padilha (PPGEE): <Mídia oculta>
+Sleep_Lab_Duel.pdf
+15/05/2026 00:37 - Vitor Padilha (PPGEE): ele gerou esses dois pra mim rsrs ai acabou meu limete de geração de slide haha
+15/05/2026 00:38 - Ryan Reis (PPGEE): Ficou bom
+15/05/2026 00:38 - Ryan Reis (PPGEE): Eu gerei mais uma aqui, já mando
+15/05/2026 00:51 - Ryan Reis (PPGEE): <Mídia oculta>
+Sleep_Quality_ML_Comparison_(2).pdf
+15/05/2026 07:12 - Ryan Reis (PPGEE): Por aqui já
+15/05/2026 07:12 - Ryan Reis (PPGEE): Vamo usar esse slide aqui:
+15/05/2026 07:13 - Ryan Reis (PPGEE): <Mídia oculta>
+sleep_quality_slide.pdf
+15/05/2026 07:13 - Ryan Reis (PPGEE): Ele é o que tá mais organizado e tem informações mais relevantes os do notebook Lm tão muito poluídos
+15/05/2026 07:22 - Wesley (PPGEE: Claude é bom pae rsrs
+15/05/2026 07:58 - Vitor Padilha (PPGEE): Tô chegando agora no terminal  já já estou na sala
+15/05/2026 07:58 - Wesley (PPGEE: Eu tô na Bernardo Sayão
+15/05/2026 08:28 - obma (PPGEE): A professora já chegou em sala
+15/05/2026 08:49 - Ryan Reis (PPGEE): @⁨Vitor Padilha (PPGEE)⁩ tá vindo?
+15/05/2026 08:50 - Vitor Padilha (PPGEE): Tô aqui
+15/05/2026 08:50 - Vitor Padilha (PPGEE): Falta só o @⁨Cayo Murilo⁩  certo?
+15/05/2026 08:51 - Ryan Reis (PPGEE): Sim, já falei com ele, tá chegando
+15/05/2026 08:51 - Vitor Padilha (PPGEE): 🙌🏻
+15/05/2026 23:12 - Cayo Murilo: se liguem: https://prism.openai.com/
+quem tive conta do chatgpt pode usar esse Prism, é tipo o overlief deles mas com IA embutida
+16/05/2026 00:36 - Ryan Reis (PPGEE): 🙏🙏
+29/05/2026 09:52 - Cayo Murilo: Onde fica esse prédio de Telecom?
+29/05/2026 09:58 - Vitor Padilha (PPGEE): Mestre aula já acabou
+29/05/2026 09:59 - Vitor Padilha (PPGEE): Mas ele fica em frente ao bloco A
+29/05/2026 09:59 - Vitor Padilha (PPGEE): Lá no profissional
+29/06/2026 21:00 - Vitor Padilha (PPGEE): Olá amigos boa noite, é  gostaria de saber o que podemos fazer para finalizar o trabalho de sexta agora, temos algo pronto? Posso ajudar em algo??
+29/06/2026 21:02 - Cayo Murilo: fale pessoal, boa noite
+29/06/2026 21:03 - Cayo Murilo: pois é, tambem to afimd de terminar logo
+29/06/2026 21:03 - Cayo Murilo: precisamos encontrar uma base de dados melhor pra esse modelo hibrido
+29/06/2026 21:03 - obma (PPGEE): podemos nos reunir amanhã à noite? 20:00?
+29/06/2026 21:04 - Cayo Murilo: podemos sim
+29/06/2026 21:04 - Vitor Padilha (PPGEE): Por mim sim também
+29/06/2026 21:18 - Wesley (PPGEE: Podemos sim
+29/06/2026 21:18 - Wesley (PPGEE: Via meet ?
+29/06/2026 21:20 - obma (PPGEE): Sim
+30/06/2026 19:15 - obma (PPGEE): Boa noite senhores. Tudo certo para a nossa reunião daqui a pouco às 20:00 pelo meet?
+30/06/2026 19:16 - Ryan Reis (PPGEE): Por mim sim
+30/06/2026 19:16 - Ryan Reis (PPGEE): Boa noite
+30/06/2026 19:49 - Cayo Murilo: tudo certo
+30/06/2026 20:05 - obma (PPGEE): https://meet.google.com/wzk-ahdb-eqf
+30/06/2026 20:13 - obma (PPGEE): estamos aguardando no link
+30/06/2026 20:14 - Ryan Reis (PPGEE): tô por lá
+30/06/2026 20:15 - Cayo Murilo: @⁨Vitor Padilha (PPGEE)⁩ @⁨Wesley (PPGEE⁩
+30/06/2026 20:28 - Ryan Reis (PPGEE): https://www.kaggle.com/datasets/nih-chest-xrays/data/data
+30/06/2026 20:30 - Ryan Reis (PPGEE): <Mídia oculta>
+30/06/2026 20:35 - Wesley (PPGEE: Pessoal
+30/06/2026 20:35 - Wesley (PPGEE: Cheguei agora em ksa
+30/06/2026 20:36 - obma (PPGEE): estamos em reunião
+30/06/2026 20:40 - Ryan Reis (PPGEE): https://www.kaggle.com/datasets/reihanenamdari/breast-cancer?select=Breast_Cancer.csv
+30/06/2026 20:47 - Vitor Padilha (PPGEE): Amigos ainda estão na sala? Acabei me ocupando
+30/06/2026 20:47 - Vitor Padilha (PPGEE): Só cheguei agora em casa
+30/06/2026 20:52 - Cayo Murilo: https://openai.com/pt-BR/prism/
+01/07/2026 15:08 - obma (PPGEE): Suggested next steps
+	Investigar dataset: Investigar a viabilidade de um conjunto de dados sobre perda comercial de energia junto ao primo do Wesley para detecção de furtos.
+	Pesquisar datasets: Pesquisar conjuntos de dados alternativos na sua área de atuação para problemas de classificação, regressão ou otimização.
+	Pesquisar datasets: Pesquisar conjuntos de dados adicionais para testes de algoritmos híbridos, fuzzy ou genéticos.
+	Compartilhar link: Compartilhar o link da plataforma Prisma no grupo para uso na elaboração do artigo.
+	Redigir artigo: Redigir o artigo acadêmico do grupo utilizando a ferramenta Prisma.
+	Preparar slides: Preparar a apresentação de slides do trabalho acadêmico.
+	Definir dataset: Definir o conjunto de dados para os experimentos durante o dia de amanhã via grupo.
+	Realizar reunião: Reunir-se às 21 horas para validar os dados e alinhar os próximos passos.
+01/07/2026 15:10 - Wesley (PPGEE: meu primo disse que ele não pode passar os dados por conta de complience
+01/07/2026 15:10 - Wesley (PPGEE: senão ele vai pra rua kkk
+01/07/2026 15:10 - Wesley (PPGEE: phodaaaaaa
+01/07/2026 15:10 - Wesley (PPGEE: liguei pra ele antes de do almoço
+01/07/2026 17:38 - Cayo Murilo: Vejam esses dois 
+https://www.kaggle.com/datasets/andrewmvd/heart-failure-clinical-data
+
+https://www.kaggle.com/datasets/alexteboul/diabetes-health-indicators-dataset
+01/07/2026 17:39 - Cayo Murilo: o que acham delem, veem algum problema?
+01/07/2026 21:21 - obma (PPGEE): boa noite pessoal,
+01/07/2026 21:21 - obma (PPGEE): bora se reunir?
+01/07/2026 21:21 - obma (PPGEE): Mensagem apagada
+01/07/2026 21:43 - Vitor Padilha (PPGEE): Pessoal boa noite, acabei chegando só agora do trabalho, se ainda estiverem reunidos vou so comer alguma coisa
+01/07/2026 21:43 - Vitor Padilha (PPGEE): E já entro na reunião
+01/07/2026 21:43 - obma (PPGEE): ninguem ainda apareceu. Vamos esperar o pessoal se manifestar que gero outro link
+01/07/2026 22:27 - Ryan Reis (PPGEE): Esse primeiro de heart facilite tá legal
+01/07/2026 22:47 - Wesley (PPGEE: teve reunião
+02/07/2026 01:04 - Cayo Murilo: boa noite pessoal, desculpem o sumiço
+02/07/2026 08:55 - obma (PPGEE): Bom dia pessoal,
+02/07/2026 08:56 - obma (PPGEE): Temos menos de 24 horas para a apresentação, então temos que ser bastante objetivos.
+02/07/2026 09:00 - obma (PPGEE): Acho que esse sobre diabetes tá bom. Achas que daria tempo de rodar os algoritmos nele @⁨Cayo Murilo⁩ ? Sao 253 mil amostras.
+02/07/2026 09:01 - obma (PPGEE): Rodando isso, partimos para a divisão da apresentação.
+02/07/2026 09:08 - Cayo Murilo: Bom dia
+02/07/2026 09:09 - Cayo Murilo: Estou descarte o de diabetes porque ficou muito grande pra rodar 
+Estou fazendo o teste com o de câncer e esse de coração
+02/07/2026 09:09 - Cayo Murilo: Pra gente matar hoje
+02/07/2026 09:10 - Cayo Murilo: Vou ver qual fica melhor
+02/07/2026 18:11 - obma (PPGEE): <Mídia oculta>
+02/07/2026 18:12 - Ryan Reis (PPGEE): Eu vi
+02/07/2026 18:12 - Ryan Reis (PPGEE): Ela mudou
+02/07/2026 18:18 - Wesley (PPGEE: Vamos ficar no finalzinho
+02/07/2026 19:07 - Cayo Murilo: Show
+02/07/2026 19:07 - Cayo Murilo: Menos mal
+02/07/2026 19:07 - Cayo Murilo: <Mídia oculta>
+02/07/2026 19:07 - Cayo Murilo: Mensagem apagada
+02/07/2026 19:15 - Wesley (PPGEE: Vou levar um passador de slides amanhã
+02/07/2026 19:16 - Ryan Reis (PPGEE): Maravilha
+02/07/2026 19:16 - Ryan Reis (PPGEE): Cara tem hiperfoco no passador kkk
+02/07/2026 19:16 - obma (PPGEE): Vamos nos reunir hj às 21:00?
+02/07/2026 19:16 - Ryan Reis (PPGEE): Blz
+02/07/2026 19:19 - Wesley (PPGEE: Vamos
+02/07/2026 19:30 - Cayo Murilo: Bora
+02/07/2026 19:34 - Cayo Murilo: <Mídia oculta>
+02/07/2026 21:01 - Cayo Murilo: esse é o link do notebooklm que to usando pra estudar https://notebooklm.google.com/notebook/26a8d20b-97fc-4d83-a513-55f2fa2f89f8
+02/07/2026 21:01 - Ryan Reis (PPGEE): Já entro
+02/07/2026 21:02 - Cayo Murilo: https://meet.google.com/ncj-cqoi-rwn
+02/07/2026 21:20 - Cayo Murilo: ### 1. Hipótese e Justificativa
+
+    6     O uso de Redes Neurais Artificiais (RNAs), especificamente
+          Perceptrons de Múltiplas Camadas (MLP), é altamente eficaz
+          em espaços de busca não-lineares. No entanto, quando      
+          aplicadas a dados médicos do mundo real com amostragem    
+          reduzida (N=299) e presença de ruído/variáveis colineares,
+          as RNAs tendem a convergir para mínimos locais ou sofrer  
+          de um viés severo para a classe majoritária, tornando a   
+          otimização manual de topologia e features um processo     
+          custoso e falho.
+    7     
+    8     A nossa hipótese principal é de que a hibridização        
+          conexionista-evolucionária mitigará a maldição da         
+          dimensionalidade. O Algoritmo Genético (AG) assumirá o    
+          papel de um meta-otimizador, encarregado simultaneamente  
+          de (1) descartar variáveis ruidosas (Feature Selection) e 
+          (2) definir a topologia oculta ideal (Neurônios Ocultos). 
+          Espera-se que essa remoção do ruído e ajuste estrutural   
+          permita que o algoritmo Backpropagation atualize os pesos 
+          sinápticos com mais precisão, maximizando a métrica F1-   
+          Score sobre um baseline conexionista estático.
+02/07/2026 21:25 - Cayo Murilo: https://github.com/cayoc9/inteligencia-computacional
+02/07/2026 22:22 - Cayo Murilo: voces tao ai?
+02/07/2026 22:22 - Vitor Padilha (PPGEE): Estou
+02/07/2026 22:22 - Ryan Reis (PPGEE): to
+02/07/2026 22:24 - Vitor Padilha (PPGEE): aqui
+02/07/2026 22:24 - obma (PPGEE): Mensagem apagada
+02/07/2026 22:28 - obma (PPGEE): Abertura, problema e dataset 
+Tratamento dos dados e justificativa 
+Modelos de treinamento 
+Resultados 
+Conclusão
+02/07/2026 22:28 - Ryan Reis (PPGEE): <Mídia oculta>
+seguir essa estrutura
+02/07/2026 22:37 - Ryan Reis (PPGEE): @⁨Cayo Murilo⁩ travou tua voz
+02/07/2026 22:38 - Cayo Murilo: sim, meu microfone ta tando pau aqui
+02/07/2026 22:38 - Cayo Murilo: vou entrar pelo celular, pera
+02/07/2026 22:40 - Cayo Murilo: em resumo, to fazendo dois projetos, um de cancer e outro de problema no coração
+os dois ficaram mais ou menos, mas o importante é a explicabildiade
+02/07/2026 22:41 - Cayo Murilo: acho que vamos ficar com o de cancer
+mas foi continuar nos dois e a gente decide aqui qual ficar
+02/07/2026 22:41 - Vitor Padilha (PPGEE): Estrutura da Apresentação
+Slide 1 — Capa
+Slide 2 — Roteiro da Apresentação
+1. Introdução
+Slide 3 — Introdução
+Slide 4 — Problema Proposto
+Slide 5 — Dataset
+2. Desenvolvimento da Solução
+Slide 6 — Arquitetura Geral do Sistema
+Slide 7 — Pré-processamento dos Dados
+Slide 8 — Modelos Inteligentes Utilizados
+Slide 9 — Arquitetura Híbrida / Ensemble
+Slide 10 — Pipeline de Treinamento
+3. Avaliação Experimental
+Slide 11 — Metodologia Experimental
+Slide 12 — Métricas de Avaliação
+Slide 13 — Resultados dos Modelos Individuais
+Slide 14 — Resultados do Sistema Híbrido
+Slide 15 — Comparação Geral
+Slide 16 — Análise dos Resultados
+4. Conclusão
+Slide 17 — Principais Conclusões
+Slide 18 — Limitações do Trabalho
+Slide 19 — Trabalhos Futuros
+Slide 20 — Encerramento / Perguntas
+02/07/2026 22:41 - Ryan Reis (PPGEE): Ta ok
+02/07/2026 22:41 - Vitor Padilha (PPGEE): Mais ou menos assim
+02/07/2026 22:41 - Vitor Padilha (PPGEE): acredito que fique bom
+02/07/2026 22:41 - Cayo Murilo: shoooow
+02/07/2026 22:43 - obma (PPGEE): estás gerando esses dados: Slide 13 — Resultados dos Modelos Individuais
+Slide 14 — Resultados do Sistema Híbrido
+02/07/2026 22:43 - obma (PPGEE): ?
+02/07/2026 22:44 - Cayo Murilo: estou sim, faço essa comparação
+02/07/2026 23:11 - Wesley (PPGEE: Preciso dormir pessoal acordo 5
+02/07/2026 23:11 - Wesley (PPGEE: Pra ir pra Belém 🥲🥲🥲
+02/07/2026 23:11 - Cayo Murilo: tranquilo
+02/07/2026 23:11 - Wesley (PPGEE: Pego as informações aqui e amanhã cedo
+02/07/2026 23:11 - Cayo Murilo: boa, ta ok
+02/07/2026 23:12 - Cayo Murilo: daqui a pouco mando um audio explicando direitinho o projeto
+02/07/2026 23:54 - Cayo Murilo: <Mídia oculta>
+pessoal, troquei o dataset de cancer por outro melhor ( de cancer tambem) e o resultado melhorou MUITO
+03/07/2026 01:23 - Cayo Murilo: https://github.com/cayoc9/inteligencia-computacional
+03/07/2026 01:23 - Cayo Murilo: atualizei de novo
+03/07/2026 01:23 - Cayo Murilo: @⁨Ryan Reis (PPGEE)⁩ memanda o template do overlief que tu usou por favor, exporta pra mim
+03/07/2026 01:24 - Cayo Murilo: ja ta finalizado, to indo pra parte de fazer os materiais
