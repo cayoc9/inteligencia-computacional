@@ -1,0 +1,4 @@
+model,mode,accuracy,precision,recall,f1,roc_auc,source
+Random Forest,baseline,0.8333,0.8000,0.6316,0.7059,0.9101,baseline.py validated 2026-07-02
+MLP,baseline,0.7167,0.5714,0.4211,0.4848,0.7754,baseline.py validated 2026-07-02
+GA-MLP,full,0.7667,0.7778,0.3684,0.5000,0.7766,reports/tables/ga_mlp_results.json

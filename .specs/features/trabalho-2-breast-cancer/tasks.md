@@ -1,7 +1,7 @@
 # Trabalho 2: Breast Cancer Survival Risk Tasks
 
 **Design**: `.specs/features/trabalho-2-breast-cancer/design.md`  
-**Status**: Draft
+**Status**: Done
 
 ---
 
@@ -35,7 +35,7 @@ T9 -> T10 -> T11 -> T12
 
 ## Task Breakdown
 
-### T1: Registrar spec TLC do Trabalho 2
+### T1: Registrar spec TLC do Trabalho 2 ✅
 
 **What**: Criar/atualizar `spec.md`, `design.md` e `tasks.md` com requisitos rastreaveis do Projeto 2.  
 **Where**: `.specs/features/trabalho-2-breast-cancer/`  
@@ -60,7 +60,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T2: Criar harness de pacote e testes
+### T2: Criar harness de pacote e testes ✅
 
 **What**: Criar pacote local `breast_cancer_survival`, paths centralizados e configuracao base de testes.  
 **Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/`, `projeto_2_neuro_fuzzy/tests/`, `requirements.txt`  
@@ -85,7 +85,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T3: Implementar sanitizacao e contrato do dataset
+### T3: Implementar sanitizacao e contrato do dataset ✅
 
 **What**: Centralizar carga, limpeza, normalizacao de schema, mapeamento do alvo e contrato de dados.  
 **Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/data.py`, `projeto_2_neuro_fuzzy/01_validate_data.py`  
@@ -113,7 +113,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T4: Criar dicionario de dados do Projeto 2
+### T4: Criar dicionario de dados do Projeto 2 ✅
 
 **What**: Gerar dicionario de dados especifico com colunas brutas, colunas sanitizadas, tipos, dominios, papel analitico, risco de vazamento e features derivadas.  
 **Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/dictionary.py`, `projeto_2_neuro_fuzzy/docs/DATA_DICTIONARY.md`  
@@ -139,7 +139,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T5: Implementar EDA com metadados e relacoes
+### T5: Implementar EDA com metadados e relacoes ✅
 
 **What**: Gerar analise exploratoria completa com perfil de metadados, relacoes numericas/categoricas, tabelas e figuras.  
 **Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/eda.py`, `projeto_2_neuro_fuzzy/02_eda.py`, `projeto_2_neuro_fuzzy/reports/`  
@@ -166,7 +166,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T6: Implementar politica de features e engenharia clinica
+### T6: Implementar politica de features e engenharia clinica ✅
 
 **What**: Separar feature set principal sem vazamento e criar features clinicas derivadas.  
 **Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/features.py`  
@@ -191,7 +191,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T7: Implementar preprocessamento e metricas clinicas
+### T7: Implementar preprocessamento e metricas clinicas ✅
 
 **What**: Criar preprocessor sem data leakage e avaliacao com foco em falsos negativos.  
 **Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/preprocessing.py`, `projeto_2_neuro_fuzzy/src/breast_cancer_survival/evaluation.py`  
@@ -216,7 +216,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T8: Implementar suite de modelos tabulares
+### T8: Implementar suite de modelos tabulares ✅
 
 **What**: Comparar modelos tabulares sem vazamento e com sensibilidade controlada para `Survival Months`.  
 **Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/models.py`, `projeto_2_neuro_fuzzy/03_train_models.py`  
@@ -241,7 +241,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T9: Implementar ensemble ponderado e threshold tuning
+### T9: Implementar ensemble ponderado e threshold tuning ✅
 
 **What**: Combinar melhores modelos tabulares com pesos de validacao e selecionar threshold orientado a F2/recall/falsos negativos.  
 **Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/ensemble.py`, `projeto_2_neuro_fuzzy/04_threshold_and_ensemble.py`  
@@ -267,7 +267,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T10: Refatorar neuro-fuzzy como comparativo academico
+### T10: Refatorar neuro-fuzzy como comparativo academico ✅
 
 **What**: Extrair funcoes fuzzy, rodar comparativo justo e manter wrapper de compatibilidade.  
 **Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/fuzzy.py`, `projeto_2_neuro_fuzzy/05_neuro_fuzzy_comparison.py`, `projeto_2_neuro_fuzzy/hybrid_neuro_fuzzy.py`  
@@ -292,7 +292,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T11: Criar notebook Jupyter do Projeto 2
+### T11: Criar notebook Jupyter do Projeto 2 ✅
 
 **What**: Criar notebook narrativo unico do Projeto 2 usando os mesmos modulos/scripts do pipeline.  
 **Where**: `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb`  
@@ -317,7 +317,7 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
-### T12: Sincronizar documentacao viva e relatorio final
+### T12: Sincronizar documentacao viva e relatorio final ✅
 
 **What**: Atualizar README, relatorio, `.specs/project`, `.specs/codebase` e `STATUS.md` com o novo fluxo spec-driven.  
 **Where**: `projeto_2_neuro_fuzzy/README.md`, `projeto_2_neuro_fuzzy/reports/relatorio_tecnico_projeto_2.md`, `.specs/project/*`, `.specs/codebase/*`, `STATUS.md`  
@@ -388,3 +388,9 @@ T1 -> T2 -> T3 -> T4 -> T5 -> T6 -> T7 -> T8 -> T9 -> T10 -> T11 -> T12
 | T11 | Notebook | Yes | nbconvert execution |
 | T12 | Docs/pipeline | Yes | pytest + full pipeline |
 
+## Execution Summary
+
+- `projeto_2_neuro_fuzzy/.venv/bin/python -m pytest projeto_2_neuro_fuzzy/tests -q`: 17 passed.
+- `projeto_2_neuro_fuzzy/.venv/bin/python -m pytest -q`: 19 passed.
+- `projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy/run_pipeline.py`: completed.
+- `projeto_2_neuro_fuzzy/.venv/bin/jupyter nbconvert --to notebook --execute projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb --output /tmp/projeto_2_breast_cancer_survival.executed.ipynb`: completed.

@@ -1,0 +1,167 @@
+{
+  "experiment": "projeto_1_genetico_neural_ga_mlp",
+  "mode": "full",
+  "dataset": "dataset/heart_failure_clinical_records_dataset.csv",
+  "target": "DEATH_EVENT",
+  "seed": 42,
+  "parameters": {
+    "population_size": 30,
+    "generations": 15,
+    "mutation_rate": 0.005,
+    "fitness_max_iter": 500,
+    "final_max_iter": 1000,
+    "topology_bits": 5
+  },
+  "chromosome": {
+    "size": 17,
+    "num_feature_bits": 12,
+    "num_topology_bits": 5,
+    "best_individual": [
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  "selection": {
+    "selected_feature_count": 7,
+    "selected_features": [
+      "diabetes",
+      "ejection_fraction",
+      "high_blood_pressure",
+      "platelets",
+      "serum_creatinine",
+      "smoking",
+      "time"
+    ],
+    "optimal_hidden_neurons": 70,
+    "best_validation_f1": 0.875
+  },
+  "test_metrics": {
+    "accuracy": 0.766667,
+    "precision": 0.777778,
+    "recall": 0.368421,
+    "f1": 0.5,
+    "roc_auc": 0.776637,
+    "confusion_matrix": [
+      [
+        39,
+        2
+      ],
+      [
+        12,
+        7
+      ]
+    ]
+  },
+  "generation_history": [
+    {
+      "generation": 1,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.600289,
+      "best_neurons": 70
+    },
+    {
+      "generation": 2,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.732382,
+      "best_neurons": 70
+    },
+    {
+      "generation": 3,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.794727,
+      "best_neurons": 70
+    },
+    {
+      "generation": 4,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.812591,
+      "best_neurons": 70
+    },
+    {
+      "generation": 5,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.824172,
+      "best_neurons": 70
+    },
+    {
+      "generation": 6,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.825452,
+      "best_neurons": 70
+    },
+    {
+      "generation": 7,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.837311,
+      "best_neurons": 70
+    },
+    {
+      "generation": 8,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.866881,
+      "best_neurons": 70
+    },
+    {
+      "generation": 9,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.87379,
+      "best_neurons": 70
+    },
+    {
+      "generation": 10,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.866196,
+      "best_neurons": 70
+    },
+    {
+      "generation": 11,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.871121,
+      "best_neurons": 70
+    },
+    {
+      "generation": 12,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.870784,
+      "best_neurons": 70
+    },
+    {
+      "generation": 13,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.869192,
+      "best_neurons": 70
+    },
+    {
+      "generation": 14,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.870417,
+      "best_neurons": 70
+    },
+    {
+      "generation": 15,
+      "best_f1_validation": 0.875,
+      "mean_f1_validation": 0.86875,
+      "best_neurons": 70
+    }
+  ],
+  "artifacts": {
+    "figure": "reports/figures/evolucao_genetica.png",
+    "legacy_figure": "evolucao_genetica.png"
+  },
+  "elapsed_seconds": 255.177
+}

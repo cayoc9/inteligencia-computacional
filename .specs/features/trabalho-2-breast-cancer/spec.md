@@ -186,16 +186,16 @@ Este trabalho corrige a trilha metodologica para que o projeto fique reprodutive
 
 | Requirement ID | Story | Phase | Status |
 |---|---|---|---|
-| BC-01 | Objetivo e Politica de Vazamento | Design | Pending |
-| BC-02 | Sanitizacao e Contrato do Dataset | Design | Pending |
-| BC-03 | Dicionario de Dados | Design | Pending |
-| BC-04 | EDA com Metadados e Relacoes | Design | Pending |
-| BC-05 | Notebook Jupyter do Projeto 2 | Design | Pending |
-| BC-06 | Modelagem Tabular e Ensemble Ponderado | Design | Pending |
-| BC-07 | Neuro-Fuzzy como Comparativo Academico | Design | Pending |
-| BC-08 | Documentacao Viva e Status | Design | Pending |
+| BC-01 | Objetivo e Politica de Vazamento | Execute | Verified |
+| BC-02 | Sanitizacao e Contrato do Dataset | Execute | Verified |
+| BC-03 | Dicionario de Dados | Execute | Verified |
+| BC-04 | EDA com Metadados e Relacoes | Execute | Verified |
+| BC-05 | Notebook Jupyter do Projeto 2 | Execute | Verified |
+| BC-06 | Modelagem Tabular e Ensemble Ponderado | Execute | Verified |
+| BC-07 | Neuro-Fuzzy como Comparativo Academico | Execute | Verified |
+| BC-08 | Documentacao Viva e Status | Execute | Verified |
 
-**Coverage:** 8 total, 8 mapped to design, 0 unmapped.
+**Coverage:** 8 total, 8 mapped to tasks, 8 verified, 0 unmapped.
 
 ---
 
@@ -210,4 +210,3 @@ Este trabalho corrige a trilha metodologica para que o projeto fique reprodutive
 - [ ] `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb` executa via `nbconvert`.
 - [ ] Resultado principal exclui `Survival Months`.
 - [ ] Relatorio final explica o objetivo testado antes e o objetivo corrigido.
-

@@ -157,3 +157,25 @@ python scripts/diagnose_model_limits.py
 - Notebook único para narrativa (evitar fragmentação)
 - Documentar decisões em `.specs/project/STATE.md`
 - Congelar dependências: `pip freeze > requirements.lock.txt`
+
+## Projeto 2: Convenções Especificas
+
+### Notebook por Projeto
+- **Trabalho 1:** `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb`
+- **Projeto 2:** `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb`
+- Cada projeto deve ter um notebook narrativo proprio.
+- O notebook deve importar funcoes de scripts/modulos compartilhados e nao duplicar sanitizacao/modelagem.
+
+### Politica de Vazamento
+- O modelo principal do Projeto 2 nao usa `Survival Months` como feature.
+- `Survival Months` so pode aparecer em analise de sensibilidade/vazamento.
+- `Status = Dead` e a classe positiva (`1`).
+
+### Metricas
+- Falso negativo significa prever `Alive` quando o registro real e `Dead`.
+- A avaliacao deve reportar falsos negativos, recall, precision, F2 e PR AUC.
+- Acuracia isolada nao define modelo campeao em dataset medico desbalanceado.
+
+### EDA
+- A EDA do Projeto 2 deve incluir dicionario de dados, perfil de metadados e analise de relacoes antes da modelagem.
+- Artefatos canonicos: `DATA_DICTIONARY.md`, `metadata_profile.csv`, `numeric_relationships.csv`, `categorical_relationships.csv`.

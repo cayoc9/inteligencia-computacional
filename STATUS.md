@@ -1,6 +1,6 @@
 # Status Executivo do Projeto
 
-**Última atualização:** 2026-06-05  
+**Última atualização:** 2026-07-02  
 **Disciplina:** Inteligência Computacional — UFPA 2026.1  
 **Grupo:** 5 alunos (conforme planilha da disciplina)
 
@@ -11,10 +11,88 @@
 | Item | Status |
 |---|---|
 | **Trabalho 1 (RF vs RN)** | ✅ **100% concluído** — entregue em 15/05/2026 |
-| **Prazo de entrega** | ✅ **15/05/2026** — cumprido |
-| **Melhor modelo** | HistGradientBoosting: **74.25%** accuracy, **82.58%** ROC AUC |
-| **Principal insight** | RF > RN em dataset tabular; teto limitado pela subjetividade do alvo |
-| **Próximos passos** | Decidir entre executar V2 `sono_restaurador` ou iniciar Trabalho 2 |
+| **Projeto 1 / Trabalho 2 (GA-MLP)** | ✅ **implementado e validado** — EDA, baseline, GA-MLP completo, JSON/CSV e notebook único |
+| **Projeto 2 / Trabalho 2 (Breast Cancer)** | ✅ **pipeline spec-driven executado** — EDA, dicionário, notebook, modelos, ensemble e neuro-fuzzy comparativo |
+| **Prazo da segunda avaliação** | **03/07/2026** |
+| **Insight Projeto 1** | GA-MLP demonstra o híbrido, mas Random Forest foi superior no teste cego |
+| **Próximos passos** | Redigir discussão final/PDF/apresentação com os resultados dos Projetos 1 e 2 |
+
+---
+
+## 🧬 Projeto 1 / Trabalho 2: Sistema Genético-Neural GA-MLP
+
+### Objetivo
+Projetar e avaliar um sistema híbrido Genético-Neural para classificação de óbito em insuficiência cardíaca (`DEATH_EVENT`), usando Algoritmo Genético como meta-otimizador de seleção de features e topologia de uma MLP.
+
+### Dataset
+- **Nome:** Heart Failure Clinical Records
+- **Tamanho:** 299 registros, 13 colunas
+- **Target:** `DEATH_EVENT`
+- **Desbalanceamento:** classe positiva em ~32,1%
+
+### Artefatos Entregues
+| Artefato | Localização |
+|---|---|
+| Spec TLC | `.specs/features/projeto-1-genetico-neural/spec.md` |
+| Design TLC | `.specs/features/projeto-1-genetico-neural/design.md` |
+| Tasks TLC | `.specs/features/projeto-1-genetico-neural/tasks.md` |
+| Notebook único | `projeto_1_genetico_neural/notebooks/projeto_1_genetico_neural_ga_mlp.ipynb` |
+| Script híbrido auditável | `projeto_1_genetico_neural/hybrid_ga_mlp.py` |
+| Resultado GA-MLP completo | `projeto_1_genetico_neural/reports/tables/ga_mlp_results.json` |
+| Comparação final | `projeto_1_genetico_neural/reports/tables/model_comparison.csv` |
+
+### Resultados Principais
+| Modelo | Accuracy | Precision | Recall | F1 | ROC AUC |
+|---|---:|---:|---:|---:|---:|
+| Random Forest | 0.8333 | 0.8000 | 0.6316 | 0.7059 | 0.9101 |
+| MLP | 0.7167 | 0.5714 | 0.4211 | 0.4848 | 0.7754 |
+| GA-MLP completo | 0.7667 | 0.7778 | 0.3684 | 0.5000 | 0.7766 |
+
+### Conclusões Técnicas
+1. **O sistema híbrido está metodologicamente alinhado** à segunda avaliação: combina AG e MLP, com comunicação explícita por cromossomo, fitness e topologia.
+2. **O GA-MLP não superou a Random Forest** no teste cego, especialmente em recall e F1.
+3. **O ganho sobre a MLP simples foi marginal**, indicando que a busca genética não compensou o tamanho pequeno do dataset.
+4. **A principal discussão acadêmica é o trade-off:** arquitetura híbrida válida, mas sujeita a overfitting evolutivo em 299 registros.
+
+---
+
+## 🧠 Projeto 2 / Trabalho 2: Breast Cancer Survival Risk
+
+### Objetivo Corrigido
+Prever risco de óbito (`Status = Dead`) a partir de atributos clínicos disponíveis no diagnóstico, sem usar `Survival Months` como feature principal.
+
+### Dataset
+- **Nome:** SEER Breast Cancer / Kaggle Breast_Cancer.csv
+- **Tamanho bruto:** 4.024 registros, 16 colunas
+- **Tamanho analítico:** 4.023 registros após remover 1 duplicata
+- **Target:** `Status` (`Alive = 0`, `Dead = 1`)
+- **Desbalanceamento:** `Dead = 616` casos (~15,31%)
+
+### Artefatos Entregues
+| Artefato | Localização |
+|---|---|
+| Spec TLC | `.specs/features/trabalho-2-breast-cancer/spec.md` |
+| Design TLC | `.specs/features/trabalho-2-breast-cancer/design.md` |
+| Tasks TLC | `.specs/features/trabalho-2-breast-cancer/tasks.md` |
+| Dicionário de dados | `projeto_2_neuro_fuzzy/docs/DATA_DICTIONARY.md` |
+| Notebook do Projeto 2 | `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb` |
+| EDA metadados/relações | `projeto_2_neuro_fuzzy/reports/tables/metadata_profile.csv`, `numeric_relationships.csv`, `categorical_relationships.csv` |
+| Relatório técnico | `projeto_2_neuro_fuzzy/reports/relatorio_tecnico_projeto_2.md` |
+
+### Resultados Principais Sem `Survival Months`
+| Modelo | Accuracy | Precision | Recall | F2 | PR AUC | Falsos Negativos |
+|---|---:|---:|---:|---:|---:|---:|
+| Logistic Regression | 0.6919 | 0.2744 | 0.6179 | 0.4941 | 0.3686 | 47 |
+| Random Forest | 0.7814 | 0.3037 | 0.3333 | 0.3270 | 0.2826 | 82 |
+| HistGradientBoosting | 0.8360 | 0.4000 | 0.1463 | 0.1676 | 0.3124 | 105 |
+| Ensemble ponderado (threshold 0.21) | 0.4857 | 0.2119 | 0.8699 | 0.5366 | 0.3344 | 16 |
+| Neuro-fuzzy cooperativo | 0.7764 | 0.2683 | 0.2683 | 0.2683 | 0.2365 | 90 |
+
+### Conclusões Técnicas
+1. **`Survival Months` é variável de acompanhamento** e não deve entrar no modelo principal de predição em diagnóstico.
+2. **Acurácia isolada é enganosa** neste dataset; a classe `Dead` é minoritária.
+3. **Threshold tuning muda a decisão clínica:** o ensemble com threshold 0.21 reduz falsos negativos para 16, mas aumenta falsos positivos.
+4. **Neuro-fuzzy ficou como comparativo acadêmico**, não como modelo campeão: a fuzzificação manual + MLP não é ANFIS completo e teve recall baixo.
 
 ---
 
@@ -62,7 +140,7 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 
 ### Próximas Trilhas
 - [ ] **V2 sono restaurador:** executar experimento especificado em `.specs/features/experimento-v2-sono-restaurador/`
-- [ ] **Trabalho 2:** definir tema/dataset e abrir nova spec antes da implementação
+- [x] **Trabalho 2:** spec, EDA, dicionário, notebook e pipeline executados em `projeto_2_neuro_fuzzy/`
 - [ ] **Opcional:** aprofundar análise de erro por ocupação/segmento ou SHAP se for útil para apresentação futura
 
 ---
@@ -81,8 +159,9 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 
 ### Trabalho 2: Sistema Híbrido ou Ensemble
 - **Prazo:** 03/07/2026
-- **Status:** Não iniciado
-- **Ideias:** Stacking ensemble, Neuro-Fuzzy, Otimização Genética
+- **Status:** Pipeline spec-driven executado
+- **Tema:** Breast Cancer Survival Risk
+- **Entregáveis:** Dicionário de dados, EDA de metadados/relações, notebook, modelos tabulares, ensemble ponderado e neuro-fuzzy comparativo
 
 ---
 
@@ -102,6 +181,11 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 | **Tarefas e progresso** | `.specs/features/trabalho-1/tasks.md` |
 | **Relatórios de rodada** | `.specs/features/trabalho-1/relatorio_rodada_*.md` |
 | **Relatórios consolidados** | `reports/consolidados/` |
+| **Spec Trabalho 2** | `.specs/features/trabalho-2-breast-cancer/spec.md` |
+| **Spec Projeto 1 GA-MLP** | `.specs/features/projeto-1-genetico-neural/spec.md` |
+| **Notebook Projeto 1 GA-MLP** | `projeto_1_genetico_neural/notebooks/projeto_1_genetico_neural_ga_mlp.ipynb` |
+| **Dicionário Projeto 2** | `projeto_2_neuro_fuzzy/docs/DATA_DICTIONARY.md` |
+| **Notebook Projeto 2** | `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb` |
 
 ### Código e Artefatos
 | Artefato | Localização |
@@ -111,6 +195,9 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 | **Modelos treinados** | `models/*.pkl`, `models/*.h5`, `models/v2/*.keras` |
 | **Figuras e visualizações** | `reports/figures/*.png` |
 | **Diagnósticos** | `reports/diagnostics/*.csv`, `*.json` |
+| **Projeto 1 GA-MLP** | `projeto_1_genetico_neural/hybrid_ga_mlp.py` |
+| **Resultados Projeto 1** | `projeto_1_genetico_neural/reports/tables/*.json`, `model_comparison.csv` |
+| **Pipeline Projeto 2** | `projeto_2_neuro_fuzzy/run_pipeline.py` |
 
 ### Comandos Úteis
 ```bash

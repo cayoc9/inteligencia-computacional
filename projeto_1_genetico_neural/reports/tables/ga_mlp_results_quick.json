@@ -1,0 +1,94 @@
+{
+  "experiment": "projeto_1_genetico_neural_ga_mlp",
+  "mode": "quick",
+  "dataset": "dataset/heart_failure_clinical_records_dataset.csv",
+  "target": "DEATH_EVENT",
+  "seed": 42,
+  "parameters": {
+    "population_size": 8,
+    "generations": 3,
+    "mutation_rate": 0.005,
+    "fitness_max_iter": 120,
+    "final_max_iter": 300,
+    "topology_bits": 5
+  },
+  "chromosome": {
+    "size": 17,
+    "num_feature_bits": 12,
+    "num_topology_bits": 5,
+    "best_individual": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0
+    ]
+  },
+  "selection": {
+    "selected_feature_count": 6,
+    "selected_features": [
+      "age",
+      "diabetes",
+      "ejection_fraction",
+      "serum_creatinine",
+      "serum_sodium",
+      "time"
+    ],
+    "optimal_hidden_neurons": 25,
+    "best_validation_f1": 0.848485
+  },
+  "test_metrics": {
+    "accuracy": 0.783333,
+    "precision": 0.714286,
+    "recall": 0.526316,
+    "f1": 0.606061,
+    "roc_auc": 0.84724,
+    "confusion_matrix": [
+      [
+        37,
+        4
+      ],
+      [
+        9,
+        10
+      ]
+    ]
+  },
+  "generation_history": [
+    {
+      "generation": 1,
+      "best_f1_validation": 0.8,
+      "mean_f1_validation": 0.545552,
+      "best_neurons": 105
+    },
+    {
+      "generation": 2,
+      "best_f1_validation": 0.848485,
+      "mean_f1_validation": 0.710115,
+      "best_neurons": 25
+    },
+    {
+      "generation": 3,
+      "best_f1_validation": 0.848485,
+      "mean_f1_validation": 0.795877,
+      "best_neurons": 25
+    }
+  ],
+  "artifacts": {
+    "figure": "reports/figures/evolucao_genetica.png",
+    "legacy_figure": "evolucao_genetica.png"
+  },
+  "elapsed_seconds": 4.945
+}

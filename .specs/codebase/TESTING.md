@@ -87,3 +87,32 @@ jupyter nbconvert --to notebook --execute notebooks/trabalho_1_classificacao_sau
 2. Adicionar `Makefile` ou script `run_all.py` para pipeline único
 3. Usar validação cruzada sistemática (não apenas holdout)
 4. Congelar versões exatas (`pip freeze > requirements.lock.txt`)
+
+## Projeto 2: Breast Cancer Gates
+
+```bash
+# Testes unitarios/documentais do Projeto 2
+projeto_2_neuro_fuzzy/.venv/bin/python -m pytest projeto_2_neuro_fuzzy/tests -q
+
+# Pipeline completo do Projeto 2
+projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy/run_pipeline.py
+
+# Notebook narrativo do Projeto 2
+projeto_2_neuro_fuzzy/.venv/bin/jupyter nbconvert \
+  --to notebook \
+  --execute projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb \
+  --output /tmp/projeto_2_breast_cancer_survival.executed.ipynb
+
+# Suite configurada do repositorio
+projeto_2_neuro_fuzzy/.venv/bin/python -m pytest -q
+```
+
+O `pytest.ini` restringe a coleta aos diretorios `tests/` e `projeto_2_neuro_fuzzy/tests/`, evitando coletar scripts utilitarios como `scripts/smoke_test.py`.
+
+### Status de Lacunas Atualizado
+
+- [x] Projeto 2 possui testes unitarios com pytest.
+- [x] Projeto 2 possui validacao de schema/sanitizacao.
+- [x] Projeto 2 possui runner unico (`run_pipeline.py`).
+- [x] Projeto 2 possui validacao de notebook por `nbconvert`.
+- [ ] Trabalho 1 ainda depende majoritariamente de scripts auto-validados.
