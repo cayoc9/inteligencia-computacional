@@ -8,6 +8,12 @@ Crie uma apresentacao em portugues do Brasil para defesa academica do Trabalho 2
 
 Tema: sistema de Inteligencia Computacional para risco de obito em cancer de mama, com SEER corrigido como baseline e METABRIC como evolucao canonica.
 
+Use como fonte editorial principal o documento:
+
+- `reports/consolidados/curadoria-textos-imagens-slides-trabalho-2.md`
+
+Esse documento define, slide a slide, o claim, o texto visivel, a fala de apoio e as sugestoes de imagem/visual. O slide deck deve seguir essa curadoria antes de tentar resumir diretamente o relatorio tecnico.
+
 ## Regra estrutural principal
 
 Mantenha os blocos obrigatorios da avaliacao:
