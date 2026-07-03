@@ -1,0 +1,256 @@
+{
+  "dataset_shape": [
+    100000,
+    32
+  ],
+  "target_counts": {
+    "0": 60988,
+    "1": 39012
+  },
+  "target_rates": {
+    "0": 0.60988,
+    "1": 0.39012
+  },
+  "majority_baseline": {
+    "modelo": "Classe majoritaria",
+    "accuracy": 0.6099,
+    "balanced_accuracy": 0.5,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "roc_auc": 0.5
+  },
+  "holdout_comparison": [
+    {
+      "modelo": "HistGradientBoosting",
+      "accuracy": 0.74245,
+      "balanced_accuracy": 0.7249527355584071,
+      "precision": 0.6786628925731231,
+      "recall": 0.6453473468341451,
+      "f1": 0.6615859667564549,
+      "roc_auc": 0.8257829856332322,
+      "confusion_matrix": [
+        [
+          9814,
+          2384
+        ],
+        [
+          2767,
+          5035
+        ]
+      ]
+    },
+    {
+      "modelo": "Random Forest tuned-like",
+      "accuracy": 0.73775,
+      "balanced_accuracy": 0.7309384580214717,
+      "precision": 0.6528392109982069,
+      "recall": 0.6999487310945911,
+      "f1": 0.6755736995113503,
+      "roc_auc": 0.8216051298999306,
+      "confusion_matrix": [
+        [
+          9294,
+          2904
+        ],
+        [
+          2341,
+          5461
+        ]
+      ]
+    },
+    {
+      "modelo": "Logistic Regression",
+      "accuracy": 0.7315,
+      "balanced_accuracy": 0.7332053249890857,
+      "precision": 0.6331872946330778,
+      "recall": 0.7409638554216867,
+      "f1": 0.6828490432317506,
+      "roc_auc": 0.81256562287496,
+      "confusion_matrix": [
+        [
+          8849,
+          3349
+        ],
+        [
+          2021,
+          5781
+        ]
+      ]
+    },
+    {
+      "modelo": "Extra Trees",
+      "accuracy": 0.73205,
+      "balanced_accuracy": 0.7210690045926398,
+      "precision": 0.6521360069747166,
+      "recall": 0.6711099718021021,
+      "f1": 0.6614869559724591,
+      "roc_auc": 0.8109956229770944,
+      "confusion_matrix": [
+        [
+          9405,
+          2793
+        ],
+        [
+          2566,
+          5236
+        ]
+      ]
+    }
+  ],
+  "best_model": "HistGradientBoosting",
+  "best_threshold_by_f1": {
+    "threshold": 0.35000000000000003,
+    "accuracy": 0.7184,
+    "balanced_accuracy": 0.7419587193264481,
+    "precision": 0.5979241877256317,
+    "recall": 0.8491412458344014,
+    "f1": 0.7017265120220315
+  },
+  "best_threshold_by_balanced_accuracy": {
+    "threshold": 0.39,
+    "accuracy": 0.7292,
+    "balanced_accuracy": 0.742428852415029,
+    "precision": 0.6176760702308147,
+    "recall": 0.8026147141758524,
+    "f1": 0.6981047937569677
+  },
+  "cv_hist_gradient_boosting": {
+    "test_accuracy": {
+      "mean": 0.7414,
+      "std": 0.0025234896472940247
+    },
+    "test_balanced_accuracy": {
+      "mean": 0.7243147569754301,
+      "std": 0.0022892268025605997
+    },
+    "test_f1": {
+      "mean": 0.6611130160135804,
+      "std": 0.002701241682754414
+    },
+    "test_roc_auc": {
+      "mean": 0.8252387196704843,
+      "std": 0.0015565890154362997
+    }
+  },
+  "top_numeric_single_feature_auc": [
+    {
+      "feature": "sleep_quality_score",
+      "auc_raw": 0.7849061812924039,
+      "auc_direction_adjusted": 0.7849061812924039
+    },
+    {
+      "feature": "sleep_duration_hrs",
+      "auc_raw": 0.7737949636637526,
+      "auc_direction_adjusted": 0.7737949636637526
+    },
+    {
+      "feature": "cognitive_performance_score",
+      "auc_raw": 0.7705491628751915,
+      "auc_direction_adjusted": 0.7705491628751915
+    },
+    {
+      "feature": "stress_score",
+      "auc_raw": 0.287524797123636,
+      "auc_direction_adjusted": 0.712475202876364
+    },
+    {
+      "feature": "work_hours_that_day",
+      "auc_raw": 0.35464968749560993,
+      "auc_direction_adjusted": 0.64535031250439
+    },
+    {
+      "feature": "wake_episodes_per_night",
+      "auc_raw": 0.36484031365876385,
+      "auc_direction_adjusted": 0.6351596863412361
+    },
+    {
+      "feature": "sleep_latency_mins",
+      "auc_raw": 0.426752710902359,
+      "auc_direction_adjusted": 0.573247289097641
+    },
+    {
+      "feature": "rem_percentage",
+      "auc_raw": 0.5701458476659177,
+      "auc_direction_adjusted": 0.5701458476659177
+    },
+    {
+      "feature": "shift_work",
+      "auc_raw": 0.4630685551001789,
+      "auc_direction_adjusted": 0.536931444899821
+    },
+    {
+      "feature": "screen_time_before_bed_mins",
+      "auc_raw": 0.46914916821230435,
+      "auc_direction_adjusted": 0.5308508317876957
+    }
+  ],
+  "top_permutation_importance": [
+    {
+      "feature": "sleep_duration_hrs",
+      "importance_mean_auc_drop": 0.11649616448659217,
+      "importance_std": 0.004758272561960304
+    },
+    {
+      "feature": "sleep_quality_score",
+      "importance_mean_auc_drop": 0.041990989188492624,
+      "importance_std": 0.0031308238839661915
+    },
+    {
+      "feature": "wake_episodes_per_night",
+      "importance_mean_auc_drop": 0.021136124848239724,
+      "importance_std": 0.003048406221659901
+    },
+    {
+      "feature": "stress_score",
+      "importance_mean_auc_drop": 0.017208795859342475,
+      "importance_std": 0.0022380504033552057
+    },
+    {
+      "feature": "day_type",
+      "importance_mean_auc_drop": 0.0016672934358929804,
+      "importance_std": 0.00043809271594128066
+    },
+    {
+      "feature": "mental_health_condition",
+      "importance_mean_auc_drop": 0.0006561697661189303,
+      "importance_std": 0.0003761182335858669
+    },
+    {
+      "feature": "rem_percentage",
+      "importance_mean_auc_drop": 0.0006468467921112442,
+      "importance_std": 0.0005967233586656544
+    },
+    {
+      "feature": "weekend_sleep_diff_hrs",
+      "importance_mean_auc_drop": 0.0005676015130452905,
+      "importance_std": 0.0002001839235945341
+    },
+    {
+      "feature": "sleep_latency_mins",
+      "importance_mean_auc_drop": 0.00041450570953591723,
+      "importance_std": 0.000540821515629351
+    },
+    {
+      "feature": "heart_rate_resting_bpm",
+      "importance_mean_auc_drop": 0.00030881041994228474,
+      "importance_std": 0.00015253756003712508
+    },
+    {
+      "feature": "screen_time_before_bed_mins",
+      "importance_mean_auc_drop": 0.00021683771006801854,
+      "importance_std": 0.00013231169705481426
+    },
+    {
+      "feature": "bmi",
+      "importance_mean_auc_drop": 0.00013748767848513753,
+      "importance_std": 0.00043080684074466653
+    }
+  ],
+  "ambiguity_summary": {
+    "groups_count": 288,
+    "mean_minority_rate": 0.18831422222625005,
+    "p75_minority_rate": 0.32818012035692057,
+    "p90_minority_rate": 0.39632400780741706
+  }
+}

@@ -14,7 +14,8 @@ O fork clinico foi elevado ao mesmo fluxo metodologico do Projeto 2 SEER:
 4. ensemble com `treino / validacao / teste`;
 5. comparativo neuro-fuzzy;
 6. explicabilidade e calibracao;
-7. estabilidade por seeds.
+7. estabilidade por seeds;
+8. suite de graficos comparaveis ao projeto `sleep_health`.
 
 ## Scripts do pipeline
 
@@ -27,6 +28,7 @@ O fork clinico foi elevado ao mesmo fluxo metodologico do Projeto 2 SEER:
 | `05_neuro_fuzzy_comparison.py` | comparativo academico fuzzy + MLP |
 | `06_explainability.py` | coeficientes, permutation importance e calibracao |
 | `07_stability_analysis.py` | robustez em 5 seeds |
+| `08_generate_sleep_health_equivalent_graphs.py` | suite visual comparavel ao projeto sleep_health |
 | `run_pipeline.py` | runner unico |
 
 ## Artefatos principais
@@ -55,6 +57,15 @@ O fork clinico foi elevado ao mesmo fluxo metodologico do Projeto 2 SEER:
 - `reports/tables/logistic_regression_permutation_importance.csv`
 - `reports/tables/calibration_summary.csv`
 - `reports/tables/stability_summary.csv`
+
+### Suite visual comparavel ao Sleep Health
+
+- `reports/figures/comparacao_metricas.png`
+- `reports/figures/curvas_roc.png`
+- `reports/figures/curvas_pr.png`
+- `reports/figures/threshold_otimizacao.png`
+- `reports/figures/confusion_matrix_ensemble.png`
+- `reports/figures/feature_importance.png`
 
 ### Narrativa e defesa
 

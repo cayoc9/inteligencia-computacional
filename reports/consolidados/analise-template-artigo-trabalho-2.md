@@ -2,7 +2,7 @@
 
 ## Objetivo da Analise
 
-Esta analise complementa a etapa do artigo do Projeto 2 a partir do template `docs/template/Sleep_Health/`. O objetivo nao e copiar a estrutura de outro tema, mas extrair o padrao editorial que ja funciona e reencaixar esse padrao no trabalho de cancer de mama.
+Esta analise complementa a etapa do artigo do Projeto 2 a partir do template `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/`. O objetivo nao e copiar a estrutura de outro tema, mas extrair o padrao editorial que ja funciona e reencaixar esse padrao no trabalho de cancer de mama.
 
 ## O que o template base ensina
 

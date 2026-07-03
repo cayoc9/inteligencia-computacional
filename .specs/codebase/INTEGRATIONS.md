@@ -7,7 +7,7 @@
 - **URL:** https://kaggle.com/datasets/mohankrishnathalla/sleep-health-and-daily-performance-dataset
 - **Download:** Via Kaggle CLI (`kaggle datasets download`) ou interface web
 - **Licença:** CC0 (Domínio Público)
-- **Status:** ✅ Baixado e disponível em `data/sleep_health_dataset.csv`
+- **Status:** ✅ Baixado e disponível em `projeto_sleep_health_rf_vs_rn/data/sleep_health_dataset.csv`
 
 ### UCI Machine Learning Repository (Referência)
 - **Dataset original:** Pima Indians Diabetes, Breast Cancer Wisconsin, Heart Disease Cleveland
@@ -23,7 +23,7 @@
 
 ### JupyterLab/Notebook
 - **Instalação:** `notebook>=7.0.0`, `jupyter>=1.0.0`
-- **Notebook principal:** `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb`
+- **Notebook principal:** `projeto_sleep_health_rf_vs_rn/notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb`
 - **Execução:** `jupyter notebook` ou `jupyter nbconvert --execute`
 
 ### Git (Versionamento)
@@ -51,7 +51,7 @@
 ### Matplotlib/Seaborn
 - **Versão:** matplotlib>=3.9.0, seaborn>=0.13.0
 - **Uso:** Visualização de dados
-- **Integração:** Figuras salvas em `reports/figures/`
+- **Integração:** Figuras salvas em `projeto_sleep_health_rf_vs_rn/reports/figures/`
 
 ### Joblib
 - **Versão:** >=1.4.0

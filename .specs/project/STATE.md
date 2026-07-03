@@ -26,7 +26,7 @@
 20. **Relatorio Historico com Loops Professorais**: A proxima fase canonica do Trabalho 2 sera conduzida por `.specs/features/trabalho-2-relatorio-historico/`, com subetapas iterativas de revisao critica em cada fase. Cada etapa precisa responder perguntas de banca antes de ser considerada fechada.
 21. **Relatorio Tecnico Final Consolidado do Projeto 2**: Foi materializado em `reports/consolidados/relatorio-final-trabalho-2-breast-cancer.md` como versao curta e defensavel para leitura final, separando baseline SEER corrigido de trilha canonica METABRIC.
 22. **NotebookLM via CLI como caminho canonico**: Para a etapa final de audio, o fluxo correto passou a ser a CLI `notebooklm`, nao a automacao de navegador. O notebook final do Trabalho 2 ficou no ID `22e638a3-d0ca-447e-8a02-45b0d942865e`, com 7 fontes finais e 12 audios disparados.
-23. **Template do Artigo Derivado de Sleep_Health**: O modelo `docs/template/Sleep_Health/` virou referencia real de implementacao do artigo. Foi criada a pasta `docs/template/Trabalho_2_Breast_Cancer/` com `main.tex` inicial em formato IEEE.
+23. **Template do Artigo Derivado de Sleep_Health**: O modelo `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/` virou referencia real de implementacao do artigo. Foi criada a pasta `docs/template/Trabalho_2_Breast_Cancer/` com `main.tex` inicial em formato IEEE.
 24. **Compilacao do Artigo Reproduzida**: O `main.tex` do artigo do Projeto 2 foi compilado com sucesso via `xelatex` em container `danteev/texlive`, gerando `docs/template/Trabalho_2_Breast_Cancer/artigo_final_trabalho_2.pdf`. Isso replica o padrao de reproducao usado na sessao anterior.
 
 ## 🚧 Blockers / Limitations

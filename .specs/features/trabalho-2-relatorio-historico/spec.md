@@ -96,7 +96,7 @@ Esse relatorio precisa ser construído com **subetapas iterativas de revisao cri
 - [x] A feature registra um mapa de fontes com sessoes de agentes como evidencias complementares de processo.
 - [x] O relatorio tecnico final consolidado foi materializado fora da feature em `reports/consolidados/`.
 - [x] O pacote NotebookLM com fontes e prompts numerados foi gerado.
-- [x] O template inicial do artigo foi adaptado a partir de `docs/template/Sleep_Health/`.
+- [x] O template inicial do artigo foi adaptado a partir de `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/`.
 
 ## Closing Status
 

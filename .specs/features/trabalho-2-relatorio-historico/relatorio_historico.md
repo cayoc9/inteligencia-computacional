@@ -13,6 +13,10 @@ Regra central:
 - sessoes de agentes servem para reconstruir processo, racional e bifurcacoes;
 - em caso de conflito, o repositorio prevalece.
 
+Documento de apoio factual para a trilha dos dados:
+
+- `baseline_oficial_trilha_metodologica.md` fixa a leitura oficial sobre origem, saneamento, perdas e motivo da migracao de base.
+
 ## Linha do Tempo Consolidada
 
 ### 2026-07-01: gatilho inicial de revisao metodologica
@@ -62,7 +66,7 @@ Regra central:
 - O notebook final foi criado via CLI `notebooklm` com ID `22e638a3-d0ca-447e-8a02-45b0d942865e`.
 - As sete fontes ficaram com status `ready`.
 - Foram disparados doze audios, um para cada subtopico narrativo previsto.
-- O template do artigo foi adaptado a partir de `docs/template/Sleep_Health/`, gerando a base `docs/template/Trabalho_2_Breast_Cancer/`.
+- O template do artigo foi adaptado a partir de `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/`, gerando a base `docs/template/Trabalho_2_Breast_Cancer/`.
 - Fonte canonica desta consolidacao:
   - [reports/consolidados/relatorio-final-trabalho-2-breast-cancer.md](/mnt/storage/Documentos/02%20-%20Responsabilidades/ufpa%20-%20mestrado/Disciplinas/Inteligencia%20Computacional/reports/consolidados/relatorio-final-trabalho-2-breast-cancer.md)
   - [reports/consolidados/roteiro-final-apresentacao-trabalho-2.md](/mnt/storage/Documentos/02%20-%20Responsabilidades/ufpa%20-%20mestrado/Disciplinas/Inteligencia%20Computacional/reports/consolidados/roteiro-final-apresentacao-trabalho-2.md)

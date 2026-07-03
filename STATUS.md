@@ -191,7 +191,7 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 | **Status detalhado + decisões** | `.specs/project/STATE.md` |
 | **Roadmap completo** | `.specs/project/ROADMAP.md` |
 | **Revisão estrutural do repo** | `.specs/project/REPO_CLEANUP_REVIEW.md` |
-| **Dicionário de dados** | `docs/DATA_DICTIONARY.md` |
+| **Dicionário de dados** | `projeto_sleep_health_rf_vs_rn/docs/DATA_DICTIONARY.md` |
 | **Reprodutibilidade assistida** | `docs/PROCESS_REPRODUCIBILITY.md` |
 | **ADR de processo assistido** | `docs/adr/0001-versionar-artefatos-processo-assistido.md` |
 | **Requisitos do Trabalho 1** | `.specs/features/trabalho-1/spec.md` |
@@ -211,11 +211,11 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 ### Código e Artefatos
 | Artefato | Localização |
 |---|---|
-| **Pipeline de scripts** | `01_*.py` a `05_*.py` |
-| **Notebook principal** | `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` |
-| **Modelos treinados** | `models/*.pkl`, `models/*.h5`, `models/v2/*.keras` |
-| **Figuras e visualizações** | `reports/figures/*.png` |
-| **Diagnósticos** | `reports/diagnostics/*.csv`, `*.json` |
+| **Pipeline de scripts** | `projeto_sleep_health_rf_vs_rn/01_*.py` a `05_*.py` |
+| **Notebook principal** | `projeto_sleep_health_rf_vs_rn/notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` |
+| **Modelos treinados** | `projeto_sleep_health_rf_vs_rn/models/*.pkl`, `*.h5`, `models/v2/*.keras` |
+| **Figuras e visualizações** | `projeto_sleep_health_rf_vs_rn/reports/figures/*.png` |
+| **Diagnósticos** | `projeto_sleep_health_rf_vs_rn/reports/diagnostics/*.csv`, `*.json` |
 | **Projeto 1 GA-MLP** | `projeto_1_genetico_neural/hybrid_ga_mlp.py` |
 | **Resultados Projeto 1** | `projeto_1_genetico_neural/reports/tables/*.json`, `model_comparison.csv` |
 | **Pipeline Projeto 2** | `projeto_2_neuro_fuzzy/run_pipeline.py` |
@@ -223,15 +223,15 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 ### Comandos Úteis
 ```bash
 # Validar ambiente
-python scripts/smoke_test.py
+python projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py
 # ou, sem ativar o venv:
-.venv/bin/python scripts/smoke_test.py
+.venv/bin/python projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py
 
 # Executar pipeline completo
-python 01_check_data.py && python 02_eda.py && python 03_random_forest.py && python 04_neural_network.py && python 05_neural_network_optimized.py
+python projeto_sleep_health_rf_vs_rn/01_check_data.py && python projeto_sleep_health_rf_vs_rn/02_eda.py && python projeto_sleep_health_rf_vs_rn/03_random_forest.py && python projeto_sleep_health_rf_vs_rn/04_neural_network.py && python projeto_sleep_health_rf_vs_rn/05_neural_network_optimized.py
 
 # Diagnóstico de limites
-python scripts/diagnose_model_limits.py
+python projeto_sleep_health_rf_vs_rn/scripts/diagnose_model_limits.py
 ```
 
 ---

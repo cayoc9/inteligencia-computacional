@@ -7,6 +7,14 @@
 ├── guia_de_acao_ic.md                        # Roteiro metodologico condensado.
 ├── STATUS.md                                 # Status executivo consolidado.
 │
+├── projeto_sleep_health_rf_vs_rn/            # TRABALHO 1 legado - Sleep Health
+│   ├── data/
+│   ├── models/
+│   ├── scripts/
+│   ├── notebooks/
+│   ├── reports/
+│   └── docs/
+│
 ├── projeto_1_genetico_neural/                # PROJETO 1 - GA + MLP
 │   ├── dataset/
 │   ├── .venv/

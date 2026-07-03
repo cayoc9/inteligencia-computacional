@@ -118,7 +118,7 @@ T9 -> T10 -> T10A -> T10B -> T11 -> T12
 **What**: Gerar dicionario de dados especifico com colunas brutas, colunas sanitizadas, tipos, dominios, papel analitico, risco de vazamento e features derivadas.  
 **Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/dictionary.py`, `projeto_2_neuro_fuzzy/docs/DATA_DICTIONARY.md`  
 **Depends on**: T3  
-**Reuses**: `docs/DATA_DICTIONARY.md` como referencia de formato, nao como conteudo do Projeto 2  
+**Reuses**: `projeto_sleep_health_rf_vs_rn/docs/DATA_DICTIONARY.md` como referencia de formato, nao como conteudo do Projeto 2  
 **Requirement**: BC-03
 
 **Tools**:
@@ -347,7 +347,7 @@ T9 -> T10 -> T10A -> T10B -> T11 -> T12
 **What**: Criar notebook narrativo unico do Projeto 2 usando os mesmos modulos/scripts do pipeline.  
 **Where**: `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb`  
 **Depends on**: T10B  
-**Reuses**: `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` como padrao narrativo  
+**Reuses**: `projeto_sleep_health_rf_vs_rn/notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` como padrao narrativo  
 **Requirement**: BC-05
 
 **Tools**:

@@ -36,33 +36,33 @@
 ## Artefatos
 
 ### Dados
-- **Principal:** `data/sleep_health_dataset.csv` (100.000 rows, 32 cols, 14.3 MB)
-- **Splits/resultados serializados:** `data/*.pkl` (derivados locais, ignorados pelo git)
+- **Principal:** `projeto_sleep_health_rf_vs_rn/data/sleep_health_dataset.csv` (100.000 rows, 32 cols, 14.3 MB)
+- **Splits/resultados serializados:** `projeto_sleep_health_rf_vs_rn/data/*.pkl` (derivados locais, ignorados pelo git)
 
 ### Modelos
 | Modelo | Arquivo | Status |
 |---|---|---|
-| Random Forest Tuned | `models/random_forest_model.pkl` | ✅ Gerado |
-| Neural Network Base | `models/neural_network_model.h5` | ✅ Gerado |
-| Neural Network V2 Otimizada | `models/v2/neural_network_v2_optimized.keras` | ✅ Gerado |
+| Random Forest Tuned | `projeto_sleep_health_rf_vs_rn/models/random_forest_model.pkl` | ✅ Gerado |
+| Neural Network Base | `projeto_sleep_health_rf_vs_rn/models/neural_network_model.h5` | ✅ Gerado |
+| Neural Network V2 Otimizada | `projeto_sleep_health_rf_vs_rn/models/v2/neural_network_v2_optimized.keras` | ✅ Gerado |
 
 ### Visualizações
-- **EDA versionada:** `reports/figures/*.png` (correlações, idade, ocupação, boxplots)
+- **EDA versionada:** `projeto_sleep_health_rf_vs_rn/reports/figures/*.png` (correlações, idade, ocupação, boxplots)
 - **Performance:** ainda pode ser expandida com gráficos comparativos finais e curvas PR/ROC
 
 ### Scripts de Pipeline
 | Script | Propósito | Status |
 |---|---|---|
-| `01_check_data.py` | Inspeção inicial | ✅ Funcional |
-| `02_eda.py` | Análise exploratória | ✅ Funcional |
-| `03_random_forest.py` | Treinamento RF + GridSearchCV | ✅ Funcional |
-| `04_neural_network.py` | MLP base | ✅ Funcional |
-| `05_neural_network_optimized.py` | MLP com regularization | ✅ Funcional |
-| `scripts/diagnose_model_limits.py` | Diagnóstico comparativo | ✅ Funcional |
-| `scripts/smoke_test.py` | Validação de ambiente | ✅ Funcional |
+| `projeto_sleep_health_rf_vs_rn/01_check_data.py` | Inspeção inicial | ✅ Funcional |
+| `projeto_sleep_health_rf_vs_rn/02_eda.py` | Análise exploratória | ✅ Funcional |
+| `projeto_sleep_health_rf_vs_rn/03_random_forest.py` | Treinamento RF + GridSearchCV | ✅ Funcional |
+| `projeto_sleep_health_rf_vs_rn/04_neural_network.py` | MLP base | ✅ Funcional |
+| `projeto_sleep_health_rf_vs_rn/05_neural_network_optimized.py` | MLP com regularization | ✅ Funcional |
+| `projeto_sleep_health_rf_vs_rn/scripts/diagnose_model_limits.py` | Diagnóstico comparativo | ✅ Funcional |
+| `projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py` | Validação de ambiente | ✅ Funcional |
 
 ### Notebooks
-- `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` — Narrativa principal consolidada da V1
+- `projeto_sleep_health_rf_vs_rn/notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` — Narrativa principal consolidada da V1
 
 ## Reprodutibilidade
 
@@ -82,8 +82,8 @@ python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
 # Validação
-python scripts/smoke_test.py
+python projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py
 
 # Pipeline completo
-python 01_check_data.py && python 02_eda.py && python 03_random_forest.py && python 04_neural_network.py && python 05_neural_network_optimized.py
+python projeto_sleep_health_rf_vs_rn/01_check_data.py && python projeto_sleep_health_rf_vs_rn/02_eda.py && python projeto_sleep_health_rf_vs_rn/03_random_forest.py && python projeto_sleep_health_rf_vs_rn/04_neural_network.py && python projeto_sleep_health_rf_vs_rn/05_neural_network_optimized.py
 ```

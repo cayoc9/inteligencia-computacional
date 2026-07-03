@@ -3,7 +3,7 @@
 ## Reprodutibilidade ✅ Resolvido
 - **Status:** `requirements.txt` criado em 2026-05-14
 - **Comando único:** `pip install -r requirements.txt`
-- **Validação:** `python scripts/smoke_test.py`
+- **Validação:** `python projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py`
 - **Pipeline:** Scripts numerados permitem reexecução completa
 
 ## Organização DS ✅ Resolvido

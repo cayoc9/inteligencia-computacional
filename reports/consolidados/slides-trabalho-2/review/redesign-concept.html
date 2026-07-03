@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conceito visual - Trabalho 2</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #667085;
+      --paper: #fbfaf7;
+      --soft: #eef2f5;
+      --blue: #123a63;
+      --teal: #0b6b61;
+      --red: #b42318;
+      --line: #d9dee5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px;
+      background: #e9edf2;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+    }
+    h1, h2, h3, p { margin: 0; }
+    .board {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 28px;
+      align-items: start;
+    }
+    .label {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .desktop {
+      aspect-ratio: 16 / 9;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 44px 54px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 24px;
+      box-shadow: 0 18px 40px rgba(17, 24, 39, .12);
+    }
+    .mobile {
+      width: 360px;
+      min-height: 760px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px 24px;
+      display: grid;
+      gap: 22px;
+      box-shadow: 0 18px 40px rgba(17, 24, 39, .12);
+    }
+    .title {
+      font-size: 42px;
+      line-height: 1.05;
+      max-width: 900px;
+      font-weight: 820;
+      letter-spacing: 0;
+    }
+    .mobile .title { font-size: 29px; }
+    .subtitle {
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 780px;
+      margin-top: 10px;
+    }
+    .mobile .subtitle { font-size: 16px; }
+    .evidence {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .mobile .evidence {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .panel {
+      border-top: 4px solid var(--line);
+      padding-top: 18px;
+      display: grid;
+      gap: 12px;
+      min-height: 260px;
+    }
+    .panel.metabric { border-color: var(--teal); }
+    .panel.seer { border-color: #98a2b3; }
+    .eyebrow {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .hero {
+      font-size: 72px;
+      font-weight: 850;
+      line-height: .9;
+      color: var(--teal);
+    }
+    .mobile .hero { font-size: 56px; }
+    .hero small {
+      font-size: 24px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .fact {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line);
+      padding: 9px 0;
+      font-size: 18px;
+    }
+    .mobile .fact { font-size: 15px; }
+    .fact b { font-weight: 800; }
+    .tradeoff {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 18px;
+      color: var(--muted);
+    }
+    .pill {
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--soft);
+      font-weight: 800;
+      color: var(--ink);
+    }
+    .pill.red { background: #fee4e2; color: var(--red); }
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="board">
+    <div>
+      <div class="label">Conceito desktop 16:9 - slide de resultado</div>
+      <section class="desktop">
+        <header>
+          <h1 class="title">O ensemble quase elimina falsos negativos no METABRIC, mas cobra custo em falsos positivos</h1>
+          <p class="subtitle">Threshold escolhido na validacao; teste preservado para o reporte final.</p>
+        </header>
+        <div class="evidence">
+          <div class="panel seer">
+            <div class="eyebrow">SEER corrigido</div>
+            <div class="hero">29 <small>FN</small></div>
+            <div class="fact"><span>Recall</span><b>0.7642</b></div>
+            <div class="fact"><span>F2</span><b>0.5188</b></div>
+            <div class="tradeoff"><span class="pill red">320 FP</span><span>ponto agressivo de sensibilidade</span></div>
+          </div>
+          <div class="panel metabric">
+            <div class="eyebrow">METABRIC canonico</div>
+            <div class="hero">1 <small>FN</small></div>
+            <div class="fact"><span>Recall</span><b>0.9953</b></div>
+            <div class="fact"><span>F2</span><b>0.8770</b></div>
+            <div class="tradeoff"><span class="pill red">146 FP</span><span>alta sensibilidade, nao validacao clinica</span></div>
+          </div>
+        </div>
+        <footer class="footer">
+          <span>Trabalho 2 - Inteligencia Computacional</span>
+          <span>Slide 14 / 20</span>
+        </footer>
+      </section>
+    </div>
+    <div>
+      <div class="label">Conceito mobile vertical</div>
+      <section class="mobile">
+        <header>
+          <h2 class="title">METABRIC reduziu o teste a 1 falso negativo</h2>
+          <p class="subtitle">O ganho vem com 146 falsos positivos, por isso o resultado e ponto operacional.</p>
+        </header>
+        <div class="evidence">
+          <div class="panel metabric">
+            <div class="eyebrow">METABRIC ensemble</div>
+            <div class="hero">1 <small>FN</small></div>
+            <div class="fact"><span>Recall</span><b>0.9953</b></div>
+            <div class="fact"><span>F2</span><b>0.8770</b></div>
+            <div class="tradeoff"><span class="pill red">146 FP</span></div>
+          </div>
+          <div class="panel seer">
+            <div class="eyebrow">Comparacao SEER</div>
+            <div class="hero" style="color:#667085">29 <small>FN</small></div>
+            <div class="fact"><span>Recall</span><b>0.7642</b></div>
+            <div class="fact"><span>F2</span><b>0.5188</b></div>
+          </div>
+        </div>
+        <footer class="footer">
+          <span>Slide 14</span>
+          <span>Fonte: CSVs do pipeline</span>
+        </footer>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

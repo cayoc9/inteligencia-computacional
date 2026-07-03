@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trabalho 2 - Breast Cancer</title>
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #5b6673;
+      --line: #d7dde5;
+      --bg: #f5f7fa;
+      --panel: #ffffff;
+      --blue: #2457a6;
+      --teal: #0f766e;
+      --red: #b42318;
+      --amber: #a16207;
+      --green: #16703c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.38;
+    }
+    main {
+      width: min(1180px, 96vw);
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+    .slide {
+      min-height: 690px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 0 0 24px;
+      padding: 38px 44px;
+      box-shadow: 0 12px 28px rgba(21, 32, 43, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      page-break-after: always;
+    }
+    .kicker {
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    h1, h2, h3 { margin: 0; letter-spacing: 0; }
+    h1 { font-size: 44px; line-height: 1.08; max-width: 920px; }
+    h2 { font-size: 34px; line-height: 1.12; }
+    h3 { font-size: 22px; }
+    p { margin: 0; font-size: 19px; }
+    ul, ol { margin: 0; padding-left: 24px; font-size: 20px; }
+    li { margin: 8px 0; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+    th, td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #eef3f8;
+      font-weight: 750;
+    }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      background: #fbfcfe;
+    }
+    .card strong { display: block; font-size: 22px; margin-bottom: 8px; }
+    .metric {
+      border-left: 5px solid var(--blue);
+      padding: 14px 18px;
+      background: #f1f5fb;
+      border-radius: 6px;
+    }
+    .metric b { font-size: 30px; color: var(--blue); display: block; }
+    .tag {
+      display: inline-block;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      font-size: 15px;
+      color: var(--muted);
+      margin: 2px 4px 2px 0;
+    }
+    .flow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 19px;
+    }
+    .box {
+      border: 1px solid var(--line);
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 14px 16px;
+      min-width: 145px;
+      text-align: center;
+      font-weight: 700;
+    }
+    .arrow { color: var(--blue); font-weight: 800; }
+    .note {
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .visual {
+      max-height: 360px;
+      max-width: 100%;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 8px;
+    }
+    .danger { color: var(--red); font-weight: 800; }
+    .good { color: var(--green); font-weight: 800; }
+    .warn { color: var(--amber); font-weight: 800; }
+    .small { font-size: 16px; color: var(--muted); }
+    .center { display: grid; place-items: center; text-align: center; flex: 1; }
+    @media print {
+      body { background: #fff; }
+      main { width: 100%; padding: 0; }
+      .slide { box-shadow: none; border-radius: 0; margin: 0; min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <section class="slide">
+    <div class="kicker">Slide 1 - Capa</div>
+    <div class="center">
+      <h1>Sistema de Inteligencia Computacional para Risco de Obito em Cancer de Mama</h1>
+      <p>Ensemble tabular com comparativo neuro-fuzzy: SEER corrigido e evolucao METABRIC</p>
+      <div class="flow">
+        <span class="box">SEER corrigido</span><span class="arrow">-></span><span class="box">METABRIC canonico</span>
+      </div>
+      <p class="small">Inteligencia Computacional - UFPA</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 2 - Roteiro</div>
+    <h2>Roteiro da Apresentacao</h2>
+    <div class="grid">
+      <div class="card"><strong>1. Introducao</strong><p>Contexto, problema e datasets.</p></div>
+      <div class="card"><strong>2. Desenvolvimento</strong><p>Arquitetura, pre-processamento, modelos e ensemble.</p></div>
+      <div class="card"><strong>3. Avaliacao Experimental</strong><p>Metodologia, metricas, resultados e analise critica.</p></div>
+      <div class="card"><strong>4. Conclusao</strong><p>Conclusoes, limitacoes, trabalhos futuros e perguntas.</p></div>
+    </div>
+    <p class="note">Estrutura alinhada ao modelo da avaliacao.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">1. Introducao</div>
+    <h2>Contexto e Motivacao</h2>
+    <div class="grid">
+      <ul>
+        <li>Classificacao supervisionada em saude.</li>
+        <li>Dados tabulares clinicos e patologicos.</li>
+        <li>Desbalanceamento e custo de falso negativo.</li>
+        <li>Sistema inteligente com ensemble e comparativo neuro-fuzzy.</li>
+      </ul>
+      <div class="card">
+        <strong>Decisao metodologica</strong>
+        <p>Acuracia isolada nao define o melhor modelo; a leitura prioriza recall, F2, PR AUC e falsos negativos.</p>
+      </div>
+    </div>
+    <p class="note">Pergunta antecipada: por que nao escolher apenas pela acuracia?</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 4 - Problema Proposto</div>
+    <h2>Problema e Objetivo Corrigido</h2>
+    <div class="flow">
+      <span class="box">Variaveis clinicas</span><span class="arrow">-></span><span class="box">Modelo</span><span class="arrow">-></span><span class="box">Obito observado</span>
+    </div>
+    <div class="grid">
+      <div class="card"><strong>SEER</strong><p>Classe positiva: <code>Status = Dead</code></p></div>
+      <div class="card"><strong>METABRIC</strong><p>Classe positiva: <code>Overall Survival Status = Deceased</code></p></div>
+    </div>
+    <p><span class="danger">Survival Months</span> foi removido do modelo principal por risco de vazamento.</p>
+    <p class="note">Pergunta antecipada: por que remover uma variavel tao preditiva?</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 5 - Dataset</div>
+    <h2>SEER como Baseline e METABRIC como Evolucao Canonica</h2>
+    <table>
+      <tr><th>Trilha</th><th>Papel</th><th>Registros analiticos</th><th>Diferencial</th></tr>
+      <tr><td>SEER</td><td>Baseline corrigido</td><td>4.023</td><td>Maior, mas menos profundo clinicamente</td></tr>
+      <tr><td>METABRIC</td><td>V2 canonica</td><td>1.876</td><td>Tratamento, ER/PR/HER2, PAM50, NPI e mutacoes</td></tr>
+    </table>
+    <div class="grid">
+      <img class="visual" src="../../../projeto_2_neuro_fuzzy/reports/figures/target_distribution.png" alt="Distribuicao do alvo SEER">
+      <img class="visual" src="../../../projeto_2_neuro_fuzzy_metabric_clinico/reports/figures/pam50_deceased_rate.png" alt="PAM50 por obito METABRIC">
+    </div>
+    <p class="note">Assets: target_distribution SEER e pam50_deceased_rate METABRIC.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 6 - Arquitetura Geral</div>
+    <h2>Arquitetura Geral do Sistema</h2>
+    <div class="flow">
+      <span class="box">Dataset bruto</span><span class="arrow">-></span>
+      <span class="box">Saneamento</span><span class="arrow">-></span>
+      <span class="box">EDA</span><span class="arrow">-></span>
+      <span class="box">Features</span><span class="arrow">-></span>
+      <span class="box">Modelos</span><span class="arrow">-></span>
+      <span class="box">Ensemble</span><span class="arrow">-></span>
+      <span class="box">Avaliacao</span>
+    </div>
+    <div class="card">
+      <strong>Comparativo hibrido</strong>
+      <p>Neuro-fuzzy cooperativo com fuzzificacao manual + MLP foi mantido como componente academico comparativo.</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 7 - Pre-processamento</div>
+    <h2>Pre-processamento e Politica de Vazamento</h2>
+    <div class="grid">
+      <ul>
+        <li>Sanitizacao centralizada.</li>
+        <li>Dicionario de dados.</li>
+        <li>Metadados e relacoes.</li>
+        <li>Imputacao robusta e one-hot encoding.</li>
+        <li>Exclusao de variaveis de vazamento.</li>
+      </ul>
+      <img class="visual" src="../../../projeto_2_neuro_fuzzy_metabric_clinico/reports/figures/numeric_correlation_heatmap.png" alt="Heatmap METABRIC">
+    </div>
+    <p class="note">Asset principal: numeric_correlation_heatmap METABRIC.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 8 - Modelos</div>
+    <h2>Modelos Inteligentes Utilizados</h2>
+    <table>
+      <tr><th>Familia</th><th>Modelos</th></tr>
+      <tr><td>Baseline explicavel</td><td>Logistic Regression</td></tr>
+      <tr><td>Arvores e boosting</td><td>Random Forest, ExtraTrees, GradientBoosting, HistGradientBoosting, AdaBoost</td></tr>
+      <tr><td>Redes e kernel</td><td>MLP, SVM calibrado</td></tr>
+      <tr><td>Sistema combinado</td><td>Ensemble ponderado por soft voting</td></tr>
+      <tr><td>Hibrido academico</td><td>Neuro-fuzzy cooperativo</td></tr>
+    </table>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 9 - Hibrido / Ensemble</div>
+    <h2>Ensemble Ponderado e Neuro-fuzzy Cooperativo</h2>
+    <div class="grid">
+      <div class="card"><strong>Ensemble</strong><p>Soft voting ponderado, pesos na validacao, threshold na validacao e teste preservado.</p></div>
+      <div class="card"><strong>Neuro-fuzzy</strong><p>Fuzzificacao manual + MLP. Comparativo hibrido, nao ANFIS completo.</p></div>
+    </div>
+    <div class="flow">
+      <span class="box">RF</span><span class="box">ExtraTrees</span><span class="box">Logistic</span><span class="box">HistGB</span><span class="arrow">-></span><span class="box">Soft voting</span>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 10 - Treinamento</div>
+    <h2>Pipeline de Treinamento e Validacao</h2>
+    <div class="flow">
+      <span class="box">Treino</span><span class="arrow">ajusta modelos</span>
+      <span class="box">Validacao</span><span class="arrow">escolhe pesos/threshold</span>
+      <span class="box">Teste</span><span class="arrow">reporta resultado</span>
+    </div>
+    <ul>
+      <li>Teste nao foi usado para escolher threshold.</li>
+      <li>Estabilidade avaliada por 5 seeds.</li>
+      <li>Notebooks, relatorios e CSVs preservam rastreabilidade.</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">3. Avaliacao Experimental</div>
+    <h2>Metodologia Experimental</h2>
+    <table>
+      <tr><th>Etapa</th><th>SEER</th><th>METABRIC</th></tr>
+      <tr><td>Dicionario e EDA</td><td>Sim</td><td>Sim</td></tr>
+      <tr><td>Politica de vazamento</td><td>Sim</td><td>Sim</td></tr>
+      <tr><td>Treino / validacao / teste</td><td>Sim</td><td>Sim</td></tr>
+      <tr><td>Ensemble validado</td><td>Sim</td><td>Sim</td></tr>
+      <tr><td>Explicabilidade e calibracao</td><td>Sim</td><td>Sim</td></tr>
+    </table>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 12 - Metricas</div>
+    <h2>Metricas e Custo do Erro</h2>
+    <div class="grid-3">
+      <div class="metric"><b>Recall</b><span>captura da classe positiva</span></div>
+      <div class="metric"><b>F2</b><span>pesa recall acima da precisao</span></div>
+      <div class="metric"><b>PR AUC</b><span>mais adequada ao desbalanceamento</span></div>
+    </div>
+    <p><span class="danger">Falso negativo</span> recebe mais atencao que acuracia isolada.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 13 - Modelos Individuais</div>
+    <h2>Resultados dos Modelos Individuais</h2>
+    <table>
+      <tr><th>Trilha</th><th>Modelo</th><th>Accuracy</th><th>Recall</th><th>F2</th><th>PR AUC</th><th>FN</th></tr>
+      <tr><td>SEER</td><td>Logistic Regression</td><td>0.6807</td><td>0.6098</td><td>0.4832</td><td>0.3525</td><td>48</td></tr>
+      <tr><td>METABRIC</td><td>GradientBoosting</td><td>0.7048</td><td>0.7953</td><td>0.7787</td><td>0.7600</td><td>44</td></tr>
+    </table>
+    <p class="note">Refs: model_comparison_no_leakage_test.csv nas duas trilhas.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 14 - Sistema Hibrido</div>
+    <h2>Resultados do Ensemble e Neuro-fuzzy</h2>
+    <table>
+      <tr><th>Trilha</th><th>Sistema</th><th>Threshold</th><th>Recall</th><th>F2</th><th>FN</th><th>FP</th></tr>
+      <tr><td>SEER</td><td>Ensemble</td><td>0.22</td><td>0.7642</td><td>0.5188</td><td>29</td><td>320</td></tr>
+      <tr><td>METABRIC</td><td>Ensemble</td><td>0.16</td><td class="good">0.9953</td><td class="good">0.8770</td><td class="good">1</td><td>146</td></tr>
+      <tr><td>SEER</td><td>Neuro-fuzzy</td><td>-</td><td>0.2764</td><td>0.2886</td><td>-</td><td>-</td></tr>
+      <tr><td>METABRIC</td><td>Neuro-fuzzy</td><td>-</td><td>0.6512</td><td>0.6548</td><td>-</td><td>-</td></tr>
+    </table>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 15 - Comparacao Geral</div>
+    <h2>Comparacao Geral</h2>
+    <div class="grid-3">
+      <div class="metric"><b>0.4832</b><span>SEER individual F2</span></div>
+      <div class="metric"><b>0.5188</b><span>SEER ensemble F2</span></div>
+      <div class="metric"><b>0.8770</b><span>METABRIC ensemble F2</span></div>
+    </div>
+    <p>Melhor dataset elevou o teto; ensemble deslocou o ponto operacional para alta sensibilidade.</p>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 16 - Analise</div>
+    <h2>Interpretacao Critica</h2>
+    <div class="grid">
+      <div class="card"><strong>Ganho</strong><p>Recall alto e forte reducao de falsos negativos no METABRIC.</p></div>
+      <div class="card"><strong>Trade-off</strong><p>Falsos positivos continuam relevantes, especialmente no ponto operacional agressivo.</p></div>
+    </div>
+    <div class="grid">
+      <img class="visual" src="../../../projeto_2_neuro_fuzzy_metabric_clinico/reports/figures/calibration_curves.png" alt="Curvas de calibracao METABRIC">
+      <img class="visual" src="../../../projeto_2_neuro_fuzzy_metabric_clinico/reports/figures/logistic_regression_top_coefficients.png" alt="Coeficientes METABRIC">
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">4. Conclusao</div>
+    <h2>Principais Conclusoes</h2>
+    <ol>
+      <li>Corrigir vazamento e validacao tornou o experimento defensavel.</li>
+      <li>METABRIC foi melhor para a pergunta por conter maior profundidade clinica.</li>
+      <li>Ensemble foi util como ponto de alta sensibilidade.</li>
+      <li>Neuro-fuzzy teve papel academico comparativo, nao superioridade empirica.</li>
+    </ol>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 18 - Limitacoes</div>
+    <h2>Limitacoes do Trabalho</h2>
+    <ul>
+      <li>Datasets publicos, sem validacao clinica externa.</li>
+      <li>Classificacao binaria, nao survival analysis formal.</li>
+      <li>Neuro-fuzzy nao e ANFIS completo.</li>
+      <li>SEER vs METABRIC nao e benchmark perfeito entre bases identicas.</li>
+      <li>Falsos positivos ainda precisam ser controlados.</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 19 - Trabalhos Futuros</div>
+    <h2>Trabalhos Futuros</h2>
+    <div class="grid-3">
+      <div class="card"><strong>Robustez</strong><p>Validacao externa e validacao cruzada repetida.</p></div>
+      <div class="card"><strong>Clinica</strong><p>Survival analysis formal e analise de decisao por custo.</p></div>
+      <div class="card"><strong>Interpretabilidade</strong><p>Explicabilidade local e calibragem fuzzy com especialista.</p></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Slide 20 - Encerramento</div>
+    <h2>Encerramento / Perguntas</h2>
+    <div class="card">
+      <strong>Mensagem final</strong>
+      <p>Bons dados e boa validacao foram mais importantes que complexidade isolada.</p>
+    </div>
+    <ul>
+      <li>Por que nao usar acuracia?</li>
+      <li>Por que remover <code>Survival Months</code>?</li>
+      <li>O ensemble foi ajustado no teste?</li>
+      <li>O neuro-fuzzy e ANFIS?</li>
+      <li>Como justificar falsos positivos?</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>

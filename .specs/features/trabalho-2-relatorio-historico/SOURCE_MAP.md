@@ -5,8 +5,27 @@
 | Nivel | Tipo de fonte | Exemplos | Papel | Regra de uso |
 |---|---|---|---|---|
 | 1 | Fonte canonica de entrega | `.specs/`, `README`, `docs/`, `reports/`, `notebooks/`, CSVs | verdade final sobre o que foi implementado e validado | prevalece em caso de conflito |
+| 1B | Fonte externa primaria de contexto dos dados | SEER oficial, artigo original METABRIC, cBioPortal, pagina do dataset Kaggle | contextualiza origem, natureza e limitacoes dos datasets usados | nunca substitui numeros e resultados do repositorio |
 | 2 | Fonte complementar de processo | sessoes Codex e Antigravity | explica racional, bifurcacoes, ordens de execucao e criticas orientadoras | nunca substitui artefato canonico |
 | 3 | Fonte interpretativa | audio, NotebookLM, notas e resumos | explica intencao, contexto e heuristicas | usar como apoio, nao como prova final isolada |
+
+## Fontes Externas Primarias dos Datasets
+
+### SEER
+
+| Fonte | Uso na narrativa |
+|---|---|
+| `https://seer.cancer.gov/` | caracterizar o SEER como programa oficial do NCI para estatisticas de cancer |
+| `https://seer.cancer.gov/news/SEER-Overview-Variables.pdf` | contextualizar tipos de variaveis: demografia, tumor, tratamento e follow-up |
+| `https://seer.cancer.gov/survivaltime/` | justificar por que `survival_months` deve ser tratado como informacao de seguimento |
+
+### METABRIC
+
+| Fonte | Uso na narrativa |
+|---|---|
+| `https://www.nature.com/articles/nature10983` | caracterizar a origem cientifica do METABRIC como estudo de 2.000 tumores com follow-up de longo prazo |
+| `https://www.cbioportal.org/study?id=brca_metabric` | contextualizar a expansao do ecossistema METABRIC para 2509 tumores primarios em study page publica |
+| `https://www.kaggle.com/datasets/gunesevitan/breast-cancer-metabric` | identificar o arquivo clinico publico efetivamente baixado para o projeto |
 
 ## Sessoes de Agentes Incluidas
 

@@ -19,6 +19,7 @@ Prever `Overall Survival Status = Deceased` a partir de atributos clinicos, mole
 - `reports/tables/ensemble_test_summary.csv`: metricas finais no teste intocado.
 - `reports/tables/calibration_summary.csv`: comparativo de calibracao e Brier score.
 - `reports/tables/stability_summary.csv`: media/desvio por seed para baseline e ensemble.
+- `reports/figures/`: EDA, explicabilidade e suite equivalente aos graficos do sleep_health.
 - `reports/relatorio_tecnico_projeto_2_metabric.md`: sintese tecnica do fork.
 - `notebooks/projeto_2_metabric_clinico.ipynb`: notebook narrativo do fork.
 
@@ -40,6 +41,7 @@ projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/04
 projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/05_neuro_fuzzy_comparison.py
 projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/06_explainability.py
 projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/07_stability_analysis.py
+projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/08_generate_sleep_health_equivalent_graphs.py
 ```
 
 ## Validacao
@@ -54,3 +56,25 @@ projeto_2_neuro_fuzzy/.venv/bin/jupyter nbconvert --to notebook --execute projet
 Sem usar meses de sobrevida, o melhor modelo individual foi `gradient_boosting`: F2 `0.7787`, recall `0.7953`, precision `0.7185` e PR AUC `0.7600`.
 
 O ensemble agora segue `treino / validacao / teste`, com pesos e threshold congelados na validacao antes do reporte final. No teste intocado, o threshold `0.16` entregou recall `0.9953`, F2 `0.8770` e apenas `1` falso negativo, ao custo de `146` falsos positivos.
+
+## Suite de graficos comparaveis ao Sleep Health
+
+O script abaixo gera a camada de visualizacao equivalente ao projeto de sono:
+
+```bash
+projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/08_generate_sleep_health_equivalent_graphs.py
+```
+
+Arquivos principais gerados:
+
+- `reports/figures/age_distribution_target.png`
+- `reports/figures/correlation_heatmap.png`
+- `reports/figures/pam50_vs_target.png`
+- `reports/figures/metabric_features_boxplot.png`
+- `reports/figures/comparacao_metricas.png`
+- `reports/figures/curvas_roc.png`
+- `reports/figures/curvas_pr.png`
+- `reports/figures/threshold_otimizacao.png`
+- `reports/figures/feature_importance.png`
+- `reports/figures/confusion_matrix_ensemble.png`
+- `reports/figures/feature_auc_individual.png`

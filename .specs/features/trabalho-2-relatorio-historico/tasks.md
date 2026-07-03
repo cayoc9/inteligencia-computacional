@@ -216,7 +216,7 @@ Depois do fechamento da trilha historica principal, a execucao foi estendida par
 
 ### T8: Adaptacao do template do artigo ✅
 
-**What**: Usar `docs/template/Sleep_Health/` como referencia para criar a base do artigo do Projeto 2.  
+**What**: Usar `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/` como referencia para criar a base do artigo do Projeto 2.  
 **Where**: `docs/template/Trabalho_2_Breast_Cancer/`  
 **Depends on**: T6  
 **Requirement**: RHC-03
@@ -245,5 +245,19 @@ Depois do fechamento da trilha historica principal, a execucao foi estendida par
 - [x] Bloco de autores do artigo normalizado com os nomes reais da equipe.
 - [x] Artigo recompilado por container apos ajuste editorial no `main.tex`.
 - [x] Varredura final sem placeholders antigos, citacoes indefinidas ou referencias obsoletas a `in_progress`.
+- [x] Plano de 20 slides criado em `reports/consolidados/plano-slides-apresentacao-trabalho-2.md` seguindo o modelo da avaliacao.
+- [x] Link do Overleaf registrado no plano de slides como referencia operacional do artigo.
+- [x] Os 12 audios NotebookLM foram renomeados com prefixos numericos `01` a `12`.
+- [x] Plano de slides revisado contra `baseline_oficial_trilha_metodologica.md`, reforcando numeros brutos/saneados, missingness do METABRIC, rerun completo e leitura SEER baseline vs METABRIC v2.
+- [x] Plano descritivo completo dos slides criado em `reports/consolidados/plano-detalhado-slides-trabalho-2.md`, com referencias de graficos e tabelas reais.
+- [x] Versao local HTML criada em `reports/consolidados/slides-trabalho-2/index.html`.
+- [x] Fonte do plano detalhado adicionada ao NotebookLM.
+- [x] Slide deck NotebookLM gerado e baixado em `reports/consolidados/slides-trabalho-2/notebooklm-trabalho-2-breast-cancer.pptx`.
+- [x] PPTX NotebookLM validado com 20 slides; extracao textual simples nao encontrou texto editavel, indicando possivel exportacao como composicao visual/imagem.
+- [x] Revisao critica de storytelling e visualizacao registrada em `reports/consolidados/revisao-critica-estrategia-slides-trabalho-2.md`.
+- [x] Capturas de revisao geradas para HTML e PPTX em `reports/consolidados/slides-trabalho-2/review/`.
+- [x] Conceito visual desktop/mobile criado em `reports/consolidados/slides-trabalho-2/review/redesign-concept.html` e exportado como `redesign-concept.png`.
+- [x] HTML de slides redesenhado em `reports/consolidados/slides-trabalho-2/index_v2.html`, com titulos-claim, layout 16:9, narrativa principal enxugada e versao mobile corrigida.
+- [x] Prompt NotebookLM v2 criado em `reports/consolidados/notebooklm-trabalho-2/08_prompt_slide_deck_v2.md`, sem contagem fixa obrigatoria, com blocos obrigatorios, ênfase maior em problema/dataset/resultados/trade-off e perguntas movidas para slides extras apos o encerramento.
 
 **Proximos passos liberados**: slides finais, revisao editorial no Overleaf, conferencia qualitativa dos audios e fechamento do pacote de defesa.

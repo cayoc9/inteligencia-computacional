@@ -7,13 +7,13 @@ Cada script é auto-validado: imprime métricas no console e salva artefatos.
 
 | Script | Gate Check |
 |---|---|
-| `01_check_data.py` | ✅ Imprime shape, tipos, nulos, duplicatas |
-| `02_eda.py` | ✅ Salva figuras em `reports/figures/` |
-| `03_random_forest.py` | ✅ Imprime 6 métricas + salva modelo `.pkl` |
-| `04_neural_network.py` | ✅ Imprime 6 métricas + salva modelo `.h5` |
-| `05_neural_network_optimized.py` | ✅ Imprime 6 métricas + salva modelo `.keras` |
-| `scripts/diagnose_model_limits.py` | ✅ Compara 5 modelos + threshold tuning |
-| `scripts/smoke_test.py` | ✅ Valida dependências do ambiente |
+| `projeto_sleep_health_rf_vs_rn/01_check_data.py` | ✅ Imprime shape, tipos, nulos, duplicatas |
+| `projeto_sleep_health_rf_vs_rn/02_eda.py` | ✅ Salva figuras em `projeto_sleep_health_rf_vs_rn/reports/figures/` |
+| `projeto_sleep_health_rf_vs_rn/03_random_forest.py` | ✅ Imprime 6 métricas + salva modelo `.pkl` |
+| `projeto_sleep_health_rf_vs_rn/04_neural_network.py` | ✅ Imprime 6 métricas + salva modelo `.h5` |
+| `projeto_sleep_health_rf_vs_rn/05_neural_network_optimized.py` | ✅ Imprime 6 métricas + salva modelo `.keras` |
+| `projeto_sleep_health_rf_vs_rn/scripts/diagnose_model_limits.py` | ✅ Compara 5 modelos + threshold tuning |
+| `projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py` | ✅ Valida dependências do ambiente |
 
 ### Métricas Obrigatórias (Trabalho 1)
 Todas impressas no console após treino:
@@ -35,23 +35,23 @@ Todas impressas no console após treino:
 ### Pipeline Completo
 ```bash
 # Validação de ambiente
-python scripts/smoke_test.py
+python projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py
 # Alternativa sem ativar venv:
-.venv/bin/python scripts/smoke_test.py
+.venv/bin/python projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py
 
 # Execução completa (na ordem)
-python 01_check_data.py
-python 02_eda.py
-python 03_random_forest.py
-python 04_neural_network.py
-python 05_neural_network_optimized.py
-python scripts/diagnose_model_limits.py
+python projeto_sleep_health_rf_vs_rn/01_check_data.py
+python projeto_sleep_health_rf_vs_rn/02_eda.py
+python projeto_sleep_health_rf_vs_rn/03_random_forest.py
+python projeto_sleep_health_rf_vs_rn/04_neural_network.py
+python projeto_sleep_health_rf_vs_rn/05_neural_network_optimized.py
+python projeto_sleep_health_rf_vs_rn/scripts/diagnose_model_limits.py
 ```
 
 ### Notebook (quando consolidado)
 ```bash
 # Executar e validar notebook
-jupyter nbconvert --to notebook --execute notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb
+jupyter nbconvert --to notebook --execute projeto_sleep_health_rf_vs_rn/notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb
 ```
 
 ## Resultados de Referência (2026-05-14)
@@ -113,7 +113,7 @@ projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy/07_stability_analys
 projeto_2_neuro_fuzzy/.venv/bin/python -m pytest -q
 ```
 
-O `pytest.ini` restringe a coleta aos diretorios `tests/` e `projeto_2_neuro_fuzzy/tests/`, evitando coletar scripts utilitarios como `scripts/smoke_test.py`.
+O `pytest.ini` restringe a coleta aos diretorios `tests/` e `projeto_2_neuro_fuzzy/tests/`, evitando coletar scripts utilitarios como `projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py`.
 
 ### Status de Lacunas Atualizado
 

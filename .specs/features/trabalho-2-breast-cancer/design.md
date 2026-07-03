@@ -34,7 +34,7 @@ graph TD
 | Component | Location | How to Use |
 |---|---|---|
 | Pipeline numerado | `01_check_data.py` a `05_neural_network_optimized.py` | Reusar convencao de scripts sequenciais, mas dentro de `projeto_2_neuro_fuzzy/`. |
-| Notebook narrativo | `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` | Reusar padrao "um notebook consolidado por projeto". |
+| Notebook narrativo | `projeto_sleep_health_rf_vs_rn/notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` | Reusar padrao "um notebook consolidado por projeto". |
 | Diagnostico de threshold | `scripts/diagnose_model_limits.py` | Reaproveitar ideia de threshold scan, PR AUC e permutation importance. |
 | Docs vivos | `.specs/project/`, `.specs/codebase/` | Atualizar estado, roadmap, testing, structure e conventions. |
 | Analise do audio | `projeto_2_neuro_fuzzy/analise_audio_estrategia.md` | Usar como justificativa metodologica para EDA, ensemble e foco em falsos negativos. |
@@ -73,7 +73,7 @@ graph TD
   - `build_data_dictionary(raw: pd.DataFrame, clean: pd.DataFrame) -> pd.DataFrame`
   - `write_data_dictionary(dictionary: pd.DataFrame, path: Path) -> None`
 - **Dependencies**: pandas.
-- **Reuses**: estrutura de `docs/DATA_DICTIONARY.md`, mas com escopo especifico do Projeto 2.
+- **Reuses**: estrutura de `projeto_sleep_health_rf_vs_rn/docs/DATA_DICTIONARY.md`, mas com escopo especifico do Projeto 2.
 
 ### Metadata and Relationship EDA
 

@@ -55,7 +55,7 @@
 - [x] Roteiro final de apresentação do Projeto 2 em `reports/consolidados/roteiro-final-apresentacao-trabalho-2.md`.
 - [x] Pacote NotebookLM do Projeto 2 com fontes e prompts numerados em `reports/consolidados/notebooklm-trabalho-2/`.
 - [x] Notebook final do Trabalho 2 criado via CLI `notebooklm` com 12 audios concluidos.
-- [x] Template inicial do artigo adaptado a partir de `docs/template/Sleep_Health/` para `docs/template/Trabalho_2_Breast_Cancer/`.
+- [x] Template inicial do artigo adaptado a partir de `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/` para `docs/template/Trabalho_2_Breast_Cancer/`.
 - [x] PDF do artigo reproduzido via `xelatex` em container e salvo como `docs/template/Trabalho_2_Breast_Cancer/artigo_final_trabalho_2.pdf`.
 - [ ] Relatório técnico do Projeto 1 revisado com base na spec `projeto-1-genetico-neural`.
 - [ ] Revisão final do artigo no Overleaf com emails, metadados bibliograficos, figuras/tabelas e limite de paginas.

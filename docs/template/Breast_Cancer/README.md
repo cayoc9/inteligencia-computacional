@@ -1,6 +1,6 @@
 # Template do Artigo - Trabalho 2
 
-Esta pasta deriva do template `docs/template/Sleep_Health` e foi adaptada para o Projeto 2.
+Esta pasta deriva do template `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health` e foi adaptada para o Projeto 2.
 
 ## Arquivos
 

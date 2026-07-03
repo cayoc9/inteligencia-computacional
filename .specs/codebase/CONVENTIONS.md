@@ -3,32 +3,32 @@
 ## Organização de Arquivos
 
 ### Scripts Numerados (Pipeline)
-Scripts na raiz seguem padrão `NN_nome_descritivo.py`:
-- `01_check_data.py`: Inspeção inicial
-- `02_eda.py`: Análise exploratória
-- `03_random_forest.py`: Modelagem RF
-- `04_neural_network.py`: Modelagem RN base
-- `05_neural_network_optimized.py`: Modelagem RN otimizada
+Scripts do projeto de sono seguem padrão `NN_nome_descritivo.py` em `projeto_sleep_health_rf_vs_rn/`:
+- `projeto_sleep_health_rf_vs_rn/01_check_data.py`: Inspeção inicial
+- `projeto_sleep_health_rf_vs_rn/02_eda.py`: Análise exploratória
+- `projeto_sleep_health_rf_vs_rn/03_random_forest.py`: Modelagem RF
+- `projeto_sleep_health_rf_vs_rn/04_neural_network.py`: Modelagem RN base
+- `projeto_sleep_health_rf_vs_rn/05_neural_network_optimized.py`: Modelagem RN otimizada
 
 **Por que:** Numeração facilita ordem de execução e auditoria.
 
 ### Scripts de Suporte
-Em `scripts/` para utilitários:
-- `scripts/smoke_test.py`: Validação de ambiente
-- `scripts/diagnose_model_limits.py`: Diagnóstico comparativo
+Em `projeto_sleep_health_rf_vs_rn/scripts/` para utilitários:
+- `projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py`: Validação de ambiente
+- `projeto_sleep_health_rf_vs_rn/scripts/diagnose_model_limits.py`: Diagnóstico comparativo
 
 ### Diretórios de Artefatos
 | Diretório | Conteúdo |
 |---|---|
-| `data/` | Dataset principal versionado + splits locais derivados |
-| `models/` | Modelos treinados locais (.pkl, .h5, .keras), não versionados |
-| `models/v2/` | Modelos locais da versão otimizada |
-| `docs/` | Documentação técnica complementar, como dicionário de dados |
-| `reports/figures/` | Visualizações usadas no relatório |
-| `reports/fragmentos/` | Trechos de relatório (.md) |
-| `reports/diagnostics/` | Diagnósticos (.csv, .json) |
-| `reports/consolidados/` | Relatórios e camadas analíticas consolidadas |
-| `notebooks/` | Notebooks de análise narrativa |
+| `projeto_sleep_health_rf_vs_rn/data/` | Dataset principal versionado + splits locais derivados |
+| `projeto_sleep_health_rf_vs_rn/models/` | Modelos treinados locais (.pkl, .h5, .keras), não versionados |
+| `projeto_sleep_health_rf_vs_rn/models/v2/` | Modelos locais da versão otimizada |
+| `projeto_sleep_health_rf_vs_rn/docs/` | Documentação técnica complementar, como dicionário de dados |
+| `projeto_sleep_health_rf_vs_rn/reports/figures/` | Visualizações usadas no relatório |
+| `projeto_sleep_health_rf_vs_rn/reports/fragmentos/` | Trechos de relatório (.md) |
+| `projeto_sleep_health_rf_vs_rn/reports/diagnostics/` | Diagnósticos (.csv, .json) |
+| `projeto_sleep_health_rf_vs_rn/reports/consolidados/` | Relatórios e camadas analíticas consolidadas |
+| `projeto_sleep_health_rf_vs_rn/notebooks/` | Notebooks de análise narrativa |
 
 ## Código
 
@@ -60,7 +60,7 @@ Em `scripts/` para utilitários:
 ## Notebook
 
 ### Notebook Único
-- **Nome:** `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb`
+- **Nome:** `projeto_sleep_health_rf_vs_rn/notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb`
 - **Propósito:** Narrativa de Data Science + apresentação
 - **Conteúdo:**
   1. Contexto e objetivo
@@ -93,7 +93,7 @@ Em `scripts/` para utilitários:
   - Próximos passos
 
 ### Fragmentos de Relatório
-- **Local:** `reports/fragmentos/`
+- **Local:** `projeto_sleep_health_rf_vs_rn/reports/fragmentos/`
 - **Propósito:** Trechos reutilizáveis para relatório final
 - **Exemplos:**
   - `01-resultados-comparativos.md`: Tabelas de métricas
@@ -104,29 +104,29 @@ Em `scripts/` para utilitários:
 ### Comandos de Validação
 ```bash
 # Ambiente
-python scripts/smoke_test.py
+python projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py
 
 # Pipeline completo (na ordem)
-python 01_check_data.py
-python 02_eda.py
-python 03_random_forest.py
-python 04_neural_network.py
-python 05_neural_network_optimized.py
-python scripts/diagnose_model_limits.py
+python projeto_sleep_health_rf_vs_rn/01_check_data.py
+python projeto_sleep_health_rf_vs_rn/02_eda.py
+python projeto_sleep_health_rf_vs_rn/03_random_forest.py
+python projeto_sleep_health_rf_vs_rn/04_neural_network.py
+python projeto_sleep_health_rf_vs_rn/05_neural_network_optimized.py
+python projeto_sleep_health_rf_vs_rn/scripts/diagnose_model_limits.py
 ```
 
 ### Saída Esperada
 - Scripts imprimem métricas no console
-- Modelos salvos em `models/`
-- Figuras salvas em `reports/figures/`
-- Diagnósticos salvos em `reports/diagnostics/`
+- Modelos salvos em `projeto_sleep_health_rf_vs_rn/models/`
+- Figuras salvas em `projeto_sleep_health_rf_vs_rn/reports/figures/`
+- Diagnósticos salvos em `projeto_sleep_health_rf_vs_rn/reports/diagnostics/`
 
 ## Versionamento
 
 ### O Que Versionar
 - ✅ Código (.py, .ipynb)
 - ✅ Documentação (.md)
-- ✅ Dataset (.csv em `data/`)
+- ✅ Dataset (.csv em `projeto_sleep_health_rf_vs_rn/data/`)
 - ✅ Requisitos (requirements.txt)
 - ✅ Figuras e diagnósticos quando usados como evidência do relatório
 - ✅ Artefatos pequenos de reprodutibilidade do processo assistido (`.agents/`, `data-storytelling/`, `skills-lock.json`)
@@ -148,7 +148,7 @@ python scripts/diagnose_model_limits.py
 ### Para Novos Membros
 1. Ler `README.md` e `STATUS.md`
 2. Ativar ambiente: `source .venv/bin/activate`
-3. Validar: `python scripts/smoke_test.py`
+3. Validar: `python projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py`
 4. Executar pipeline na ordem
 5. Consultar `.specs/` para contexto e decisões
 
@@ -161,7 +161,7 @@ python scripts/diagnose_model_limits.py
 ## Projeto 2: Convenções Especificas
 
 ### Notebook por Projeto
-- **Trabalho 1:** `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb`
+- **Trabalho 1:** `projeto_sleep_health_rf_vs_rn/notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb`
 - **Projeto 2:** `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb`
 - Cada projeto deve ter um notebook narrativo proprio.
 - O notebook deve importar funcoes de scripts/modulos compartilhados e nao duplicar sanitizacao/modelagem.

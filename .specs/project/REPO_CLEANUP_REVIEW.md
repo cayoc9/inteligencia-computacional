@@ -11,12 +11,12 @@ O projeto esta funcional e tem boa separacao entre pipeline executavel, notebook
 
 | Area | Caminho | Decisao |
 |---|---|---|
-| Pipeline executavel | `01_*.py` a `05_*.py`, `scripts/` | Manter |
-| Notebook narrativo | `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` | Manter |
-| Dataset principal | `data/sleep_health_dataset.csv` | Manter versionado |
-| Artefatos derivados | `models/`, `data/*.pkl` | Ignorar/regenerar |
-| Figuras do relatorio | `reports/figures/` | Manter versionadas enquanto usadas no relatorio |
-| Diagnosticos | `reports/diagnostics/` | Manter como evidencia da Rodada 3 |
+| Pipeline executavel | `projeto_sleep_health_rf_vs_rn/01_*.py` a `05_*.py`, `projeto_sleep_health_rf_vs_rn/scripts/` | Manter |
+| Notebook narrativo | `projeto_sleep_health_rf_vs_rn/notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` | Manter |
+| Dataset principal | `projeto_sleep_health_rf_vs_rn/data/sleep_health_dataset.csv` | Manter versionado |
+| Artefatos derivados | `projeto_sleep_health_rf_vs_rn/models/`, `projeto_sleep_health_rf_vs_rn/data/*.pkl` | Ignorar/regenerar |
+| Figuras do relatorio | `projeto_sleep_health_rf_vs_rn/reports/figures/` | Manter versionadas enquanto usadas no relatorio |
+| Diagnosticos | `projeto_sleep_health_rf_vs_rn/reports/diagnostics/` | Manter como evidencia da Rodada 3 |
 | Relatorios consolidados | `reports/consolidados/` | Manter |
 | Specs oficiais | `.specs/features/trabalho-1/`, `.specs/features/experimento-v2-sono-restaurador/` | Manter |
 | Evidencia de processo assistido | `.agents/`, `data-storytelling/`, `skills-lock.json` | Manter versionado para reprodutibilidade do processo |
@@ -36,19 +36,19 @@ O projeto esta funcional e tem boa separacao entre pipeline executavel, notebook
 | Item | Tamanho aproximado | Status | Recomendacao |
 |---|---:|---|---|
 | `.venv/` | 2.8 GB | Ignorado | Manter local, pode ser recriado |
-| `models/` | 396 MB | Ignorado | Nao versionar; regenerar por scripts |
+| `projeto_sleep_health_rf_vs_rn/models/` | 396 MB | Ignorado | Nao versionar; regenerar por scripts |
 | `.playwright-cli/` | 216 KB | Ignorado | Pode apagar localmente quando nao precisar de logs |
 | `.qwen/`, `.claude/` | Pequeno | Ignorado | Config local de ferramenta |
-| `data/*.pkl` | ~15 MB | Ignorado | Derivado; regeneravel |
+| `projeto_sleep_health_rf_vs_rn/data/*.pkl` | ~15 MB | Ignorado | Derivado; regeneravel |
 
 ## Itens Versionados Que Merecem Atenção
 
 | Item | Situacao | Recomendacao |
 |---|---|---|
 | `.agents/skills/...` | Esta rastreado no git e documenta skills/agentes usados | Manter por enquanto; remover apenas se substituido por manifesto suficiente |
-| `reports/figures/*.png` | Figuras estao rastreadas | Manter se forem usadas no relatorio; caso contrario, regenerar e remover depois |
-| `reports/diagnostics/*.csv/json` | Evidencias da Rodada 3 | Manter |
-| `data/sleep_health_dataset.csv` | Dataset principal rastreado | Manter, pois README ja declara dataset versionado |
+| `projeto_sleep_health_rf_vs_rn/reports/figures/*.png` | Figuras estao rastreadas | Manter se forem usadas no relatorio; caso contrario, regenerar e remover depois |
+| `projeto_sleep_health_rf_vs_rn/reports/diagnostics/*.csv/json` | Evidencias da Rodada 3 | Manter |
+| `projeto_sleep_health_rf_vs_rn/data/sleep_health_dataset.csv` | Dataset principal rastreado | Manter, pois README ja declara dataset versionado |
 
 ## Documentacao Atualizada Nesta Revisao
 
@@ -62,8 +62,8 @@ O projeto esta funcional e tem boa separacao entre pipeline executavel, notebook
 
 ## Validacao Executada
 
-- `python scripts/smoke_test.py`: falhou porque o shell atual nao possui comando `python`.
-- `.venv/bin/python scripts/smoke_test.py`: passou; dependencias e dataset foram validados.
+- `python projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py`: falhou porque o shell atual nao possui comando `python`.
+- `.venv/bin/python projeto_sleep_health_rf_vs_rn/scripts/smoke_test.py`: passou; dependencias e dataset foram validados.
 
 ## Proximas Limpezas Recomendadas
 
@@ -87,7 +87,7 @@ Esta revisao foi reaberta apos esclarecer que parte dos artefatos "de fora" foi 
 | `.playwright-cli/` | Logs/snapshots locais de navegacao | Nao | Evidencia bruta local; ja existe resumo em `analise_datasets_health.md` |
 | `.qwen/`, `.claude/` | Configuracao local de ferramentas | Nao | Nao afeta reproducao do experimento academico |
 | `.venv/` | Ambiente instalado local | Nao | Pesado e substituido por `requirements.txt` |
-| `models/`, `data/*.pkl` | Artefatos derivados | Nao | Regeneraveis pelos scripts |
+| `projeto_sleep_health_rf_vs_rn/models/`, `projeto_sleep_health_rf_vs_rn/data/*.pkl` | Artefatos derivados | Nao | Regeneraveis pelos scripts |
 
 ## Artefatos Finais Detectados Em 2026-05-16
 
@@ -96,18 +96,18 @@ Durante a revisao de reprodutibilidade, apareceram novos artefatos ainda nao ras
 | Artefato | Classificacao | Recomendacao |
 |---|---|---|
 | `relatorio-tecnico.md` | Entregavel principal | Manter/versionar se for a versao final do relatorio |
-| `scripts/generate_final_graphs.py` | Script gerador de graficos finais | Manter/versionar, mas revisar rigor metodologico |
-| `reports/figures/comparacao_metricas.png` | Figura final | Manter se entrar no relatorio |
-| `reports/figures/confusion_matrix_histgb.png` | Figura final | Manter se entrar no relatorio |
-| `reports/figures/threshold_otimizacao.png` | Figura final | Manter se entrar no relatorio |
-| `reports/figures/feature_importance.png` | Figura final | Manter se entrar no relatorio |
-| `reports/figures/feature_auc_individual.png` | Figura final | Manter se entrar no relatorio |
-| `reports/figures/curvas_roc.png` | Figura final | Usar com ressalva: revisar se a curva foi gerada com probabilidades reais |
-| `reports/figures/curvas_pr.png` | Figura final | Usar com ressalva: revisar se a curva foi gerada com probabilidades reais |
+| `projeto_sleep_health_rf_vs_rn/scripts/generate_final_graphs.py` | Script gerador de graficos finais | Manter/versionar, mas revisar rigor metodologico |
+| `projeto_sleep_health_rf_vs_rn/reports/figures/comparacao_metricas.png` | Figura final | Manter se entrar no relatorio |
+| `projeto_sleep_health_rf_vs_rn/reports/figures/confusion_matrix_histgb.png` | Figura final | Manter se entrar no relatorio |
+| `projeto_sleep_health_rf_vs_rn/reports/figures/threshold_otimizacao.png` | Figura final | Manter se entrar no relatorio |
+| `projeto_sleep_health_rf_vs_rn/reports/figures/feature_importance.png` | Figura final | Manter se entrar no relatorio |
+| `projeto_sleep_health_rf_vs_rn/reports/figures/feature_auc_individual.png` | Figura final | Manter se entrar no relatorio |
+| `projeto_sleep_health_rf_vs_rn/reports/figures/curvas_roc.png` | Figura final | Usar com ressalva: revisar se a curva foi gerada com probabilidades reais |
+| `projeto_sleep_health_rf_vs_rn/reports/figures/curvas_pr.png` | Figura final | Usar com ressalva: revisar se a curva foi gerada com probabilidades reais |
 
 ### Alerta Metodologico Sobre Curvas
 
-O script `scripts/generate_final_graphs.py` atualmente indica que as curvas ROC e Precision-Recall sao aproximadas a partir de AUC/métricas agregadas, nao calculadas diretamente de `y_true` e `y_proba`.
+O script `projeto_sleep_health_rf_vs_rn/scripts/generate_final_graphs.py` atualmente indica que as curvas ROC e Precision-Recall sao aproximadas a partir de AUC/métricas agregadas, nao calculadas diretamente de `y_true` e `y_proba`.
 
 Para relatorio academico, a recomendacao e:
 
