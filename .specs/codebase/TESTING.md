@@ -103,6 +103,12 @@ projeto_2_neuro_fuzzy/.venv/bin/jupyter nbconvert \
   --execute projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb \
   --output /tmp/projeto_2_breast_cancer_survival.executed.ipynb
 
+# Explicabilidade e calibracao
+projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy/06_explainability.py
+
+# Estabilidade por seeds
+projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy/07_stability_analysis.py
+
 # Suite configurada do repositorio
 projeto_2_neuro_fuzzy/.venv/bin/python -m pytest -q
 ```
@@ -115,4 +121,6 @@ O `pytest.ini` restringe a coleta aos diretorios `tests/` e `projeto_2_neuro_fuz
 - [x] Projeto 2 possui validacao de schema/sanitizacao.
 - [x] Projeto 2 possui runner unico (`run_pipeline.py`).
 - [x] Projeto 2 possui validacao de notebook por `nbconvert`.
+- [x] Projeto 2 possui artefatos de explicabilidade e calibracao validados por script dedicado.
+- [x] Projeto 2 possui verificacao curta de estabilidade por seeds.
 - [ ] Trabalho 1 ainda depende majoritariamente de scripts auto-validados.

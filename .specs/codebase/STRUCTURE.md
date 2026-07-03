@@ -2,46 +2,70 @@
 
 ```text
 .
-├── materiais_de_aula/               # 10 PDFs oficiais da disciplina.
-├── podcasts/                        # Arquivos de áudio (Revisão da teoria gerada via NotebookLM).
-├── guia_de_acao_ic.md               # Roteiro metodológico e teoria da disciplina condensada.
-├── relatorio_projeto1_genetico_neural.md # Esboço do relatório acadêmico para o Prof. (na pasta oculta de artefatos).
+├── materiais_de_aula/                        # PDFs oficiais da disciplina.
+├── podcasts/                                 # Audios gerados via NotebookLM.
+├── guia_de_acao_ic.md                        # Roteiro metodologico condensado.
+├── STATUS.md                                 # Status executivo consolidado.
 │
-├── projeto_1_genetico_neural/       # PROJETO 1
+├── projeto_1_genetico_neural/                # PROJETO 1 - GA + MLP
 │   ├── dataset/
-│   │   └── heart_failure_clinical_records_dataset.csv
-│   ├── .venv/                       # Ambiente virtual (Bibliotecas isoladas).
-│   ├── eda_heart_failure.py         # Script de Análise Exploratória.
-│   ├── baseline.py                  # Script de Treinamento Base (RF vs MLP).
-│   ├── hybrid_ga_mlp.py             # Script do Algoritmo Genético + Rede Neural.
+│   ├── .venv/
+│   ├── eda_heart_failure.py
+│   ├── baseline.py
+│   ├── hybrid_ga_mlp.py
 │   ├── notebooks/
-│   │   └── projeto_1_genetico_neural_ga_mlp.ipynb
-│   ├── reports/
-│   │   ├── figures/
-│   │   │   └── evolucao_genetica.png
-│   │   └── tables/
-│   │       ├── ga_mlp_results_quick.json
-│   │       ├── ga_mlp_results.json
-│   │       └── model_comparison.csv
-│   ├── eda_correlacao.png           # Artefato visual.
-│   ├── eda_distribuicoes.png        # Artefato visual.
-│   └── evolucao_genetica_v2.png     # Gráfico gerado da curva evolutiva do F1-Score.
+│   └── reports/
 │
-├── projeto_2_neuro_fuzzy/           # PROJETO 2
+├── projeto_2_neuro_fuzzy/                    # PROJETO 2 - SEER corrigido
 │   ├── dataset/
-│   │   └── Breast_Cancer.csv
-│   ├── .venv/                       # Ambiente virtual.
-│   ├── baseline.py                  # Script de Treinamento Base.
-│   └── hybrid_neuro_fuzzy.py        # Script do Modelo Fuzzy + Rede Neural.
+│   ├── .venv/
+│   ├── 01_validate_data.py
+│   ├── 02_eda.py
+│   ├── 03_train_models.py
+│   ├── 04_threshold_and_ensemble.py
+│   ├── 05_neuro_fuzzy_comparison.py
+│   ├── 06_explainability.py
+│   ├── 07_stability_analysis.py
+│   ├── run_pipeline.py
+│   ├── baseline.py
+│   ├── hybrid_neuro_fuzzy.py
+│   ├── docs/
+│   ├── notebooks/
+│   ├── reports/
+│   ├── src/breast_cancer_survival/
+│   └── tests/
 │
-└── .specs/                          # Documentação Técnica TLC.
+├── projeto_2_neuro_fuzzy_metabric_clinico/   # Fork clinico METABRIC
+│   ├── dataset/
+│   ├── docs/
+│   ├── notebooks/
+│   ├── reports/
+│   ├── src/
+│   └── tests/
+│
+└── .specs/                                   # Documentacao TLC
     ├── project/
-    │   ├── PROJECT.md
-    │   ├── ROADMAP.md
-    │   └── STATE.md
-    └── codebase/
-        ├── ARCHITECTURE.md
-        └── STRUCTURE.md
+    ├── codebase/
+    └── features/
+```
+
+## Projeto 1
+
+### Estrutura relevante
+
+```text
+projeto_1_genetico_neural/
+├── dataset/heart_failure_clinical_records_dataset.csv
+├── eda_heart_failure.py
+├── baseline.py
+├── hybrid_ga_mlp.py
+├── notebooks/projeto_1_genetico_neural_ga_mlp.ipynb
+└── reports/
+    ├── figures/evolucao_genetica.png
+    └── tables/
+        ├── ga_mlp_results_quick.json
+        ├── ga_mlp_results.json
+        └── model_comparison.csv
 ```
 
 ### Specs do Projeto 1
@@ -52,24 +76,28 @@
 | Design | `.specs/features/projeto-1-genetico-neural/design.md` |
 | Tasks | `.specs/features/projeto-1-genetico-neural/tasks.md` |
 
-Status revisado: Projeto 1 esta implementado e alinhado ao tema Genetico-Neural da segunda avaliacao. A validacao do GA-MLP e a comparacao contra baseline foram persistidas; resta transformar os resultados em relatorio/apresentacao final.
+Status revisado: Projeto 1 esta implementado e validado tecnicamente; a pendencia principal e transformar o resultado em narrativa final de relatorio/apresentacao.
 
-## Atualizacao: Projeto 2 Breast Cancer Survival Risk
+## Projeto 2 SEER
 
-O Projeto 2 foi expandido para uma trilha spec-driven completa, mantendo o historico neuro-fuzzy e adicionando dicionario de dados, EDA de metadados/relacoes, notebook proprio, suite de modelos tabulares e ensemble ponderado.
+### Estrutura relevante
 
 ```text
 projeto_2_neuro_fuzzy/
-├── 01_validate_data.py                 # contrato, sanitizacao e dicionario
-├── 02_eda.py                           # EDA com metadados e relacoes
-├── 03_train_models.py                  # modelos tabulares sem vazamento + sensibilidade
-├── 04_threshold_and_ensemble.py         # threshold tuning e ensemble ponderado
-├── 05_neuro_fuzzy_comparison.py         # neuro-fuzzy comparativo
-├── run_pipeline.py                      # executa a trilha completa
-├── baseline.py                          # baseline historico
-├── hybrid_neuro_fuzzy.py                # wrapper de compatibilidade
+├── 01_validate_data.py
+├── 02_eda.py
+├── 03_train_models.py
+├── 04_threshold_and_ensemble.py
+├── 05_neuro_fuzzy_comparison.py
+├── 06_explainability.py
+├── 07_stability_analysis.py
+├── run_pipeline.py
+├── baseline.py
+├── hybrid_neuro_fuzzy.py
 ├── dataset/Breast_Cancer.csv
-├── docs/DATA_DICTIONARY.md
+├── docs/
+│   ├── DATA_DICTIONARY.md
+│   └── PROJECT_EXECUTION_SUMMARY.md
 ├── notebooks/projeto_2_breast_cancer_survival.ipynb
 ├── reports/
 │   ├── figures/
@@ -78,20 +106,29 @@ projeto_2_neuro_fuzzy/
 │   │   ├── numeric_relationships.csv
 │   │   ├── categorical_relationships.csv
 │   │   ├── model_comparison_no_leakage.csv
+│   │   ├── model_comparison_no_leakage_validation.csv
+│   │   ├── model_comparison_no_leakage_test.csv
 │   │   ├── model_comparison_with_survival_months.csv
-│   │   ├── ensemble_summary.csv
+│   │   ├── ensemble_validation_summary.csv
+│   │   ├── ensemble_test_summary.csv
+│   │   ├── calibration_summary.csv
+│   │   ├── stability_summary.csv
 │   │   └── neuro_fuzzy_comparison.csv
 │   └── relatorio_tecnico_projeto_2.md
 ├── src/breast_cancer_survival/
+│   ├── config.py
 │   ├── data.py
 │   ├── dictionary.py
 │   ├── eda.py
-│   ├── features.py
-│   ├── preprocessing.py
-│   ├── evaluation.py
-│   ├── models.py
 │   ├── ensemble.py
-│   └── fuzzy.py
+│   ├── evaluation.py
+│   ├── explainability.py
+│   ├── features.py
+│   ├── fuzzy.py
+│   ├── models.py
+│   ├── paths.py
+│   ├── preprocessing.py
+│   └── splits.py
 └── tests/test_*.py
 ```
 
@@ -102,3 +139,12 @@ projeto_2_neuro_fuzzy/
 | Spec | `.specs/features/trabalho-2-breast-cancer/spec.md` |
 | Design | `.specs/features/trabalho-2-breast-cancer/design.md` |
 | Tasks | `.specs/features/trabalho-2-breast-cancer/tasks.md` |
+| Relatorio de execucao | `.specs/features/trabalho-2-breast-cancer/relatorio_execucao.md` |
+
+Status revisado: Projeto 2 SEER esta executado e documentado com split treino-validacao-teste, ensemble corrigido, explicabilidade, calibracao, estabilidade e notebook sincronizado.
+
+## Projeto 2 METABRIC
+
+### Papel no repositório
+
+O diretório `projeto_2_neuro_fuzzy_metabric_clinico/` funciona como fork clinico do Projeto 2 para melhoria continua. Ele nao substitui o SEER como trilha historica corrigida, mas amplia a qualidade metodologica e o potencial de apresentacao.

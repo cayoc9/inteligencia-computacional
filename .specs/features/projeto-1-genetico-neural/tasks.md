@@ -29,12 +29,13 @@ Legenda:
 | P1-GN-T014 | [ ] | Registrar trabalhos futuros | K-fold no fitness, multiplas sementes, SHAP/permutation importance |
 | P1-GN-T015 | [ ] | Preparar roteiro de apresentacao | 15 minutos, com arquitetura, resultados, limitacoes e defesa metodologica |
 | P1-GN-T016 | [x] | Criar notebook unico do processo | `projeto_1_genetico_neural/notebooks/projeto_1_genetico_neural_ga_mlp.ipynb` |
+| P1-GN-T017 | [x] | Executar notebook por nbconvert | Validado com `projeto_2_neuro_fuzzy/.venv/bin/jupyter nbconvert` |
 
 ## Sequencia Recomendada
 
 1. **P1-GN-T013/P1-GN-T014**: fechar discussao critica.
 2. **P1-GN-T015**: preparar apresentacao.
-3. Registrar kernel Jupyter se for necessario executar o notebook por `nbconvert`.
+3. Opcional: registrar kernel Jupyter no `.venv` local do Projeto 1.
 
 ## Criterio de Fechamento
 

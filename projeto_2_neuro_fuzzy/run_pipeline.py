@@ -9,6 +9,8 @@ STEPS = [
     "03_train_models.py",
     "04_threshold_and_ensemble.py",
     "05_neuro_fuzzy_comparison.py",
+    "06_explainability.py",
+    "07_stability_analysis.py",
 ]
 
 
@@ -21,4 +23,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

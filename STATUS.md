@@ -12,10 +12,12 @@
 |---|---|
 | **Trabalho 1 (RF vs RN)** | ✅ **100% concluído** — entregue em 15/05/2026 |
 | **Projeto 1 / Trabalho 2 (GA-MLP)** | ✅ **implementado e validado** — EDA, baseline, GA-MLP completo, JSON/CSV e notebook único |
-| **Projeto 2 / Trabalho 2 (Breast Cancer)** | ✅ **pipeline spec-driven executado** — EDA, dicionário, notebook, modelos, ensemble e neuro-fuzzy comparativo |
+| **Projeto 2 / Trabalho 2 (Breast Cancer SEER)** | ✅ **pipeline spec-driven corrigido** — EDA, dicionário, notebook, split treino-validacao-teste, ensemble validado, explicabilidade, estabilidade e neuro-fuzzy comparativo |
+| **Projeto 2 Fork (METABRIC clínico)** | ✅ **criado e validado** — dataset clínico melhor, features moleculares/tratamento, notebook próprio e pipeline completo |
 | **Prazo da segunda avaliação** | **03/07/2026** |
 | **Insight Projeto 1** | GA-MLP demonstra o híbrido, mas Random Forest foi superior no teste cego |
-| **Próximos passos** | Redigir discussão final/PDF/apresentação com os resultados dos Projetos 1 e 2 |
+| **Validação atual** | Projeto 2 SEER: 18/18 testes; pipeline completo e notebook executados |
+| **Próximos passos** | Redigir relatório final/PDF/apresentação com o Projeto 2 e reforçar estabilidade por sementes se houver tempo |
 
 ---
 
@@ -56,10 +58,10 @@ Projetar e avaliar um sistema híbrido Genético-Neural para classificação de 
 
 ---
 
-## 🧠 Projeto 2 / Trabalho 2: Breast Cancer Survival Risk
+## 🧠 Projeto 2 / Trabalho 2: Breast Cancer Survival Risk SEER
 
 ### Objetivo Corrigido
-Prever risco de óbito (`Status = Dead`) a partir de atributos clínicos disponíveis no diagnóstico, sem usar `Survival Months` como feature principal.
+Classificar risco de óbito observado (`Status = Dead`) a partir de variáveis clínico-patológicas registradas no dataset, sem usar `Survival Months` como feature principal.
 
 ### Dataset
 - **Nome:** SEER Breast Cancer / Kaggle Breast_Cancer.csv
@@ -82,17 +84,32 @@ Prever risco de óbito (`Status = Dead`) a partir de atributos clínicos dispon�
 ### Resultados Principais Sem `Survival Months`
 | Modelo | Accuracy | Precision | Recall | F2 | PR AUC | Falsos Negativos |
 |---|---:|---:|---:|---:|---:|---:|
-| Logistic Regression | 0.6919 | 0.2744 | 0.6179 | 0.4941 | 0.3686 | 47 |
-| Random Forest | 0.7814 | 0.3037 | 0.3333 | 0.3270 | 0.2826 | 82 |
-| HistGradientBoosting | 0.8360 | 0.4000 | 0.1463 | 0.1676 | 0.3124 | 105 |
-| Ensemble ponderado (threshold 0.21) | 0.4857 | 0.2119 | 0.8699 | 0.5366 | 0.3344 | 16 |
-| Neuro-fuzzy cooperativo | 0.7764 | 0.2683 | 0.2683 | 0.2683 | 0.2365 | 90 |
+| Logistic Regression | 0.6845 | 0.2686 | 0.6179 | 0.4903 | 0.3611 | 47 |
+| Random Forest | 0.7764 | 0.3034 | 0.3577 | 0.3454 | 0.2758 | 79 |
+| GradientBoosting | 0.8497 | 0.5357 | 0.1220 | 0.1442 | 0.3749 | 108 |
+| Ensemble ponderado (threshold 0.22 vindo da validação) | 0.5665 | 0.2271 | 0.7642 | 0.5188 | 0.3196 | 29 |
+| Neuro-fuzzy cooperativo | 0.8112 | 0.3505 | 0.2764 | 0.2886 | 0.3052 | 89 |
 
 ### Conclusões Técnicas
-1. **`Survival Months` é variável de acompanhamento** e não deve entrar no modelo principal de predição em diagnóstico.
+1. **`Survival Months` é variável de acompanhamento** e não deve entrar no modelo principal.
 2. **Acurácia isolada é enganosa** neste dataset; a classe `Dead` é minoritária.
-3. **Threshold tuning muda a decisão clínica:** o ensemble com threshold 0.21 reduz falsos negativos para 16, mas aumenta falsos positivos.
-4. **Neuro-fuzzy ficou como comparativo acadêmico**, não como modelo campeão: a fuzzificação manual + MLP não é ANFIS completo e teve recall baixo.
+3. **Threshold tuning muda a decisão operacional:** o ensemble com threshold 0.22, escolhido na validação, reduz falsos negativos para 29, mas aumenta falsos positivos para 320.
+4. **Explicabilidade, calibração e estabilidade já entram na defesa:** Logistic Regression ganhou artefatos de coeficientes, permutation importance, Brier score e curva de calibração; o projeto também tem resumo em 5 seeds para baseline e ensemble.
+5. **Neuro-fuzzy ficou como comparativo acadêmico**, não como modelo campeão: a fuzzificação manual + MLP não é ANFIS completo e teve recall baixo.
+
+### Fork METABRIC Clínico
+
+| Item | Resultado |
+|---|---|
+| Pasta | `projeto_2_neuro_fuzzy_metabric_clinico/` |
+| Dataset | Kaggle `gunesevitan/breast-cancer-metabric` |
+| Tamanho bruto | 2.509 registros, 34 colunas |
+| Tamanho analítico | 1.876 registros após remover linhas sem alvo/tempo/features centrais |
+| Melhor modelo individual | GradientBoosting: F2 0.7696, recall 0.7860, PR AUC 0.7590 |
+| Melhor ponto operacional | Ensemble threshold 0.25: F2 0.8885, recall 0.9860, 3 falsos negativos |
+| Notebook | `projeto_2_neuro_fuzzy_metabric_clinico/notebooks/projeto_2_metabric_clinico.ipynb` |
+
+Conclusão: o METABRIC clínico é mais adequado para melhoria contínua do Projeto 2 porque inclui tratamento, ER/PR/HER2, PAM50, NPI e mutation count. O SEER atual fica como baseline educacional corrigido.
 
 ---
 
@@ -183,6 +200,7 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 | **Relatórios consolidados** | `reports/consolidados/` |
 | **Spec Trabalho 2** | `.specs/features/trabalho-2-breast-cancer/spec.md` |
 | **Spec Projeto 1 GA-MLP** | `.specs/features/projeto-1-genetico-neural/spec.md` |
+| **Checklist da avaliação** | `.specs/project/TRABALHO_2_AVALIACAO_CHECKLIST.md` |
 | **Notebook Projeto 1 GA-MLP** | `projeto_1_genetico_neural/notebooks/projeto_1_genetico_neural_ga_mlp.ipynb` |
 | **Dicionário Projeto 2** | `projeto_2_neuro_fuzzy/docs/DATA_DICTIONARY.md` |
 | **Notebook Projeto 2** | `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb` |

@@ -2,7 +2,6 @@ from pathlib import Path
 import sys
 
 import pandas as pd
-from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 from sklearn.pipeline import Pipeline
 
@@ -10,13 +9,14 @@ from sklearn.pipeline import Pipeline
 PROJECT_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(PROJECT_DIR / "src"))
 
-from breast_cancer_survival.config import RANDOM_STATE, TEST_SIZE
+from breast_cancer_survival.config import RANDOM_STATE
 from breast_cancer_survival.data import load_raw_data, sanitize_data
 from breast_cancer_survival.evaluation import evaluate_predictions
 from breast_cancer_survival.features import split_features_target
 from breast_cancer_survival.fuzzy import build_fuzzy_features
 from breast_cancer_survival.paths import TABLES_DIR, ensure_output_dirs
 from breast_cancer_survival.preprocessing import build_preprocessor
+from breast_cancer_survival.splits import make_holdout_split
 
 
 def build_neuro_fuzzy_frame(df: pd.DataFrame) -> pd.DataFrame:
@@ -32,16 +32,10 @@ def main():
     df = sanitize_data(load_raw_data())
     X = build_neuro_fuzzy_frame(df)
     y = df["status"]
-    X_train, X_test, y_train, y_test = train_test_split(
-        X,
-        y,
-        test_size=TEST_SIZE,
-        random_state=RANDOM_STATE,
-        stratify=y,
-    )
+    split = make_holdout_split(X, y)
     pipe = Pipeline(
         [
-            ("preprocessor", build_preprocessor(X_train)),
+            ("preprocessor", build_preprocessor(split.X_train)),
             (
                 "classifier",
                 MLPClassifier(
@@ -53,14 +47,14 @@ def main():
             ),
         ]
     )
-    pipe.fit(X_train, y_train)
-    y_prob = pipe.predict_proba(X_test)[:, 1]
+    pipe.fit(split.X_train, split.y_train)
+    y_prob = pipe.predict_proba(split.X_test)[:, 1]
     result = pd.DataFrame(
         [
             {
                 "model": "cooperative_neuro_fuzzy_mlp",
                 "note": "manual fuzzy membership features plus MLP; not full ANFIS",
-                **evaluate_predictions(y_test, y_prob),
+                **evaluate_predictions(split.y_test, y_prob),
             }
         ]
     )
@@ -70,4 +64,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

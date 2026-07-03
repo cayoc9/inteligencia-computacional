@@ -1,7 +1,7 @@
 # Trabalho 2: Breast Cancer Survival Risk Design
 
 **Spec**: `.specs/features/trabalho-2-breast-cancer/spec.md`  
-**Status**: Draft
+**Status**: Executed
 
 ---
 
@@ -114,7 +114,7 @@ graph TD
 
 ### Ensemble Ponderado
 
-- **Purpose**: Combinar modelos tabulares usando pesos derivados de validacao e threshold otimizado.
+- **Purpose**: Combinar modelos tabulares usando pesos derivados de validacao e threshold otimizado, mantendo o teste intocado para reporte final.
 - **Location**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/ensemble.py`
 - **Interfaces**:
   - `normalize_weights(scores: dict[str, float]) -> dict[str, float]`
@@ -142,6 +142,27 @@ graph TD
   - Inclui secoes: contexto, objetivo, dicionario, metadados, EDA, features, modelos, ensemble, neuro-fuzzy, conclusao.
 - **Dependencies**: notebook/jupyter, pandas, matplotlib, seaborn.
 - **Reuses**: padrao narrativo do notebook do Trabalho 1.
+
+### Explicabilidade e Calibracao
+
+- **Purpose**: Gerar explicabilidade global dos modelos lineares, permutation importance e analise basica de calibracao probabilistica para defesa oral.
+- **Location**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/explainability.py`, `projeto_2_neuro_fuzzy/06_explainability.py`
+- **Interfaces**:
+  - `build_linear_coefficient_table(pipe, X_fit: pd.DataFrame) -> pd.DataFrame`
+  - `build_permutation_importance_table(pipe, X: pd.DataFrame, y: pd.Series) -> pd.DataFrame`
+  - `build_calibration_table(y_true, y_prob, model_name: str) -> pd.DataFrame`
+- **Dependencies**: scikit-learn, pandas, matplotlib.
+- **Reuses**: pipeline principal, metricas e ensemble corrigido.
+
+### Estabilidade por Seeds
+
+- **Purpose**: Gerar evidencia minima de robustez do baseline forte e do ensemble sem introduzir um framework pesado de validacao cruzada.
+- **Location**: `projeto_2_neuro_fuzzy/07_stability_analysis.py`
+- **Interfaces**:
+  - `evaluate_seed(seed: int) -> list[dict]`
+  - gera `stability_per_seed.csv` e `stability_summary.csv`
+- **Dependencies**: pipeline principal, `splits.py`, `ensemble.py`, `evaluation.py`
+- **Reuses**: mesma logica de validacao do ensemble do projeto principal.
 
 ---
 
@@ -225,5 +246,6 @@ graph TD
 | BC-05 | notebook, `run_pipeline.py`, README |
 | BC-06 | `models.py`, `evaluation.py`, `ensemble.py`, scripts 03/04 |
 | BC-07 | `fuzzy.py`, script 05, report |
+| BC-09 | `explainability.py`, script 06, report, notebook |
+| BC-10 | `07_stability_analysis.py`, `stability_summary.csv`, report |
 | BC-08 | `.specs/project/*`, `.specs/codebase/*`, `STATUS.md` |
-

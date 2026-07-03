@@ -1,2 +1,2 @@
-model,note,threshold,accuracy,balanced_accuracy,precision,recall,f1,f2,roc_auc,pr_auc,true_negatives,false_positives,false_negatives,true_positives
-cooperative_neuro_fuzzy_mlp,manual fuzzy membership features plus MLP; not full ANFIS,0.5,0.7763975155279503,0.5681639367713325,0.2682926829268293,0.2682926829268293,0.2682926829268293,0.2682926829268293,0.5933409627351405,0.23648140918408944,592,90,90,33
+model,note,threshold,accuracy,balanced_accuracy,precision,recall,f1,f2,roc_auc,pr_auc,brier_score,clinical_utility,true_negatives,false_positives,false_negatives,true_positives
+cooperative_neuro_fuzzy_mlp,manual fuzzy membership features plus MLP; not full ANFIS,0.5,0.8111801242236025,0.5920236988293637,0.35051546391752575,0.2764227642276423,0.3090909090909091,0.28862478777589134,0.642622130033617,0.3052033443426263,0.15752469927505566,-605.0,619,63,89,34

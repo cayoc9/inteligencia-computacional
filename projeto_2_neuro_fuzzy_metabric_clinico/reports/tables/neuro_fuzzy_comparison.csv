@@ -1,0 +1,2 @@
+model,note,threshold,accuracy,balanced_accuracy,precision,recall,f1,f2,roc_auc,pr_auc,brier_score,clinical_utility,true_negatives,false_positives,false_negatives,true_positives
+cooperative_neuro_fuzzy_mlp,manual fuzzy membership features plus MLP; not full ANFIS,0.5,0.6170212765957447,0.6112956810631229,0.6698564593301436,0.6511627906976745,0.660377358490566,0.6548175865294668,0.6488516539072655,0.7011506414530497,0.3405526611421107,31.0,92,69,75,140

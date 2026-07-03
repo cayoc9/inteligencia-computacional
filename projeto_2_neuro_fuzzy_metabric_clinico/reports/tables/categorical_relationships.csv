@@ -1,0 +1,76 @@
+column,category,count,deceased_rate,sparse_category
+cancer_type,Breast Cancer,1876,0.5730277185501066,False
+cancer_type_detailed,Breast Mixed Ductal and Lobular Carcinoma,199,0.6130653266331658,False
+cancer_type_detailed,Breast Invasive Lobular Carcinoma,133,0.5939849624060151,False
+cancer_type_detailed,Breast Invasive Ductal Carcinoma,1480,0.5722972972972973,False
+cancer_type_detailed,Invasive Breast Carcinoma,30,0.4666666666666667,False
+cancer_type_detailed,Breast Invasive Mixed Mucinous Carcinoma,20,0.4,True
+cancer_type_detailed,Breast,14,0.35714285714285715,True
+cellularity,Moderate,687,0.5807860262008734,False
+cellularity,High,933,0.579849946409432,False
+cellularity,Low,199,0.542713567839196,False
+chemotherapy,No,1473,0.5824847250509165,False
+chemotherapy,Yes,402,0.5373134328358209,False
+er_status,Positive,1427,0.578135949544499,False
+er_status,Negative,449,0.5567928730512249,False
+er_status_measured_by_ihc,Positve,1428,0.5791316526610645,False
+er_status_measured_by_ihc,Negative,425,0.5552941176470588,False
+her2_status,Positive,235,0.6297872340425532,False
+her2_status,Negative,1640,0.5646341463414634,False
+her2_status_measured_by_snp6,Gain,417,0.6115107913669064,False
+her2_status_measured_by_snp6,Undef,5,0.6,True
+her2_status_measured_by_snp6,Neutral,1355,0.5653136531365314,False
+her2_status_measured_by_snp6,Loss,98,0.5102040816326531,False
+hormone_therapy,Yes,1164,0.5798969072164949,False
+hormone_therapy,No,711,0.5611814345991561,False
+inferred_menopausal_state,Post,1466,0.6173260572987722,False
+inferred_menopausal_state,Pre,409,0.4132029339853301,False
+integrative_cluster,2,70,0.7142857142857143,False
+integrative_cluster,6,82,0.6951219512195121,False
+integrative_cluster,5,182,0.6868131868131868,False
+integrative_cluster,9,135,0.6592592592592592,False
+integrative_cluster,8,279,0.5913978494623656,False
+integrative_cluster,7,183,0.5901639344262295,False
+integrative_cluster,1,136,0.5661764705882353,False
+integrative_cluster,4ER-,72,0.5416666666666666,False
+integrative_cluster,3,270,0.5148148148148148,False
+integrative_cluster,4ER+,244,0.4918032786885246,False
+integrative_cluster,10,222,0.47297297297297297,False
+oncotree_code,MDLC,199,0.6130653266331658,False
+oncotree_code,ILC,133,0.5939849624060151,False
+oncotree_code,IDC,1480,0.5722972972972973,False
+oncotree_code,BRCA,30,0.4666666666666667,False
+oncotree_code,IMMC,20,0.4,True
+oncotree_code,BREAST,14,0.35714285714285715,True
+pam50_subtype,NC,5,0.8,True
+pam50_subtype,Her2,211,0.7014218009478673,False
+pam50_subtype,LumB,453,0.6556291390728477,False
+pam50_subtype,Normal,135,0.562962962962963,False
+pam50_subtype,Basal,203,0.5467980295566502,False
+pam50_subtype,LumA,667,0.5307346326836582,False
+pam50_subtype,claudin-low,201,0.417910447761194,False
+patient_s_vital_status,Died of Disease,623,1.0,False
+patient_s_vital_status,Died of Other Causes,451,1.0,False
+patient_s_vital_status,Living,801,0.0,False
+pr_status,Negative,897,0.5875139353400223,False
+pr_status,Positive,978,0.5593047034764826,False
+primary_tumor_laterality,Left,918,0.5882352941176471,False
+primary_tumor_laterality,Right,853,0.5404454865181711,False
+radio_therapy,No,734,0.6403269754768393,False
+radio_therapy,Yes,1141,0.5293602103418055,False
+relapse_free_status,Recurred,766,0.8838120104438643,False
+relapse_free_status,Not Recurred,1109,0.3579801623083859,False
+sex,Female,1876,0.5730277185501066,False
+three_gene_subtype,ER+/HER2- High Prolif,588,0.6428571428571429,False
+three_gene_subtype,HER2+,190,0.6105263157894737,False
+three_gene_subtype,ER+/HER2- Low Prolif,599,0.5025041736227045,False
+three_gene_subtype,ER-/HER2-,297,0.4983164983164983,False
+tumor_other_histologic_subtype,Mixed,199,0.6130653266331658,False
+tumor_other_histologic_subtype,Lobular,133,0.5939849624060151,False
+tumor_other_histologic_subtype,Medullary,24,0.5833333333333334,True
+tumor_other_histologic_subtype,Ductal/NST,1435,0.5763066202090592,False
+tumor_other_histologic_subtype,Mucinous,20,0.4,True
+tumor_other_histologic_subtype,Other,14,0.35714285714285715,True
+tumor_other_histologic_subtype,Tubular/ cribriform,21,0.2857142857142857,True
+type_of_breast_surgery,Mastectomy,1106,0.6464737793851718,False
+type_of_breast_surgery,Breast Conserving,753,0.4648074369189907,False

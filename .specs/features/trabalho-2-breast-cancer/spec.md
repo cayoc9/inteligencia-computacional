@@ -6,14 +6,20 @@ O Projeto 2 foi iniciado com scripts que treinam modelos sobre o dataset SEER Br
 
 Este trabalho corrige a trilha metodologica para que o projeto fique reprodutivel, auditavel e defensavel: primeiro especificacao e EDA, depois saneamento, engenharia de features, modelos tabulares, ensemble ponderado, threshold tuning e comparativo neuro-fuzzy.
 
+Extensao executada: foi criado um fork clinico em `projeto_2_neuro_fuzzy_metabric_clinico/` usando METABRIC para melhoria continua com variaveis de tratamento, biomarcadores e subtipo molecular.
+
 ## Goals
 
-- [ ] Definir objetivo corrigido e objetivo historicamente testado, separando predicao em diagnostico de analise de acompanhamento.
-- [ ] Criar um notebook Jupyter proprio do Projeto 2, mantendo a convencao "um notebook narrativo por projeto".
-- [ ] Criar dicionario de dados especifico do `Breast_Cancer.csv`, incluindo significado, tipo bruto, tipo sanitizado, dominio, papel analitico e risco de vazamento.
-- [ ] Implementar analise de metadados e relacoes como parte da EDA, nao como apendice posterior.
-- [ ] Corrigir sanitizacao, features, modelagem e avaliacao para priorizar falsos negativos da classe `Dead`.
-- [ ] Manter neuro-fuzzy como comparativo academico e nao como modelo campeao assumido.
+- [x] Definir objetivo corrigido e objetivo historicamente testado, separando predicao em diagnostico de analise de acompanhamento.
+- [x] Criar um notebook Jupyter proprio do Projeto 2, mantendo a convencao "um notebook narrativo por projeto".
+- [x] Criar dicionario de dados especifico do `Breast_Cancer.csv`, incluindo significado, tipo bruto, tipo sanitizado, dominio, papel analitico e risco de vazamento.
+- [x] Implementar analise de metadados e relacoes como parte da EDA, nao como apendice posterior.
+- [x] Corrigir sanitizacao, features, modelagem e avaliacao para priorizar falsos negativos da classe `Dead`.
+- [x] Corrigir o ensemble para usar validacao separada na escolha de pesos/threshold e manter teste intocado.
+- [x] Manter neuro-fuzzy como comparativo academico e nao como modelo campeao assumido.
+- [x] Adicionar explicabilidade pos-modelo e calibracao probabilistica basica para a defesa oral.
+- [x] Manter fork METABRIC clinico como trilha paralela de melhoria continua, preservando o SEER como baseline educacional corrigido.
+- [x] Adicionar verificacao curta de estabilidade para o baseline forte e para o ensemble.
 
 ## Out of Scope
 
@@ -133,8 +139,42 @@ Este trabalho corrige a trilha metodologica para que o projeto fique reprodutive
 3. WHEN threshold tuning rodar THEN ele SHALL gerar tabela de thresholds e selecionar criterio orientado a F2/recall/falsos negativos.
 4. WHEN ensemble ponderado rodar THEN pesos SHALL derivar de desempenho de validacao, nao de escolha arbitraria.
 5. WHEN o resultado for apresentado THEN acuracia SHALL nao ser criterio principal.
+6. WHEN o ensemble final for reportado THEN threshold SHALL ser escolhido na validacao e congelado para o teste.
 
 **Independent Test**: Executar `python projeto_2_neuro_fuzzy/03_train_models.py` e `python projeto_2_neuro_fuzzy/04_threshold_and_ensemble.py`.
+
+---
+
+### P2: Explicabilidade e Calibracao para Defesa
+
+**User Story**: Como apresentador do trabalho, quero artefatos de explicabilidade e calibracao para defender por que o modelo pontua determinadas variaveis e qual a qualidade das probabilidades estimadas.
+
+**Why P2**: Sem isso, a banca pode cobrar interpretabilidade pos-modelo e sentido probabilistico do threshold.
+
+**Acceptance Criteria**:
+
+1. WHEN o pipeline de explicabilidade rodar THEN ele SHALL gerar coeficientes da Logistic Regression em CSV.
+2. WHEN permutation importance rodar THEN ele SHALL gerar ranking de features por impacto em PR AUC.
+3. WHEN calibracao for analisada THEN o sistema SHALL gerar Brier score e curva de calibracao para Logistic Regression, SVM calibrado e ensemble.
+4. WHEN a documentacao final for lida THEN ela SHALL diferenciar score estimado de risco clinico calibrado.
+
+**Independent Test**: Executar `python projeto_2_neuro_fuzzy/06_explainability.py`.
+
+---
+
+### P2: Estabilidade e Robustez Minima
+
+**User Story**: Como avaliador do trabalho, quero evidencias de que o resultado principal nao depende apenas de um unico split favoravel.
+
+**Why P2**: Um unico holdout fragiliza as conclusoes quantitativas, especialmente em dataset medico desbalanceado.
+
+**Acceptance Criteria**:
+
+1. WHEN a analise de estabilidade rodar THEN ela SHALL avaliar pelo menos 5 seeds.
+2. WHEN a tabela final for gerada THEN ela SHALL resumir media e desvio de recall, F2, PR AUC, falsos negativos e falsos positivos.
+3. WHEN o ensemble for analisado THEN o threshold SHALL continuar vindo da validacao dentro de cada seed.
+
+**Independent Test**: Executar `python projeto_2_neuro_fuzzy/07_stability_analysis.py`.
 
 ---
 
@@ -194,19 +234,25 @@ Este trabalho corrige a trilha metodologica para que o projeto fique reprodutive
 | BC-06 | Modelagem Tabular e Ensemble Ponderado | Execute | Verified |
 | BC-07 | Neuro-Fuzzy como Comparativo Academico | Execute | Verified |
 | BC-08 | Documentacao Viva e Status | Execute | Verified |
+| BC-09 | Explicabilidade e Calibracao para Defesa | Execute | Verified |
+| BC-10 | Estabilidade e Robustez Minima | Execute | Verified |
 
-**Coverage:** 8 total, 8 mapped to tasks, 8 verified, 0 unmapped.
+**Coverage:** 10 total, 10 mapped to tasks, 10 verified, 0 unmapped.
 
 ---
 
 ## Success Criteria
 
-- [ ] `pytest -q` passa.
-- [ ] `python projeto_2_neuro_fuzzy/run_pipeline.py` conclui.
-- [ ] `projeto_2_neuro_fuzzy/docs/DATA_DICTIONARY.md` existe e cobre colunas brutas, sanitizadas e derivadas.
-- [ ] `projeto_2_neuro_fuzzy/reports/tables/metadata_profile.csv` existe.
-- [ ] `projeto_2_neuro_fuzzy/reports/tables/categorical_relationships.csv` existe.
-- [ ] `projeto_2_neuro_fuzzy/reports/tables/numeric_relationships.csv` existe.
-- [ ] `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb` executa via `nbconvert`.
-- [ ] Resultado principal exclui `Survival Months`.
-- [ ] Relatorio final explica o objetivo testado antes e o objetivo corrigido.
+- [x] `pytest projeto_2_neuro_fuzzy/tests -q` passa.
+- [x] `python projeto_2_neuro_fuzzy/run_pipeline.py` conclui.
+- [x] `projeto_2_neuro_fuzzy/docs/DATA_DICTIONARY.md` existe e cobre colunas brutas, sanitizadas e derivadas.
+- [x] `projeto_2_neuro_fuzzy/reports/tables/metadata_profile.csv` existe.
+- [x] `projeto_2_neuro_fuzzy/reports/tables/categorical_relationships.csv` existe.
+- [x] `projeto_2_neuro_fuzzy/reports/tables/numeric_relationships.csv` existe.
+- [x] `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb` executa via `nbconvert`.
+- [x] Resultado principal exclui `Survival Months`.
+- [x] Ensemble final usa threshold escolhido na validacao e reportado no teste intocado.
+- [x] `projeto_2_neuro_fuzzy/reports/tables/calibration_summary.csv` existe.
+- [x] `projeto_2_neuro_fuzzy/reports/tables/logistic_regression_top_coefficients.csv` existe.
+- [x] `projeto_2_neuro_fuzzy/reports/tables/stability_summary.csv` existe.
+- [x] Relatorio tecnico do Projeto 2 explica o objetivo testado antes e o objetivo corrigido.

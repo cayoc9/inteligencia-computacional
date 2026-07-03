@@ -171,10 +171,26 @@ python scripts/diagnose_model_limits.py
 - `Survival Months` so pode aparecer em analise de sensibilidade/vazamento.
 - `Status = Dead` e a classe positiva (`1`).
 
+### Split e Avaliacao
+- O Projeto 2 usa `treino / validacao / teste` para o ensemble.
+- Pesos do ensemble devem ser derivados de metricas de validacao.
+- O threshold do ensemble deve ser escolhido na validacao e congelado para o teste.
+- Resultados finais devem distinguir claramente tabelas de validacao e teste.
+
 ### Metricas
 - Falso negativo significa prever `Alive` quando o registro real e `Dead`.
 - A avaliacao deve reportar falsos negativos, recall, precision, F2 e PR AUC.
 - Acuracia isolada nao define modelo campeao em dataset medico desbalanceado.
+
+### Explicabilidade e Robustez
+- Explicabilidade global do Projeto 2 deve ser derivada de artefatos persistidos, nao de interpretacao verbal ad hoc.
+- Curvas de calibracao, Brier score e tabela de estabilidade por seeds fazem parte da documentacao oficial do projeto.
+- O neuro-fuzzy deve ser descrito como comparativo academico, nao como ANFIS completo nem modelo campeao.
+
+### Artefatos Canonicos do Projeto 2
+- Resultados principais: `model_comparison_no_leakage.csv`, `ensemble_test_summary.csv`, `neuro_fuzzy_comparison.csv`
+- Artefatos metodologicos: `ensemble_validation_summary.csv`, `calibration_summary.csv`, `stability_summary.csv`
+- Artefatos narrativos: `README.md`, `reports/relatorio_tecnico_projeto_2.md`, notebook e specs TLC
 
 ### EDA
 - A EDA do Projeto 2 deve incluir dicionario de dados, perfil de metadados e analise de relacoes antes da modelagem.

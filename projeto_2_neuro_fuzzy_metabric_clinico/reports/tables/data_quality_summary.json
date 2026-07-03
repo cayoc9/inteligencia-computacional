@@ -1,0 +1,179 @@
+{
+  "source": "Kaggle gunesevitan/breast-cancer-metabric",
+  "raw_rows": 2509,
+  "clean_rows": 1876,
+  "raw_columns": 34,
+  "clean_columns": 34,
+  "raw_duplicates": 0,
+  "clean_duplicates": 0,
+  "clean_missing_total": 1081,
+  "dropped_rows_without_core_outcome_or_features": 633,
+  "target_counts": {
+    "0": 801,
+    "1": 1075
+  },
+  "target_rates": {
+    "0": 0.4269722814498934,
+    "1": 0.5730277185501066
+  },
+  "top_numeric_deceased_correlations": [
+    {
+      "column": "relapse_free_status_months",
+      "pearson_corr_with_deceased": -0.4122127837162176,
+      "living_median": 141.28,
+      "deceased_median": 62.7,
+      "leakage_note": ""
+    },
+    {
+      "column": "survival_months",
+      "pearson_corr_with_deceased": -0.38958549183980024,
+      "living_median": 157.1,
+      "deceased_median": 84.9,
+      "leakage_note": "follow_up_risk"
+    },
+    {
+      "column": "mutation_count",
+      "pearson_corr_with_deceased": 0.07772051438603729,
+      "living_median": 5.0,
+      "deceased_median": 5.0,
+      "leakage_note": ""
+    },
+    {
+      "column": "grade",
+      "pearson_corr_with_deceased": 0.08573516007528953,
+      "living_median": 2.0,
+      "deceased_median": 3.0,
+      "leakage_note": ""
+    },
+    {
+      "column": "cohort",
+      "pearson_corr_with_deceased": 0.14876944406978432,
+      "living_median": 2.0,
+      "deceased_median": 3.0,
+      "leakage_note": ""
+    },
+    {
+      "column": "lymph_nodes_positive",
+      "pearson_corr_with_deceased": 0.16267472091829924,
+      "living_median": 0.0,
+      "deceased_median": 1.0,
+      "leakage_note": ""
+    },
+    {
+      "column": "npi",
+      "pearson_corr_with_deceased": 0.1686503261564235,
+      "living_median": 4.0360000000000005,
+      "deceased_median": 4.06,
+      "leakage_note": ""
+    },
+    {
+      "column": "tumor_size",
+      "pearson_corr_with_deceased": 0.16932917855764584,
+      "living_median": 20.0,
+      "deceased_median": 25.0,
+      "leakage_note": ""
+    }
+  ],
+  "highest_missing_rates": [
+    {
+      "raw_column": "3-Gene classifier subtype",
+      "sanitized_column": "three_gene_subtype",
+      "raw_dtype": "str",
+      "clean_dtype": "string",
+      "missing_count": 745,
+      "missing_rate": 0.296931048226385,
+      "unique_count": 4,
+      "examples": "ER-/HER2-, ER+/HER2- High Prolif, ER+/HER2- Low Prolif, HER2+"
+    },
+    {
+      "raw_column": "Tumor Stage",
+      "sanitized_column": "stage",
+      "raw_dtype": "float64",
+      "clean_dtype": "float64",
+      "missing_count": 721,
+      "missing_rate": 0.28736548425667596,
+      "unique_count": 5,
+      "examples": "2.0, 1.0, 4.0, 3.0, 0.0"
+    },
+    {
+      "raw_column": "Primary Tumor Laterality",
+      "sanitized_column": "primary_tumor_laterality",
+      "raw_dtype": "str",
+      "clean_dtype": "string",
+      "missing_count": 639,
+      "missing_rate": 0.2546831406935034,
+      "unique_count": 2,
+      "examples": "Right, Left"
+    },
+    {
+      "raw_column": "Cellularity",
+      "sanitized_column": "cellularity",
+      "raw_dtype": "str",
+      "clean_dtype": "string",
+      "missing_count": 592,
+      "missing_rate": 0.23595057791948984,
+      "unique_count": 3,
+      "examples": "High, Moderate, Low"
+    },
+    {
+      "raw_column": "Type of Breast Surgery",
+      "sanitized_column": "type_of_breast_surgery",
+      "raw_dtype": "str",
+      "clean_dtype": "string",
+      "missing_count": 554,
+      "missing_rate": 0.22080510163411718,
+      "unique_count": 2,
+      "examples": "Mastectomy, Breast Conserving"
+    },
+    {
+      "raw_column": "Inferred Menopausal State",
+      "sanitized_column": "inferred_menopausal_state",
+      "raw_dtype": "str",
+      "clean_dtype": "string",
+      "missing_count": 529,
+      "missing_rate": 0.21084097249900358,
+      "unique_count": 2,
+      "examples": "Post, Pre"
+    },
+    {
+      "raw_column": "Integrative Cluster",
+      "sanitized_column": "integrative_cluster",
+      "raw_dtype": "str",
+      "clean_dtype": "string",
+      "missing_count": 529,
+      "missing_rate": 0.21084097249900358,
+      "unique_count": 11,
+      "examples": "4ER+, 3, 9, 7, 4ER-"
+    },
+    {
+      "raw_column": "Hormone Therapy",
+      "sanitized_column": "hormone_therapy",
+      "raw_dtype": "str",
+      "clean_dtype": "string",
+      "missing_count": 529,
+      "missing_rate": 0.21084097249900358,
+      "unique_count": 2,
+      "examples": "Yes, No"
+    },
+    {
+      "raw_column": "Pam50 + Claudin-low subtype",
+      "sanitized_column": "pam50_subtype",
+      "raw_dtype": "str",
+      "clean_dtype": "string",
+      "missing_count": 529,
+      "missing_rate": 0.21084097249900358,
+      "unique_count": 7,
+      "examples": "claudin-low, LumA, LumB, Normal, Her2"
+    },
+    {
+      "raw_column": "Chemotherapy",
+      "sanitized_column": "chemotherapy",
+      "raw_dtype": "str",
+      "clean_dtype": "string",
+      "missing_count": 529,
+      "missing_rate": 0.21084097249900358,
+      "unique_count": 2,
+      "examples": "No, Yes"
+    }
+  ]
+}

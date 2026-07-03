@@ -8,8 +8,9 @@ def test_model_registry_contains_required_tabular_models():
         "random_forest",
         "extra_trees",
         "hist_gradient_boosting",
+        "gradient_boosting",
+        "ada_boost",
         "svm_calibrated",
         "mlp",
     }
     assert expected <= set(registry)
-

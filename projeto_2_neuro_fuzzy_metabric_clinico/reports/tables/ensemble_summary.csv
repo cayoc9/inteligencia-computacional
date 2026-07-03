@@ -1,0 +1,2 @@
+model,logistic_regression,random_forest,extra_trees,hist_gradient_boosting,threshold,accuracy,balanced_accuracy,precision,recall,f1,f2,roc_auc,pr_auc,brier_score,clinical_utility,true_negatives,false_positives,false_negatives,true_positives
+weighted_soft_voting,0.22462630662296365,0.24824919611817436,0.2610772938475686,0.26604720341129345,0.25,0.6702127659574468,0.6172468582984255,0.6366366366366366,0.986046511627907,0.7737226277372263,0.8885163453478625,0.7422793586595406,0.7620672042414207,0.20194314109999173,915.0,40.0,121.0,3.0,212.0

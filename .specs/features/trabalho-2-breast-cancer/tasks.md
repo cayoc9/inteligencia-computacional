@@ -28,7 +28,7 @@ T5 -> T6 -> T7 -> T8 -> T9
 ### Phase 4: Narrative and Project Sync
 
 ```
-T9 -> T10 -> T11 -> T12
+T9 -> T10 -> T10A -> T10B -> T11 -> T12
 ```
 
 ---
@@ -231,6 +231,7 @@ T9 -> T10 -> T11 -> T12
 **Done when**:
 - [ ] Registry inclui Logistic Regression, Random Forest, ExtraTrees, HistGradientBoosting, SVM calibrado e MLP.
 - [ ] `model_comparison_no_leakage.csv` e gerado.
+- [ ] `model_comparison_no_leakage_validation.csv` e `model_comparison_no_leakage_test.csv` sao gerados.
 - [ ] `model_comparison_with_survival_months.csv` e gerado como analise de sensibilidade.
 - [ ] Saidas incluem `false_negatives`, `recall`, `precision`, `f2`, `pr_auc`.
 
@@ -256,9 +257,9 @@ T9 -> T10 -> T11 -> T12
 **Done when**:
 - [ ] Pesos do ensemble somam 1.
 - [ ] Modelo com melhor validacao recebe maior peso.
-- [ ] `ensemble_threshold_scan.csv` e gerado.
-- [ ] `ensemble_summary.csv` e gerado.
-- [ ] O resumo informa threshold escolhido e falsos negativos.
+- [ ] `ensemble_validation_threshold_scan.csv` e gerado.
+- [ ] `ensemble_validation_summary.csv` e `ensemble_test_summary.csv` sao gerados.
+- [ ] O resumo informa que o threshold veio da validacao e mostra falsos negativos no teste.
 
 **Tests**: unit + script
 **Gate**: `pytest projeto_2_neuro_fuzzy/tests/test_ensemble.py -q && python projeto_2_neuro_fuzzy/04_threshold_and_ensemble.py`
@@ -292,11 +293,60 @@ T9 -> T10 -> T11 -> T12
 
 ---
 
+### T10A: Adicionar explicabilidade e calibracao ✅
+
+**What**: Gerar coeficientes, permutation importance e curvas de calibracao com base no pipeline corrigido.  
+**Where**: `projeto_2_neuro_fuzzy/src/breast_cancer_survival/explainability.py`, `projeto_2_neuro_fuzzy/06_explainability.py`  
+**Depends on**: T9  
+**Reuses**: `models.py`, `ensemble.py`, `evaluation.py`  
+**Requirement**: BC-09
+
+**Tools**:
+- MCP: filesystem
+- Skill: NONE
+
+**Done when**:
+- [ ] `logistic_regression_top_coefficients.csv` e gerado.
+- [ ] `logistic_regression_permutation_importance.csv` e gerado.
+- [ ] `calibration_summary.csv` e `calibration_curves.csv` sao gerados.
+- [ ] O ensemble entra na calibracao com threshold escolhido na validacao.
+
+**Tests**: script
+**Gate**: `python projeto_2_neuro_fuzzy/06_explainability.py`
+
+**Commit**: `feat: add explainability and calibration artifacts`
+
+---
+
+### T10B: Adicionar estabilidade por seeds ✅
+
+**What**: Gerar analise curta de robustez em 5 seeds para Logistic Regression e ensemble corrigido.  
+**Where**: `projeto_2_neuro_fuzzy/07_stability_analysis.py`, `projeto_2_neuro_fuzzy/reports/tables/stability_*.csv`  
+**Depends on**: T9  
+**Reuses**: `splits.py`, `ensemble.py`, `evaluation.py`  
+**Requirement**: BC-10
+
+**Tools**:
+- MCP: filesystem
+- Skill: NONE
+
+**Done when**:
+- [ ] `stability_per_seed.csv` e gerado.
+- [ ] `stability_summary.csv` e gerado.
+- [ ] O ensemble e reavaliado por seed mantendo threshold escolhido na validacao.
+
+**Tests**: script
+**Gate**: `python projeto_2_neuro_fuzzy/07_stability_analysis.py`
+
+**Commit**: `feat: add seed stability analysis`
+
+---
+
 ### T11: Criar notebook Jupyter do Projeto 2 ✅
 
 **What**: Criar notebook narrativo unico do Projeto 2 usando os mesmos modulos/scripts do pipeline.  
 **Where**: `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb`  
-**Depends on**: T10  
+**Depends on**: T10B  
 **Reuses**: `notebooks/trabalho_1_classificacao_saude_rf_vs_rn.ipynb` como padrao narrativo  
 **Requirement**: BC-05
 
@@ -307,7 +357,7 @@ T9 -> T10 -> T11 -> T12
 **Done when**:
 - [ ] Notebook tem secoes: contexto, objetivo, dicionario, metadados, EDA, sanitizacao, features, modelos, ensemble, neuro-fuzzy e conclusao.
 - [ ] Notebook importa funcoes do pacote local, sem duplicar logica pesada.
-- [ ] Notebook mostra `metadata_profile.csv`, `DATA_DICTIONARY.md` ou sua tabela equivalente, resultados de modelos e ensemble.
+- [ ] Notebook mostra `metadata_profile.csv`, `DATA_DICTIONARY.md` ou sua tabela equivalente, resultados de modelos, ensemble, explicabilidade e calibracao.
 - [ ] Notebook executa via `nbconvert`.
 
 **Tests**: notebook execution
@@ -323,7 +373,7 @@ T9 -> T10 -> T11 -> T12
 **Where**: `projeto_2_neuro_fuzzy/README.md`, `projeto_2_neuro_fuzzy/reports/relatorio_tecnico_projeto_2.md`, `.specs/project/*`, `.specs/codebase/*`, `STATUS.md`  
 **Depends on**: T11  
 **Reuses**: `analise_audio_estrategia.md`, outputs de `reports/tables/`  
-**Requirement**: BC-08
+**Requirement**: BC-08, BC-10
 
 **Tools**:
 - MCP: filesystem
@@ -331,11 +381,11 @@ T9 -> T10 -> T11 -> T12
 
 **Done when**:
 - [ ] README lista ordem de execucao e papel do notebook.
-- [ ] Relatorio final cita objetivo corrigido, dicionario de dados, metadados/relações, vazamento, ensemble e neuro-fuzzy.
+- [ ] Relatorio final cita objetivo corrigido, dicionario de dados, metadados/relações, vazamento, ensemble, explicabilidade, calibracao, estabilidade e neuro-fuzzy.
 - [ ] `.specs/project/ROADMAP.md` e `STATE.md` refletem Trabalho 2.
 - [ ] `.specs/codebase/STRUCTURE.md`, `TESTING.md`, `CONVENTIONS.md` refletem pipeline do Projeto 2.
 - [ ] `STATUS.md` separa Trabalho 1 e Trabalho 2.
-- [ ] `run_pipeline.py` executa scripts principais.
+- [ ] `run_pipeline.py` executa scripts principais, incluindo `06_explainability.py` e `07_stability_analysis.py`.
 
 **Tests**: docs + full pipeline
 **Gate**: `pytest -q && python projeto_2_neuro_fuzzy/run_pipeline.py`
@@ -349,7 +399,7 @@ T9 -> T10 -> T11 -> T12
 Neste projeto, a maior parte das tarefas e sequencial porque cada fase depende do contrato de dados e da politica de vazamento. Depois de T7, T8 e T10 nao devem rodar em paralelo porque o neuro-fuzzy precisa usar o mesmo criterio final dos modelos. O unico paralelismo seguro durante execucao e dentro de uma tarefa, por exemplo gerar tabelas e figuras independentes da EDA.
 
 ```
-T1 -> T2 -> T3 -> T4 -> T5 -> T6 -> T7 -> T8 -> T9 -> T10 -> T11 -> T12
+T1 -> T2 -> T3 -> T4 -> T5 -> T6 -> T7 -> T8 -> T9 -> T10 -> T10A -> T10B -> T11 -> T12
 ```
 
 ## Validation Tables
@@ -368,7 +418,9 @@ T1 -> T2 -> T3 -> T4 -> T5 -> T6 -> T7 -> T8 -> T9 -> T10 -> T11 -> T12
 | T8 | T7 | T7 | OK |
 | T9 | T8 | T8 | OK |
 | T10 | T9 | T9 | OK |
-| T11 | T10 | T10 | OK |
+| T10A | T9 | T9 | OK |
+| T10B | T9 | T9 | OK |
+| T11 | T10B | T10B | OK |
 | T12 | T11 | T11 | OK |
 
 ### Test Co-location Validation
@@ -385,12 +437,20 @@ T1 -> T2 -> T3 -> T4 -> T5 -> T6 -> T7 -> T8 -> T9 -> T10 -> T11 -> T12
 | T8 | Model layer | Yes | pytest + train script |
 | T9 | Ensemble layer | Yes | pytest + ensemble script |
 | T10 | Fuzzy layer | Yes | pytest + neuro-fuzzy script |
+| T10A | Explainability/calibration | Yes | explainability script |
+| T10B | Stability | Yes | stability script |
 | T11 | Notebook | Yes | nbconvert execution |
 | T12 | Docs/pipeline | Yes | pytest + full pipeline |
 
 ## Execution Summary
 
-- `projeto_2_neuro_fuzzy/.venv/bin/python -m pytest projeto_2_neuro_fuzzy/tests -q`: 17 passed.
-- `projeto_2_neuro_fuzzy/.venv/bin/python -m pytest -q`: 19 passed.
+- `projeto_2_neuro_fuzzy/.venv/bin/python -m pytest projeto_2_neuro_fuzzy/tests -q`: 18 passed.
 - `projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy/run_pipeline.py`: completed.
+- `projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy/06_explainability.py`: completed.
+- `projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy/07_stability_analysis.py`: completed.
 - `projeto_2_neuro_fuzzy/.venv/bin/jupyter nbconvert --to notebook --execute projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb --output /tmp/projeto_2_breast_cancer_survival.executed.ipynb`: completed.
+- `PYTHONPATH=projeto_2_neuro_fuzzy_metabric_clinico/src projeto_2_neuro_fuzzy/.venv/bin/python -m pytest projeto_2_neuro_fuzzy_metabric_clinico/tests -q`: 5 passed.
+- `projeto_2_neuro_fuzzy/.venv/bin/python projeto_2_neuro_fuzzy_metabric_clinico/run_pipeline.py`: completed.
+- `projeto_2_neuro_fuzzy/.venv/bin/jupyter nbconvert --to notebook --execute projeto_2_neuro_fuzzy_metabric_clinico/notebooks/projeto_2_metabric_clinico.ipynb --output /tmp/projeto_2_metabric_clinico.executed.ipynb`: completed.
+- `projeto_2_neuro_fuzzy/reports/tables/ensemble_threshold_scenarios.csv`: generated.
+- `projeto_2_neuro_fuzzy_metabric_clinico/reports/tables/model_comparison_no_leakage.csv`: generated.

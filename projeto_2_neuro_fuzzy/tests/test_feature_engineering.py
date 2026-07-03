@@ -11,9 +11,17 @@ def test_add_clinical_features_creates_defensible_features():
         "advanced_stage_flag",
         "hormone_receptor_negative",
         "tumor_node_burden",
+        "t_stage_ord",
+        "n_stage_ord",
+        "stage_ord",
+        "node_density_per_grade",
+        "tumor_grade_burden",
+        "tumor_node_stage_burden",
+        "receptor_profile",
+        "tumor_size_band",
+        "node_positive_band",
     }
     assert expected <= set(engineered.columns)
     assert engineered["node_positive_ratio"].between(0, 1).all()
     assert set(engineered["advanced_stage_flag"].unique()) <= {0, 1}
     assert set(engineered["hormone_receptor_negative"].unique()) <= {0, 1}
-

@@ -99,7 +99,7 @@ Consulta ao NotebookLM indicou que a justificativa metodologica do GA-MLP deve c
 ### Fragilidades
 
 - Dataset tem apenas 299 linhas; isso torna o AG vulneravel a overfitting no conjunto de validacao.
-- O notebook foi validado como JSON, mas nao foi executado por `nbconvert` porque o ambiente nao possui kernel Jupyter registrado.
+- O notebook foi executado por `nbconvert` usando `projeto_2_neuro_fuzzy/.venv`, pois o `.venv` local do Projeto 1 nao possui Jupyter/kernel registrado.
 - O GA-MLP completo melhorou muito pouco sobre a MLP em F1 e nao superou a Random Forest; isso precisa aparecer como achado critico, nao como fracasso do projeto.
 - A documentacao anterior marcava o Projeto 1 como concluido, mas sem spec propria nem evidencia textual da execucao final do hibrido.
 
@@ -114,5 +114,5 @@ Classificacao atual:
 | Aderencia ao tema | Alta | GA + MLP atende diretamente o exemplo do enunciado |
 | Clareza de arquitetura | Boa | Fluxo esta no codigo e em `.specs/codebase/ARCHITECTURE.md` |
 | Rigor de ciencia de dados | Medio-alto | Execucao completa e comparacao existem; falta estabilidade por multiplas sementes |
-| Reprodutibilidade | Media-alta | Scripts, JSON e CSV existem; falta kernel Jupyter registrado |
+| Reprodutibilidade | Alta | Scripts, JSON, CSV e notebook executado via `nbconvert`; falta apenas kernel Jupyter no venv local do Projeto 1 |
 | Narrativa para defesa | Alta | Notebook unico e tabela final existem; falta redacao final do relatorio |
