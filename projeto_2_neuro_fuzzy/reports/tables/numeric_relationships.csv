@@ -1,0 +1,7 @@
+column,pearson_corr_with_dead,alive_median,dead_median,leakage_note
+survival_months,-0.4766218984228455,77.0,44.0,follow_up_risk
+regional_node_examined,0.03470476271668653,14.0,14.0,
+age,0.05603609222385622,54.0,56.5,
+tumor_size,0.134147488951224,23.0,30.0,
+grade,0.16137764302874927,2.0,2.0,
+regional_node_positive,0.25659071236588105,2.0,4.0,

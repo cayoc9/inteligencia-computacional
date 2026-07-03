@@ -1,0 +1,61 @@
+{
+  "raw_rows": 4024,
+  "clean_rows": 4023,
+  "raw_columns": 16,
+  "clean_columns": 16,
+  "raw_duplicates": 1,
+  "clean_duplicates": 0,
+  "clean_missing_total": 0,
+  "target_counts": {
+    "0": 3407,
+    "1": 616
+  },
+  "target_rates": {
+    "0": 0.8468804374844643,
+    "1": 0.15311956251553566
+  },
+  "top_numeric_dead_correlations": [
+    {
+      "column": "survival_months",
+      "pearson_corr_with_dead": -0.4766218984228455,
+      "alive_median": 77.0,
+      "dead_median": 44.0,
+      "leakage_note": "follow_up_risk"
+    },
+    {
+      "column": "regional_node_examined",
+      "pearson_corr_with_dead": 0.03470476271668653,
+      "alive_median": 14.0,
+      "dead_median": 14.0,
+      "leakage_note": ""
+    },
+    {
+      "column": "age",
+      "pearson_corr_with_dead": 0.05603609222385622,
+      "alive_median": 54.0,
+      "dead_median": 56.5,
+      "leakage_note": ""
+    },
+    {
+      "column": "tumor_size",
+      "pearson_corr_with_dead": 0.134147488951224,
+      "alive_median": 23.0,
+      "dead_median": 30.0,
+      "leakage_note": ""
+    },
+    {
+      "column": "grade",
+      "pearson_corr_with_dead": 0.16137764302874927,
+      "alive_median": 2.0,
+      "dead_median": 2.0,
+      "leakage_note": ""
+    },
+    {
+      "column": "regional_node_positive",
+      "pearson_corr_with_dead": 0.25659071236588105,
+      "alive_median": 2.0,
+      "dead_median": 4.0,
+      "leakage_note": ""
+    }
+  ]
+}

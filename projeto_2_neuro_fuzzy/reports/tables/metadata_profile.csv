@@ -1,0 +1,17 @@
+raw_column,sanitized_column,raw_dtype,clean_dtype,missing_count,unique_count,examples,role,leakage_risk
+Age,age,int64,int64,0,40,"68, 50, 58, 47, 51",feature,none
+Race,race,str,string,0,3,"White, Black, Other",feature,none
+Marital Status,marital_status,str,string,0,5,"Married, Divorced, Single , Widowed, Separated",feature,none
+T Stage ,t_stage,str,string,0,4,"T1, T2, T3, T4",feature,none
+N Stage,n_stage,str,string,0,3,"N1, N2, N3",feature,none
+6th Stage,6th_stage,str,string,0,5,"IIA, IIIA, IIIC, IIB, IIIB",feature,none
+differentiate,differentiate,str,string,0,4,"Poorly differentiated, Moderately differentiated, Well differentiated, Undifferentiated",feature,none
+Grade,grade,str,int64,0,4,"3, 2, 1,  anaplastic; Grade IV",feature,none
+A Stage,a_stage,str,string,0,2,"Regional, Distant",feature,none
+Tumor Size,tumor_size,int64,int64,0,110,"4, 35, 63, 18, 41",feature,none
+Estrogen Status,estrogen_status,str,string,0,2,"Positive, Negative",feature,none
+Progesterone Status,progesterone_status,str,string,0,2,"Positive, Negative",feature,none
+Regional Node Examined,regional_node_examined,int64,int64,0,54,"24, 14, 2, 3, 18",feature,none
+Reginol Node Positive,regional_node_positive,int64,int64,0,38,"1, 5, 7, 2, 18",feature,none
+Survival Months,survival_months,int64,int64,0,107,"60, 62, 75, 84, 50",excluded_primary_model,leakage/follow_up_risk
+Status,status,str,int64,0,2,"Alive, Dead",target,none

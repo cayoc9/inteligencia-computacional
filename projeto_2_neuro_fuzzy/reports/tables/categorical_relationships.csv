@@ -1,0 +1,31 @@
+column,category,count,dead_rate,sparse_category
+6th_stage,IIIC,472,0.3834745762711864,False
+6th_stage,IIIB,67,0.29850746268656714,False
+6th_stage,IIIA,1050,0.17523809523809525,False
+6th_stage,IIB,1130,0.11946902654867257,False
+6th_stage,IIA,1304,0.0736196319018405,False
+a_stage,Distant,92,0.3804347826086957,False
+a_stage,Regional,3931,0.1477995421012465,False
+differentiate,Undifferentiated,19,0.47368421052631576,True
+differentiate,Poorly differentiated,1111,0.23672367236723674,False
+differentiate,Moderately differentiated,2350,0.12978723404255318,False
+differentiate,Well differentiated,543,0.0718232044198895,False
+estrogen_status,Negative,269,0.40148698884758366,False
+estrogen_status,Positive,3754,0.13532232285562068,False
+marital_status,Separated,45,0.3333333333333333,False
+marital_status,Widowed,235,0.20851063829787234,False
+marital_status,Divorced,486,0.18518518518518517,False
+marital_status,Single,615,0.16910569105691056,False
+marital_status,Married,2642,0.13550340651021953,False
+n_stage,N3,472,0.3834745762711864,False
+n_stage,N2,820,0.20121951219512196,False
+n_stage,N1,2731,0.09886488465763457,False
+progesterone_status,Negative,698,0.2922636103151863,False
+progesterone_status,Positive,3325,0.12390977443609022,False
+race,Black,291,0.2508591065292096,False
+race,White,3412,0.14947245017584995,False
+race,Other,320,0.103125,False
+t_stage,T4,102,0.39215686274509803,False
+t_stage,T3,533,0.2176360225140713,False
+t_stage,T2,1786,0.1696528555431131,False
+t_stage,T1,1602,0.09800249687890138,False

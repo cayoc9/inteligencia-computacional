@@ -2,6 +2,14 @@
 
 > **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
+> **TLC Spec-Driven Canonical Source:** este arquivo agora e um plano de apoio. A fonte canonica para requisitos, desenho e execucao e `.specs/features/trabalho-2-breast-cancer/`:
+>
+> - `spec.md`: WHAT, requisitos rastreaveis e criterios de aceite.
+> - `design.md`: HOW, arquitetura, componentes e artefatos.
+> - `tasks.md`: tarefas atomicas, dependencias, gates e traceabilidade.
+>
+> Antes de executar qualquer tarefa, leia os tres arquivos acima. Se houver conflito, os artefatos `.specs/features/trabalho-2-breast-cancer/` vencem este plano.
+
 **Goal:** Corrigir o Projeto 2 para que o dataset SEER Breast Cancer seja analisado, saneado, modelado e apresentado com objetivo clinico claro, sem vazamento de alvo, com EDA rastreavel, engenharia de features defensavel, metricas orientadas a falso negativo e ensemble ponderado.
 
 **Architecture:** Separar o projeto em um pacote pequeno de funcoes reutilizaveis (`src/breast_cancer_survival/`) e scripts auditaveis na raiz do `projeto_2_neuro_fuzzy/`. O fluxo deve ser: contrato dos dados -> sanitizacao -> EDA -> features -> treino comparativo -> threshold/ensemble -> comparativo neuro-fuzzy -> relatorios. O modelo principal deve responder ao objetivo "prever risco de obito a partir de atributos clinicos disponiveis no diagnostico", portanto `Survival Months` deve sair do conjunto principal de features e aparecer apenas em analise de sensibilidade sobre vazamento/follow-up.
@@ -31,15 +39,22 @@ Problemas encontrados:
 - O modelo neuro-fuzzy atual piora o criterio clinico principal: 94 falsos negativos contra 63 do Random Forest atual.
 - A selecao de modelo ainda nao otimiza explicitamente recall, F2, PR AUC ou falso negativo.
 - Nao ha ensemble implementado.
+- Nao ha notebook Jupyter especifico do Projeto 2, apesar da convencao do repositorio de manter um notebook narrativo por projeto.
+- Nao ha dicionario de dados do Projeto 2 com nomes brutos/sanitizados, dominio, papel analitico, risco de vazamento e features derivadas.
+- Nao ha analise de metadados e relacoes dentro da EDA, embora isso devesse orientar a escolha dos modelos e a politica de vazamento.
 
 ## Criterios de Aceite
 
 - `pytest -q` passa.
 - `python projeto_2_neuro_fuzzy/01_validate_data.py` gera relatorio de contrato dos dados.
 - `python projeto_2_neuro_fuzzy/02_eda.py` gera figuras e resumo em `projeto_2_neuro_fuzzy/reports/`.
+- `projeto_2_neuro_fuzzy/docs/DATA_DICTIONARY.md` existe e cobre colunas brutas, colunas sanitizadas, papeis analiticos, risco de vazamento e features derivadas.
+- `projeto_2_neuro_fuzzy/reports/tables/metadata_profile.csv` existe e documenta dtype, nulos, cardinalidade, exemplos, papel analitico e flag de vazamento.
+- `projeto_2_neuro_fuzzy/reports/tables/numeric_relationships.csv` e `categorical_relationships.csv` existem como parte da EDA.
 - `python projeto_2_neuro_fuzzy/03_train_models.py` compara no minimo Logistic Regression, Random Forest, ExtraTrees, HistGradientBoosting, SVM calibrado e MLP.
 - `python projeto_2_neuro_fuzzy/04_threshold_and_ensemble.py` gera threshold scan, ensemble soft voting ponderado e tabela final com falsos negativos.
 - `python projeto_2_neuro_fuzzy/05_neuro_fuzzy_comparison.py` roda o neuro-fuzzy como comparativo academico, com a mesma sanitizacao, split e metricas do pipeline principal.
+- `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb` existe e executa com `jupyter nbconvert --execute`.
 - Resultado principal nao usa `Survival Months` como feature.
 - Relatorio final explicita qual objetivo foi testado antes e qual objetivo corrigido passa a ser testado.
 - Documentacao em `.specs/`, `STATUS.md` e `projeto_2_neuro_fuzzy/README.md` reflete o novo estado.
@@ -1773,4 +1788,3 @@ git commit -m "chore: validate breast cancer project pipeline"
 - Falso negativo significa prever `Alive` quando o registro real e `Dead`.
 - Neuro-fuzzy deve ser tratado como comparativo academico, nao como modelo campeao por padrao.
 - Ensemble ponderado deve usar pesos derivados de desempenho em validacao, nao pesos arbitrarios.
-
