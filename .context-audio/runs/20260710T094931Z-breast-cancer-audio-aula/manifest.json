@@ -22,5 +22,17 @@
   "uploaded_source_titles": [
     "2026-07-10 - Trabalho 2 Breast Cancer - Audio-aula Apresentacao"
   ],
-  "artifact_ids": []
+  "artifact_ids": [
+    "08ddd553-525f-47ab-8a98-ea2ea576c22e"
+  ],
+  "artifact_titles": [
+    "2026-07-10 - Audio-aula Trabalho 2 Breast Cancer"
+  ],
+  "downloaded_audio": [
+    {
+      "path": ".context-audio/runs/20260710T094931Z-breast-cancer-audio-aula/audio/audio-aula-trabalho-2-breast-cancer.mp3",
+      "duration_seconds": 893.573515,
+      "size": "28M"
+    }
+  ]
 }
