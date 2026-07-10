@@ -217,7 +217,7 @@ Depois do fechamento da trilha historica principal, a execucao foi estendida par
 ### T8: Adaptacao do template do artigo ✅
 
 **What**: Usar `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/` como referencia para criar a base do artigo do Projeto 2.  
-**Where**: `docs/template/Trabalho_2_Breast_Cancer/`  
+**Where**: `docs/template/Breast_Cancer/`
 **Depends on**: T6  
 **Requirement**: RHC-03
 
@@ -260,4 +260,4 @@ Depois do fechamento da trilha historica principal, a execucao foi estendida par
 - [x] HTML de slides redesenhado em `reports/consolidados/slides-trabalho-2/index_v2.html`, com titulos-claim, layout 16:9, narrativa principal enxugada e versao mobile corrigida.
 - [x] Prompt NotebookLM v2 criado em `reports/consolidados/notebooklm-trabalho-2/08_prompt_slide_deck_v2.md`, sem contagem fixa obrigatoria, com blocos obrigatorios, ênfase maior em problema/dataset/resultados/trade-off e perguntas movidas para slides extras apos o encerramento.
 
-**Proximos passos liberados**: slides finais, revisao editorial no Overleaf, conferencia qualitativa dos audios e fechamento do pacote de defesa.
+**Proximos passos liberados**: curadoria final dos slides HTML/PPTX, revisao editorial no Overleaf, conferencia qualitativa dos audios e fechamento do pacote de defesa.

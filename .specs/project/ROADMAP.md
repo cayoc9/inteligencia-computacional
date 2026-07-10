@@ -55,11 +55,13 @@
 - [x] Roteiro final de apresentação do Projeto 2 em `reports/consolidados/roteiro-final-apresentacao-trabalho-2.md`.
 - [x] Pacote NotebookLM do Projeto 2 com fontes e prompts numerados em `reports/consolidados/notebooklm-trabalho-2/`.
 - [x] Notebook final do Trabalho 2 criado via CLI `notebooklm` com 12 audios concluidos.
-- [x] Template inicial do artigo adaptado a partir de `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/` para `docs/template/Trabalho_2_Breast_Cancer/`.
-- [x] PDF do artigo reproduzido via `xelatex` em container e salvo como `docs/template/Trabalho_2_Breast_Cancer/artigo_final_trabalho_2.pdf`.
+- [x] Template inicial do artigo adaptado a partir de `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/` para `docs/template/Breast_Cancer/`.
+- [x] PDF inicial do artigo reproduzido via `xelatex` em container e salvo como `docs/template/Breast_Cancer/artigo_final_trabalho_2.pdf`.
+- [x] Revisao editorial final do artigo aplicada em `docs/template/Breast_Cancer/main.tex`, compilada em `docs/template/Breast_Cancer/main.pdf` e copiada para `reports/consolidados/finalizacao-defesa-2026-07-09/artigo_prism_revisao_editorial_local.pdf`.
 - [ ] Relatório técnico do Projeto 1 revisado com base na spec `projeto-1-genetico-neural`.
-- [ ] Revisão final do artigo no Overleaf com emails, metadados bibliograficos, figuras/tabelas e limite de paginas.
+- [x] Revisão editorial do artigo no Prism/OpenAI e no fonte local, com linguagem defensiva sobre mortalidade observada, validacao interna e limite academico.
+- [ ] Conferencia final de grafia de autores/emails, limite de paginas e versao exata a submeter.
 - [x] Geração do PDF base do artigo.
-- [ ] Conversão do roteiro em slides finais.
-- [ ] Conferência qualitativa dos audios NotebookLM concluídos e definição da ordem de escuta.
+- [x] Conversão do roteiro em slides HTML/PPTX e geração de capturas de revisão.
+- [ ] Conferência qualitativa final dos audios NotebookLM concluídos e definição da ordem de escuta.
 - [ ] Apresentação/Defesa.

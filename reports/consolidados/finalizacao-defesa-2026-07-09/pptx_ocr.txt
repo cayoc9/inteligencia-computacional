@@ -1,0 +1,284 @@
+
+--- SLIDE 01 ---
+Sistema de Inteligéncia Computacional para
+Risco de Obito em Cancer de Mama
+Evolugado metodoldgica e o impacto de dados ricos sobre
+arquiteturas de ensemble
+- Trabalho de Conclusdo de Disciplina
+- Trilha SEER (Baseline Corrigido) — Trilha METABRIC (Evolugao Canénica)
+Trilha SEER Trilha METABRIC
+
+(Baseline Corrigido) (Evolugao Canénica)
+
+—————————————
+
+--- SLIDE 02 ---
+a Estrutura do 5
+PEA Pr 1 | Introdugao
+Relatorio Analitico us -
+O problema clinico, 0 risco de dbito eo
+diagnéstico dos datasets.
+5r Visao Geral +
+= Metodologia 2 | Processamento de dados
+SJ an Saneamento, distribuicao e
+Q. Analise engenharia de features.
+aill Resultados
+3 | Treinamento do modelo
+© Discussao O pipeline blindado e as arquiteturas
+(Ensemble e Neuro-Fuzzy).
+#3 Configuragdes
+4 | Avaliagdo e comparagao
+Modelos individuais, pontos operacionais
+e 0 trade-off clinico.
+5 | Concluséo
+A tese comprovada, limitagdes e
+préximos passos.
+=. AX NotebookLM
+
+--- SLIDE 03 ---
+Asymmetric Cost of Errors in 5 ,
+Healthcare P RK Fd
+° Visioc) Em satde, acuracia alta pode 6 < Falso Negativo *
+= esconder erros fatais \ Rleodleeptorenl
+3= Metodo) a ignorado pelo sistema.
+Sea a 0 objetivo primério do sistema é Lalo positing es
+©. Andlise’ | prever a classe positiva de 6bito Paciente sinalizado com Falta de
+observado a partir de dados tisco alto incorretamente. intervengao,
+al Resultal  tabulares (SEER: Status = Dead | ‘Cusia: CEstaciietel,
+METABRIC: Status = Deceased). Estresse psicolégico,
+) Discuss exames extras.
+3 Configu e
+Ah. -
+a
+Conclusao Visual: 0 problema é severamente desbalanceado. A
+otimizagao deve priorizar Recall, F2-Score e eliminacao de Fal-
+sos Negativos.
+=. A) NotebookLM
+
+--- SLIDE 04 ---
+Survival Months foi removido para evitar vazamento de dados
+Overall Survival Months por Status
+350 ° a
+° O Erro Original
+300 Usar meses de sobrevida como
+feature contaminava o modelo com
+250 informag6es de acompanhamento
+2 "4 posteriores ao evento clinico.
+& 200
+=
+3
+= 150
+a A Corregaéo Metodoldgica
+100
+Variavel foi estritamente excluida do
+- modelo principal. A predi¢ao deve
+ocorrer apenas com base no estado
+. clinico no momento do diagnéstico.
+0 1
+status
+‘A\ NotebookLV
+
+--- SLIDE 05 ---
+A transicgdo: de um baseline limitado para uma base clinica profunda
+Dataset: SEER Corrigido Dataset: METABRIC CanGénico
+registros registros
+* Perfil: Dados clinico-patoldgicos limitados. * Perfil: Rico em quimioterapia,
+hormonioterapia, radioterapia,
+* Papel no Projeto: O Baseline Corrigido biomarcadores (ER, PR, HER2) e subtipo
+onde o pipeline metodoldgico foi saneado molecular (PAM50).
+e blindado. ¢ Papel no Projeto: A Evolugdo Canénica,
+demonstrando como dados de alta
+qualidade elevam o teto do modelo.
+
+--- SLIDE 06 ---
+Saneamento centralizado e Analise Exploratoria de Dados
+Distribuicdo do alvo 0 eed ee
+1000 i 2 :
+800 ‘ aa
+
+£ 600 © > : : = :
+3 ee ees face :
+400 i « 2
+i, fo g
+200 I re s A
+i ro |
+Status: 0=Living, 1=Deceased 5 = 5 =
+
+Dicionario de dados consolidado e Mapeamento explicito da relagao sete Nea arena)
+
+sanitizagao rigorosa de schemas. de metadados antes de qualquer valid salt cial dis cuitainetanio
+transformagao. da nova base METABRIC.
+
+‘AY NotebookLM
+
+--- SLIDE 07 ---
+Transformando sinais clinicos em carga tumoral e nodal
+- de calor de correlacao (variaveis numericas) 7 an
+° e co = 7
+O Limite do SEER oi wi &
+om
++ Apenas proporcées simples ree a ol 5 ie
+(node_positive_ratio, whan — ee
+advanced_stage_flag). ere mae
+tun se
+si jctne ip a a
+tumor ge ben 0a
+A Profundidade do METABRIC ‘reopen s.
+S ae ‘nottingham_grade_burden We -00
+- Transformagao de variaveis isoladas ee
+em indicadores de burden (carga tod ata od a | i a --02
+tumoral e carga nodal). noma s s Gi.
+- Categorizagao baseada em ‘a nee ig a ia !
+exposicao real a tratamentos (radio, esata ie _ | z -06
+quimio, horménio). ae PECEUELLLLESELLL PERE REUSE
+- Perfis moleculares e atributos fuzzy eNag DTP paeaaal Gbbiy i H
+estruturados para modelagem Siok Be preeibddaggiad
+posterior. 5 ee ae BF i
+A) NotebookLM
+
+--- SLIDE 08 ---
+e ~
+Validagao escolhe, Teste apenas reporta
+STAGE 1 STAGE 2 STAGE 3 STAGE 4
+Dados
+Separados Treino Validagao Teste
+(100%)
+
+Divisao rigorosa. Ajuste dos pesos O Racional do Conjunto final
+dos modelos Threshold: Onde o virgem.
+individuais limite operacional Exclusivamente
+(GradientBoosting, é calibrado usado para gerar
+Random Forest, especificamente as métricas de
+etc). para priorizar reporte. Sem
+
+Recall. re-tuning.
+(Nenhuma
+contaminagao do
+teste nesta etapa!)
+‘A\ NotebookLV
+
+--- SLIDE 09 ---
+Modelos tabulares e o escopo do comparativo Neuro-Fuzzy
+A Competigcao Real O Requisito Académico
+(Modelos Tabulares) (Neuro-Fuzzy)
+
+e Logistic Regression e Oque NAO é: Nao é um sistema
+e Random Forest ANFIS completo de regras
+aut6nomas.
+© acess : e OdqueE: Sistema neuro-fuzzy
+e GradientBoosting cooperativo baseado em
+e HistGradientBoosting fuzzificagado manual + rede
+e SVM neural MLP.
+e OObjetivo: Atender ao requisito
+e AdaBoost curricular da ementa e servir
+e MLP como comparativo académico
+honesto de sistemas hibridos.
+e Ensemble Ponderado
+
+--- SLIDE 10 ---
+ee ee ee eee
+0 salto informacional: METABRIC melhora antes mesmo do ensemble
+Baseline SEER Corrigido (Regressdo Logistica) Candnico METABRIC (GradientBoosting)
+Accuracy: 0.6807 Accuracy: 0.7048
+PR AUC: 0.3525 PR AUC: 0.7600
+F2-Score: 0.4832 F2-Score: 0.7787
+Recall: 0.6098 —— Recall: 0.7953
+Falsos Negativos: 48 Falsos Negativos: 44
+0 GradientBoosting no METABRIC supera brutalmente o SEER individual.
+A melhoria de qualidade do dado elevou o teto do problema.
+
+--- SLIDE 11 ---
+Otimizagao do Ensemble: Forgando a sensibilidade maxima
+Otimizagao de threshold do ensemble - METABRIC
+Or) ; —r A meta nao era 0 modelo global
+1.0 | a Escolhido 0.16 =-- Recall perfeito, mas sim o Ponto
+Dy F2=0.873 [7 >~~. sue PCECSION Operacional clinico seguro.
+al Ais _| .
+/ - ae a a © Threshold padrao de 0.50
+ben | e027 falharia em capturar risco
+gy 06 aa is oculto.
+8 NM e A Decisao: Threshold
+ag calibrado na validagao para
+02 2 IN e Essa calibragem sacrifica
+S S| precisao para garantir que a
+curva de sensibilidade
+0.0 (Recall) chegue préxima a 1.0.
+0.10 0.20 0.30 0.40 0.50 0.60 0.70
+Threshold on
+
+--- SLIDE 12 ---
+O Trade-off Clinico:
+Erradicagao do risco exige tolerancia ao alerta falso
+ee Métricas do Resultado:
+Threshold: 0.16
+Recall alcangado: 0.9953
+Real F2-Score final: 0.8770
+Living
+O Custo do Trade-off:
+SEER Ensemble: 29 Falsos Negativos |
+
+320 Falsos Positivos.
+METABRIC Ensemble: Apenas 1 Falso
+Negativo | 146 Falsos Positivos.
+
+Nee oe
+
+Deceased F a3
+O ensemble é 0 modelo definitivo para
+sensibilidade. O ganho extremo de
+seguranga na deteccdo (apenas 1 caso letal
+. . perdido) justifica operacionalmente o 6nus
+Previsto Previsto analitico de investigar 146 alarmes falsos.
+Living Deceased ANGRESS
+
+--- SLIDE 13 ---
+O que a evolugao do projeto comprovou
+= Corrigir metodologia importa
+Remover variaveis temporais vazadas (Survival Months) e auditar 0 pipeline
+transformou um experimento falho em uma defesa cientifica blindada.
+O dataset eleva o teto do projeto
+ie Progressao do F2: SEER Baseline (0.48) — SEER Ensemble (0.51) —
+SEE METABRIC Baseline (0.77) > METABRIC Ensemble (0.87). O salto principal
+veio da qualidade clinica do dado, nao apenas da arquitetura.
+Nem todo hibrido é o campedao absoluto
+Ol Avaliagao Neuro-fuzzy honesta. Desempenho empirico (SEER F2: 0.2886 |
+<0 METABRIC F2: 0.6548) ficou abaixo do GradientBoosting tabular, comprovando
+que complexidade nao supera arvores em dados estruturados profundos.
+
+--- SLIDE 14 ---
+Limitagdes metodoldgicas e o estado final do projeto
+
+Limitagoes sem maquiagem Encerramento e Legado
+
+- Permanece como Classificagao _«, ~ O SEER foi saneado e permanece
+
+Tabular, nado como Survival Analysis imortalizado como nosso baseline
+
+formal. metodoldgico corrigido.
+
+- Uso de bases de dados - O METABRIC validou a nossa tese
+académicas; sem validagao clinica a principal: 6 a evolugao canénica
+externa ativa. SS que suporta engenharia clinica
+
+avangada.
+
+- Alto volume de Falsos Positivos
+torna o sistema um filtro preliminar, Prdéximos Passos: Survival
+nao uma ferramenta de decisao analysis estrita e explicabilidade
+cirurgica solitaria. local por instancia.
+
+--- SLIDE 15 ---
+Apéndice Analitico: Racional e Justificativas Metodoldgicas
+Por que nao avaliar usando Acuracia? Por que retirar o Survival Months afinal?
+O problema é desbalanceado em satide. Porque sobrevida em meses 6é informagao
+Acuracia infla mascarando casos capturada apos o diagnéstico inicial. Prever
+minoritarios, omitindo exatamente os morte usando (0) tempo até a morte 6 Data
+falsos negativos que resultam em 6bito. Leakage ciclico e invalida o poder preditivo
+clinico.
+O Ensemble foi otimizado no conjunto O modulo Neuro-fuzzy implementado é
+de Teste? um ANFIS?
+Nao. E um modelo cooperativo estruturado
+Nao. O Threshold de 0.16 e os pesos de em fuzzificagéo manual + rede neural MLP,
+votagao foram exclusivamente definidos mantido como comparativo académico e
+no conjunto de Validagao isolado. O Teste prova de conceito hibrida, mas que
+apenas reportou os numeros finais. empiricamente nao liderou as métricas.

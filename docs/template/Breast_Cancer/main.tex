@@ -23,8 +23,8 @@
 
 \begin{document}
 
-\title{Breast Cancer Mortality Risk Classification:\\
-Methodological Correction on SEER and Canonical Evolution to METABRIC}
+\title{Breast Cancer Observed-Mortality Classification:\\
+Methodological Correction on SEER and Internally Validated METABRIC Track}
 
 \author{
 \IEEEauthorblockN{Cayo Murilo Pereira Figueiredo}
@@ -70,11 +70,11 @@ Computational Intelligence, Breast Cancer, Ensemble Learning, Neuro-Fuzzy, Tabul
 
 \section{Introduction}
 
-Computational Intelligence projects in health require more than model training. They demand coherent problem framing, explicit leakage policy, defensible validation, and a careful interpretation of trade-offs. In this work, the selected problem is the classification of mortality outcome in breast cancer based on clinical tabular data, within the scope of a course requirement involving hybrid or ensemble intelligent systems. The framing is aligned with the current literature on breast-cancer survival prediction, which still reports technical pitfalls and uneven clinical feasibility in machine-learning pipelines~\cite{alsharif2021,feasibility2022}.
+Computational Intelligence projects in health require more than model training. They demand coherent problem framing, explicit leakage policy, defensible validation, and a careful interpretation of trade-offs. In this work, the selected problem is the classification of observed mortality outcome in breast cancer based on clinical tabular data, within the scope of a course requirement involving hybrid or ensemble intelligent systems. The framing is aligned with breast-cancer survival-prediction literature, where machine-learning performance varies widely and external validation is still uncommon~\cite{li2021}.
 
 The project evolved in two stages. The first one corrected the original SEER-based implementation, which had methodological weaknesses related to feature leakage and decision-making contaminated by test-set feedback. The second stage introduced a canonical version based on the METABRIC dataset, chosen for its stronger clinical depth and better support for feature engineering.
 
-The main contributions of this paper are threefold: (i) a methodological correction of the original baseline, (ii) a comparative analysis between a limited dataset and a clinically richer one under the same evaluation discipline, and (iii) an explicit discussion of the role and limitations of a weighted ensemble and a cooperative neuro-fuzzy comparator in this context.
+The main contributions of this paper are threefold: (i) a methodological correction of the original baseline, (ii) a comparative analysis between a limited dataset and a clinically richer one under the same evaluation discipline, and (iii) an explicit discussion of the role and limitations of a weighted ensemble and a cooperative neuro-fuzzy comparator in this academic context.
 
 \section{Problem Definition and Datasets}
 
@@ -106,7 +106,7 @@ In the SEER track, feature engineering focused on clinically interpretable deriv
 
 \subsection{Models}
 
-The project compared multiple tabular learners, including Logistic Regression, Random Forest, ExtraTrees, Gradient Boosting variants, calibrated SVM, AdaBoost, and MLP. On top of these, a weighted ensemble was constructed and tuned on validation data only. A cooperative neuro-fuzzy comparator based on manual fuzzification plus MLP was also retained for academic coherence with the course theme. Ensemble learning is consistent with prior breast-cancer prognostic studies that report gains when the validation protocol is controlled and the prediction task is framed as a structured survival problem~\cite{ensemble2010,ensemble2022}.
+The project compared multiple tabular learners, including Logistic Regression, Random Forest, ExtraTrees, Gradient Boosting variants, calibrated SVM, AdaBoost, and MLP. On top of these, a weighted ensemble was constructed and tuned on validation data only. A cooperative neuro-fuzzy comparator based on manual fuzzification plus MLP was also retained for academic coherence with the course theme. Ensemble learning is consistent with prior breast-cancer prognostic studies that report gains when the validation protocol is controlled and model outputs are combined through voting or related aggregation strategies~\cite{massafra2022}.
 
 \subsection{Evaluation Strategy}
 
@@ -118,13 +118,13 @@ Because the problem is imbalanced and false negatives are important, the primary
 
 The best individual baseline in the corrected SEER track was Logistic Regression, with accuracy 0.6807, precision 0.2641, recall 0.6098, F2-score 0.4832, and PR AUC 0.3525. The best operational ensemble point, selected on validation with threshold 0.22, achieved recall 0.7642 and F2-score 0.5188, reducing false negatives from 48 to 29, at the cost of increasing false positives to 320.
 
-This result should be interpreted carefully. The ensemble was not the globally best discriminator in the SEER track. Instead, it represented an aggressive sensitivity-oriented operating point.
+This result should be interpreted carefully. The ensemble was not the globally best discriminator in the SEER track. Instead, it represented an aggressive sensitivity-oriented operating point in the internal evaluation protocol.
 
 \subsection{Canonical METABRIC Results}
 
 In the METABRIC track, the best individual baseline was Gradient Boosting, with accuracy 0.7048, precision 0.7185, recall 0.7953, F2-score 0.7787, and PR AUC 0.7600. The weighted ensemble, with validation-selected threshold 0.16, reached recall 0.9953, F2-score 0.8770, and only one false negative, while increasing false positives to 146.
 
-The canonical result is therefore much stronger than the SEER track not only in terms of headline performance, but also in terms of problem realism and feature support.
+The canonical result is therefore much stronger than the SEER track not only in terms of headline performance, but also in terms of problem realism and feature support. Even so, it remains an internally validated academic result rather than evidence of clinical deployment readiness.
 
 \subsection{Neuro-Fuzzy Comparative Role}
 
@@ -134,9 +134,9 @@ The neuro-fuzzy model did not outperform the strongest tabular baselines in eith
 
 The project demonstrates that methodological correction can be more important than adding model complexity. Removing leakage and rebuilding the validation logic increased the credibility of the work immediately. The second major lesson is that dataset quality strongly conditions the ceiling of a computational intelligence project. The transition from SEER to METABRIC created larger gains than would likely be obtained by repeatedly tuning models on the weaker dataset.
 
-The ensemble should not be oversold. In both tracks, it is better interpreted as a high-sensitivity operational configuration than as a universally superior classifier. This distinction is important for oral defense, because it shows that the project understands the trade-off between recall and false positives rather than hiding it.
+The ensemble should not be oversold. In both tracks, it is better interpreted as a high-sensitivity experimental operating point than as a universally superior classifier. This distinction is important for oral defense, because it shows that the project understands the trade-off between recall and false positives rather than hiding it.
 
-Finally, the neuro-fuzzy component should be defended precisely. It is not a full ANFIS implementation. It is a cooperative neuro-fuzzy approach with manual fuzzification and neural classification, retained because it aligns with the course theme and supports methodological comparison. Explainability is not optional here: recent breast-cancer XAI reviews argue that interpretability is part of clinical trust, not an accessory~\cite{xai2024,feasibility2022}.
+Finally, the neuro-fuzzy component should be defended precisely. It is not a full ANFIS implementation. It is a cooperative neuro-fuzzy approach with manual fuzzification and neural classification, retained because it aligns with the course theme and supports methodological comparison. Explainability is not optional here: recent breast-cancer XAI reviews argue that interpretability is part of clinical trust, not an accessory~\cite{ghasemi2024}.
 
 \section{Limitations}
 
@@ -146,16 +146,14 @@ This work has clear limitations. First, both tracks rely on public datasets rath
 
 The final state of Project 2 is not simply a better score on a second dataset. It is the consolidation of a more rigorous computational intelligence workflow. The corrected SEER track remains valuable as a methodological baseline, while the METABRIC track becomes the canonical version because it better supports the project objective, richer feature engineering, and stronger scientific defense.
 
-Future work includes formal survival modeling, local explainability analysis, broader repeated-validation protocols, and external validation on clinically closer cohorts.
+Future work includes formal survival modeling, local explainability analysis, broader repeated-validation protocols, explicit cost-sensitive decision analysis, and external validation on clinically closer cohorts.
 
 \begin{thebibliography}{00}
-\bibitem{curtis2012} C. Curtis \textit{et al.}, ``The genomic and transcriptomic architecture of 2,000 breast tumours reveals novel subgroups,'' \textit{Nature}, vol. 486, no. 7403, pp. 346--352, 2012.
-\bibitem{metabricportal} cBioPortal, ``Breast Cancer (METABRIC, Nature 2012 \& Nat Commun 2016),'' accessed Jul. 3, 2026.
-\bibitem{ensemble2010} M. M. Chaurasia and S. Pal, ``An ensemble machine learning approach to predict survival in breast cancer,'' \textit{Journal of Statistical Computation and Simulation}, 2010.
-\bibitem{ensemble2022} A. R. et al., ``A machine learning ensemble approach for 5- and 10-year breast cancer survival prediction,'' \textit{Computers in Biology and Medicine}, 2022.
-\bibitem{xai2024} S. A. et al., ``Explainable artificial intelligence in breast cancer detection and risk prediction: a systematic scoping review,'' 2024.
-\bibitem{feasibility2022} T. M. et al., ``An assessment of the predictive performance of current machine learning-based breast cancer risk prediction models,'' \textit{Breast Cancer Research}, 2022.
-\bibitem{alsharif2021} S. Alsharif \textit{et al.}, ``Predicting breast cancer 5-year survival using machine learning: a systematic review,'' 2021.
+\bibitem{curtis2012} C. Curtis \textit{et al.}, ``The genomic and transcriptomic architecture of 2,000 breast tumours reveals novel subgroups,'' \textit{Nature}, vol. 486, no. 7403, pp. 346--352, 2012, doi: 10.1038/nature10983.
+\bibitem{metabricportal} Memorial Sloan Kettering Cancer Center, ``Breast Cancer (METABRIC, Nature 2012 \& Nat Commun 2016),'' MSK Data Catalog, accessed Jul. 9, 2026. [Online]. Available: \url{https://datacatalog.mskcc.org/dataset/11457}
+\bibitem{massafra2022} R. Massafra \textit{et al.}, ``A machine learning ensemble approach for 5- and 10-year breast cancer invasive disease event classification,'' \textit{PLOS ONE}, vol. 17, no. 9, e0274691, 2022, doi: 10.1371/journal.pone.0274691.
+\bibitem{li2021} J. Li \textit{et al.}, ``Predicting breast cancer 5-year survival using machine learning: A systematic review,'' \textit{PLOS ONE}, vol. 16, no. 4, e0250370, 2021, doi: 10.1371/journal.pone.0250370.
+\bibitem{ghasemi2024} A. Ghasemi, S. Hashtarkhani, D. L. Schwartz, and A. Shaban-Nejad, ``Explainable artificial intelligence in breast cancer detection and risk prediction: A systematic scoping review,'' \textit{Cancer Innovation}, vol. 3, no. 5, e136, 2024, doi: 10.1002/cai2.136.
 \end{thebibliography}
 
 \end{document}

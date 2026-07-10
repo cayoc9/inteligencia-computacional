@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.4.27)  3 JUL 2026 06:35
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.4.27)  10 JUL 2026 09:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -459,6 +459,17 @@ Underfull \hbox (badness 3333) in paragraph at lines 101--102
 
 
 [2]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 153
+.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 153
+.
+
+(/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -489,12 +500,12 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 781215F0ABC4DC4030062C9C02070BCE;2723.
  ) 
 Here is how much of TeX's memory you used:
- 11118 strings out of 470267
- 171982 string characters out of 5484665
- 575789 words of memory out of 5000000
- 37625 multiletter control sequences out of 15000+600000
- 698965 words of font info for 93 fonts, out of 8000000 for 9000
+ 11163 strings out of 470267
+ 172643 string characters out of 5484665
+ 576716 words of memory out of 5000000
+ 37650 multiletter control sequences out of 15000+600000
+ 702710 words of font info for 108 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 72i,8n,79p,1225b,330s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,8n,79p,1225b,392s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main.pdf (3 pages).

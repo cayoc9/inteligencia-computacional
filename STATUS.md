@@ -1,6 +1,6 @@
 # Status Executivo do Projeto
 
-**Última atualização:** 2026-07-03  
+**Última atualização:** 2026-07-09
 **Disciplina:** Inteligência Computacional — UFPA 2026.1  
 **Grupo:** 5 alunos (conforme planilha da disciplina)
 
@@ -16,8 +16,8 @@
 | **Projeto 2 v2 (METABRIC clínico)** | ✅ **evolução canônica validada** — dataset clínico melhor, pipeline completo, notebook próprio, explicabilidade, calibração e estabilidade |
 | **Prazo da segunda avaliação** | **03/07/2026** |
 | **Insight Projeto 1** | GA-MLP demonstra o híbrido, mas Random Forest foi superior no teste cego |
-| **Validação atual** | Projeto 2 SEER: 18/18 testes; Projeto 2 METABRIC: 7/7 testes; pipelines e notebooks executados |
-| **Próximos passos** | Consolidar relatório histórico único para apresentação, artigo LaTeX e áudio de repasse ao grupo |
+| **Validação atual** | Projeto 2 SEER: 20/20 testes; Projeto 2 METABRIC: 7/7 testes; gates devem rodar separados por trilha |
+| **Próximos passos** | Revisão final de defesa: curadoria dos slides/PPTX, revisão editorial do artigo e alinhamento de fala do grupo |
 
 ---
 
@@ -159,6 +159,7 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 ### Próximas Trilhas
 - [ ] **V2 sono restaurador:** executar experimento especificado em `.specs/features/experimento-v2-sono-restaurador/`
 - [x] **Trabalho 2:** v1 SEER corrigido e v2 METABRIC canônica executados e auditados
+- [x] **Trabalho 2 - documentação final:** relatório consolidado, roteiro, pacote NotebookLM, artigo-base PDF e slides HTML/PPTX materializados
 - [ ] **Opcional:** aprofundar análise de erro por ocupação/segmento ou SHAP se for útil para apresentação futura
 
 ---
@@ -177,9 +178,9 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 
 ### Trabalho 2: Sistema Híbrido ou Ensemble
 - **Prazo:** 03/07/2026
-- **Status:** Pipeline spec-driven executado
+- **Status:** Pipeline spec-driven executado; pacote de defesa em revisão final
 - **Tema:** Breast Cancer Survival Risk
-- **Entregáveis:** Dicionário de dados, EDA de metadados/relações, notebook, modelos tabulares, ensemble ponderado e neuro-fuzzy comparativo
+- **Entregáveis:** Dicionário de dados, EDA de metadados/relações, notebooks, modelos tabulares, ensemble ponderado, neuro-fuzzy comparativo, relatório consolidado, artigo-base PDF e slides
 
 ---
 
@@ -207,6 +208,11 @@ Comparar Random Forest vs Redes Neurais na classificação de `felt_rested` (sen
 | **Notebook Projeto 1 GA-MLP** | `projeto_1_genetico_neural/notebooks/projeto_1_genetico_neural_ga_mlp.ipynb` |
 | **Dicionário Projeto 2** | `projeto_2_neuro_fuzzy/docs/DATA_DICTIONARY.md` |
 | **Notebook Projeto 2** | `projeto_2_neuro_fuzzy/notebooks/projeto_2_breast_cancer_survival.ipynb` |
+| **Relatório final Trabalho 2** | `reports/consolidados/relatorio-final-trabalho-2-breast-cancer.md` |
+| **Roteiro final Trabalho 2** | `reports/consolidados/roteiro-final-apresentacao-trabalho-2.md` |
+| **Slides finais/revisões** | `reports/consolidados/slides-trabalho-2/` |
+| **Artigo revisado PDF** | `docs/template/Breast_Cancer/main.pdf` |
+| **Cópia de revisão Prism/local** | `reports/consolidados/finalizacao-defesa-2026-07-09/artigo_prism_revisao_editorial_local.pdf` |
 
 ### Código e Artefatos
 | Artefato | Localização |
@@ -232,6 +238,12 @@ python projeto_sleep_health_rf_vs_rn/01_check_data.py && python projeto_sleep_he
 
 # Diagnóstico de limites
 python projeto_sleep_health_rf_vs_rn/scripts/diagnose_model_limits.py
+
+# Validar Projeto 2 SEER no ambiente correto
+projeto_2_neuro_fuzzy/.venv/bin/python -m pytest tests projeto_2_neuro_fuzzy/tests -q
+
+# Validar Projeto 2 METABRIC no ambiente correto
+PYTHONPATH=projeto_2_neuro_fuzzy_metabric_clinico/src projeto_2_neuro_fuzzy/.venv/bin/python -m pytest projeto_2_neuro_fuzzy_metabric_clinico/tests -q
 ```
 
 ---

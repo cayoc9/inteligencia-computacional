@@ -66,12 +66,12 @@ Documento de apoio factual para a trilha dos dados:
 - O notebook final foi criado via CLI `notebooklm` com ID `22e638a3-d0ca-447e-8a02-45b0d942865e`.
 - As sete fontes ficaram com status `ready`.
 - Foram disparados doze audios, um para cada subtopico narrativo previsto.
-- O template do artigo foi adaptado a partir de `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/`, gerando a base `docs/template/Trabalho_2_Breast_Cancer/`.
+- O template do artigo foi adaptado a partir de `projeto_sleep_health_rf_vs_rn/docs/template/Sleep_Health/`, gerando a base `docs/template/Breast_Cancer/`.
 - Fonte canonica desta consolidacao:
   - [reports/consolidados/relatorio-final-trabalho-2-breast-cancer.md](/mnt/storage/Documentos/02%20-%20Responsabilidades/ufpa%20-%20mestrado/Disciplinas/Inteligencia%20Computacional/reports/consolidados/relatorio-final-trabalho-2-breast-cancer.md)
   - [reports/consolidados/roteiro-final-apresentacao-trabalho-2.md](/mnt/storage/Documentos/02%20-%20Responsabilidades/ufpa%20-%20mestrado/Disciplinas/Inteligencia%20Computacional/reports/consolidados/roteiro-final-apresentacao-trabalho-2.md)
   - [reports/consolidados/notebooklm-trabalho-2/07_prompts_audio_personalizados.md](/mnt/storage/Documentos/02%20-%20Responsabilidades/ufpa%20-%20mestrado/Disciplinas/Inteligencia%20Computacional/reports/consolidados/notebooklm-trabalho-2/07_prompts_audio_personalizados.md)
-  - [docs/template/Trabalho_2_Breast_Cancer/main.tex](/mnt/storage/Documentos/02%20-%20Responsabilidades/ufpa%20-%20mestrado/Disciplinas/Inteligencia%20Computacional/docs/template/Trabalho_2_Breast_Cancer/main.tex)
+  - [docs/template/Breast_Cancer/main.tex](/mnt/storage/Documentos/02%20-%20Responsabilidades/ufpa%20-%20mestrado/Disciplinas/Inteligencia%20Computacional/docs/template/Breast_Cancer/main.tex)
 
 ## O que cada trilha representa
 
